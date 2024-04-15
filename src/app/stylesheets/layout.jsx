@@ -1,10 +1,11 @@
 "use client";
+
 import { Layout } from "antd";
 import { useState, useEffect } from "react";
-import styles from "./admin.module.css";
 import { HQSidebar } from "@/components/HQSidebar";
 import { HQHeader } from "@/components/HQHeader";
-import { AdminMenuItems } from "@/utility";
+import styles from "./admin.module.css";
+import { stylesheetsMenuItems } from "@/utility";
 
 export default function RootLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,14 +25,14 @@ export default function RootLayout({ children }) {
         <HQSidebar
           collapsed={collapsed}
           handleSidebarCollapsed={(value) => setCollapsed(value)}
-          items={AdminMenuItems}
+          items={stylesheetsMenuItems}
         />
         <Layout
           style={{ marginLeft: marginLeft }}
           className={styles.AKContentLayout}
         >
           <HQHeader />
-          <main className={styles.AKMainContent}>{children}</main>
+          <main>{children}</main>
         </Layout>
       </Layout>
     </>

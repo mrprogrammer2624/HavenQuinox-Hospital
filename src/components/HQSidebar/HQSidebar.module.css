@@ -1,8 +1,8 @@
 .AKSidebar:global.ant-layout-sider .ant-menu-item-group-title {
   font-size: 12px;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 1px;
-  color: red;
+  color: var(--primary-shades-60);
 }
 
 .AKSidebar:global.ant-layout-sider.ant-layout-sider-collapsed .ant-menu-item-group-title {
@@ -36,7 +36,7 @@
   justify-content: center;
   max-width: fit-content;
   margin: auto;
-  color: var(--kingfisher);
+  color: var(--primary);
 }
 
 .AKSidebarLogoWrapper {
@@ -59,8 +59,8 @@
 .AKSidebarMenu:global.ant-menu.ant-menu-light .ant-menu-submenu-selected>.ant-menu-submenu-title,
 .AKSidebarMenu:global.ant-menu.ant-menu-light .ant-menu-item-selected {
   color: var(--white);
-  border-color: var(--kingfisher);
-  background: var(--kingfisher);
+  border-color: var(--primary);
+  background: var(--primary);
 }
 
 .AKSidebarMenu:global.ant-menu-light .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected):hover,
@@ -68,7 +68,7 @@
 .AKSidebarMenu:global.ant-menu-light .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected)>.ant-menu-submenu-title:hover,
 .AKSidebarMenu:global.ant-menu-light>.ant-menu .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected)>.ant-menu-submenu-title:hover {
   color: white;
-  background: var(--kingfisher);
+  background: var(--primary);
 }
 
 .AKSidebarMenu:global.ant-menu.ant-menu-light .ant-menu-sub.ant-menu-inline {

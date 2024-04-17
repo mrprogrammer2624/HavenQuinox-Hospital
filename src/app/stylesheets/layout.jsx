@@ -1,15 +1,22 @@
 "use client";
 
 import { Layout } from "antd";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { HQSidebar } from "@/components/HQSidebar";
 import { HQHeader } from "@/components/HQHeader";
-import styles from "./admin.module.css";
+import styles from "./stylesheets.module.css";
 import { stylesheetsMenuItems } from "@/utility";
+import { redirect, usePathname } from "next/navigation";
 
 export default function RootLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const [marginLeft, setMarginLeft] = useState("var(--sidebar-width)");
+
+  const pathname = usePathname();
+
+  if (pathname === "/stylesheets") {
+    redirect("stylesheets/typography");
+  }
 
   useEffect(() => {
     {
@@ -20,7 +27,7 @@ export default function RootLayout({ children }) {
   }, [collapsed]);
 
   return (
-    <>
+    <Suspense fallback={<p>Loading feed...</p>}>
       <Layout hasSider style={{ minHeight: "100vh" }}>
         <HQSidebar
           collapsed={collapsed}
@@ -28,13 +35,16 @@ export default function RootLayout({ children }) {
           items={stylesheetsMenuItems}
         />
         <Layout
-          style={{ marginLeft: marginLeft }}
+          style={{
+            marginLeft: marginLeft,
+            transition: `var(--transition-all)`,
+          }}
           className={styles.AKContentLayout}
         >
           <HQHeader />
           <main>{children}</main>
         </Layout>
       </Layout>
-    </>
+    </Suspense>
   );
 }

@@ -1,5 +1,5 @@
 import { Icons } from "@/utility";
-import styles from "./GeneralIcons.module.css";
+import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
 const GeneralIcons = () => {

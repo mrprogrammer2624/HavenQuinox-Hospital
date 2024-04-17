@@ -2,7 +2,7 @@ import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import styles from "./HQSidebar.module.css";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export const HQSidebar = ({
   handleSidebarCollapsed,
@@ -12,6 +12,7 @@ export const HQSidebar = ({
 }) => {
   const router = useRouter();
   let subMenuName = [];
+  const pathname = usePathname();
 
   let selectMenuItem = [];
   let selectItem = null;
@@ -48,7 +49,11 @@ export const HQSidebar = ({
         items={items}
         className={styles.AKSidebarMenu}
         selectedKeys={
-          subMenuName.length !== 0 ? subMenuName : selectMenuItem.length !== 0
+          subMenuName.length !== 0
+            ? subMenuName
+            : selectMenuItem.length !== 0
+            ? selectMenuItem
+            : [pathname]
         }
         onSelect={({ key }) => {
           router.push(key);

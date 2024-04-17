@@ -1,4 +1,4 @@
-import styles from "./HQFlagIcon.module.css";
+import styles from "../stylesheets.module.css";
 import Image from "next/image";
 import { flagIconImgData } from "@/utility";
 import clsx from "clsx";

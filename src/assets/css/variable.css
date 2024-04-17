@@ -14,6 +14,7 @@
   --gray: #666666;
 
   /* Colors Shades */
+  --primary-shades-100: #D60023;
   --primary-shades-80: #E81335;
   --primary-shades-60: #ED3856;
   --primary-shades-40: #F47188;
@@ -29,10 +30,10 @@
   --tertiary-shades-40: #92E89E;
   --tertiary-shades-20: #C2FFC9;
 
-  --white-shades-100: #D9D9D9;
-  --white-shades-80: #C0C0C0;
-  --white-shades-60: #C8C8C8;
-  --white-shades-40: #D9D9D9;
+  --white-shades-80: #D9D9D9;
+  --white-shades-60: #C0C0C0;
+  --white-shades-40: #C8C8C8;
+  --white-shades-20: #D9D9D9;
 
   --black-shades-80: #161616;
   --black-shades-60: #2C2C2C;

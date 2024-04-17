@@ -1,0 +1,81 @@
+.button {
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 194.444%;
+  font-size: 16px;
+  padding: 24px 28px;
+  border: solid 2px transparent;
+  transition: all var(--transition-all);
+  -webkit-transition: all var(--transition-all);
+  -moz-transition: all var(--transition-all);
+  -ms-transition: all var(--transition-all);
+  -o-transition: all var(--transition-all);
+}
+
+.button:global.ant-btn-lg {
+  min-width: 208px;
+  height: 64px;
+  padding: 10px 30px;
+  font-size: 18px;
+}
+
+.button:global.ant-btn-sm {
+  font-size: 14px;
+  padding: 20px 24px;
+}
+
+.borderSm {
+  border-radius: 6px;
+}
+
+.borderMd {
+  border-radius: 32px 0px;
+}
+
+.button:global.ant-btn>span {
+  font-size: 16px;
+}
+
+.button:global.ant-btn-lg.ant-btn>span {
+  font-size: 18px;
+}
+
+.button:global.ant-btn-sm.ant-btn>span {
+  font-size: 14px;
+}
+
+
+.button:global:hover {
+  background-size: 100% 100%;
+  box-shadow: var(--kingfisher) 0px 0px 20px;
+}
+
+.button:global.ant-btn-fill {
+  background: var(--kingfisher);
+  color: white;
+  border: 1px solid transparent;
+  z-index: 0;
+}
+
+.button:global.ant-btn-no-fill {
+  color: var(--kingfisher);
+  background-color: transparent;
+  border-color: var(--kingfisher);
+}
+
+.button:global.ant-btn-text {
+  background-color: transparent;
+  color: var(--kingfisher);
+  border: 0;
+}
+
+.button:global.ant-btn-text:not(:disabled):not(.ant-btn-disabled):hover {
+  color: white;
+  background-color: transparent;
+  border-color: var(--kingfisher);
+}

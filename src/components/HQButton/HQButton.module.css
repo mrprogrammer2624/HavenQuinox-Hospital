@@ -1,4 +1,9 @@
 .button {
+  --p-t: calc(var(--spacing-4) * 5);
+  --p-b: calc(var(--spacing-4) * 5);
+  --p-s: calc(var(--spacing-24) * 3);
+  --p-e: calc(var(--spacing-24) * 3);
+  --button-active: var(--primary-shades-100);
   position: relative;
   text-transform: capitalize;
   font-weight: 500;
@@ -7,75 +12,85 @@
   justify-content: center;
   cursor: pointer;
   line-height: 194.444%;
-  font-size: 16px;
-  padding: 24px 28px;
-  border: solid 2px transparent;
-  transition: all var(--transition-all);
-  -webkit-transition: all var(--transition-all);
-  -moz-transition: all var(--transition-all);
-  -ms-transition: all var(--transition-all);
-  -o-transition: all var(--transition-all);
-}
-
-.button:global.ant-btn-lg {
-  min-width: 208px;
-  height: 64px;
-  padding: 10px 30px;
-  font-size: 18px;
-}
-
-.button:global.ant-btn-sm {
-  font-size: 14px;
-  padding: 20px 24px;
-}
-
-.borderSm {
-  border-radius: 6px;
-}
-
-.borderMd {
-  border-radius: 32px 0px;
-}
-
-.button:global.ant-btn>span {
-  font-size: 16px;
-}
-
-.button:global.ant-btn-lg.ant-btn>span {
-  font-size: 18px;
-}
-
-.button:global.ant-btn-sm.ant-btn>span {
-  font-size: 14px;
-}
-
-
-.button:global:hover {
-  background-size: 100% 100%;
-  box-shadow: var(--kingfisher) 0px 0px 20px;
-}
-
-.button:global.ant-btn-fill {
-  background: var(--kingfisher);
-  color: white;
-  border: 1px solid transparent;
+  font-size: var(--h6-size);
+  padding: var(--p-t) var(--p-e) var(--p-b) var(--p-s);
+  border: solid 2px var(--button-border-color, var(--primary-shades-80));
+  background-color: var(--button-bg-color, transparent);
+  color: var(--button-text-color, var(--primary-shades-80));
+  transition: var(--transition-all);
   z-index: 0;
+  overflow: hidden;
 }
 
-.button:global.ant-btn-no-fill {
-  color: var(--kingfisher);
-  background-color: transparent;
-  border-color: var(--kingfisher);
-}
+/* .button div[style="position: absolute; left: 0px; top: 0px;"] {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+} */
 
-.button:global.ant-btn-text {
-  background-color: transparent;
-  color: var(--kingfisher);
-  border: 0;
-}
-
-.button:global.ant-btn-text:not(:disabled):not(.ant-btn-disabled):hover {
+/* Active Button Effect */
+.button::after {
+  content: '';
+  background-color: var(--button-active);
+  width: 0;
+  height: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  border-radius: 50%;
+  transition: all 0.2s linear;
   color: white;
-  background-color: transparent;
-  border-color: var(--kingfisher);
+}
+
+/* Block Button Active Effect */
+.button:active::after:global.ant-btn.ant-btn-block {
+  width: 110%;
+  height: 500px;
+}
+
+.button:active::after {
+  width: 500px;
+  height: 500px;
+}
+
+/* Default Type */
+.button:global.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+  color: var(--white);
+  border-color: var(--primary-shades-80);
+  background-color: var(--primary-shades-80);
+}
+
+.button:global.ant-btn-default:disabled {
+  background-color: var(--primary-shades-20);
+  border-color: var(--primary-shades-20);
+  color: var(--black-shades-20);
+}
+
+/* primary Primary */
+.button:global.ant-btn-primary {
+  --button-bg-color: var(--quaternary);
+  --button-border-color: var(--quaternary);
+  --button-text-color: var(--white);
+  --button-active: var(--quaternary);
+}
+
+.button:global.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background-color: var(--quaternary-shades-60);
+  border-color: var(--quaternary-shades-60);
+}
+
+.button:global.ant-btn-primary:disabled {
+  background-color: var(--quaternary-shades-20);
+  border-color: var(--quaternary-shades-20);
+  color: var(--black-shades-20);
+}
+
+/* Lg button Size */
+.button:global.ant-btn-lg {
+  --p-t: calc(var(--spacing-4) * 5);
+  --p-b: calc(var(--spacing-4) * 5);
+  --p-s: calc(var(--spacing-24) * 5);
+  --p-e: calc(var(--spacing-24) * 5);
 }

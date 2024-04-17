@@ -3,14 +3,7 @@ const { NextResponse } = require("next/server");
 export function middleware(request) {
   const path = request.nextUrl.pathname;
 
-  const isPublicPath =
-    path === "/" ||
-    path === "/admin" ||
-    path === "/authentication" ||
-    path === "/authentication/login" ||
-    path === "/authentication/signup" ||
-    path === "/authentication/verifyemail";
-
+  const isPublicPath = path === "/" || path === "/admin";
   const auth = request.cookies.get("auth")?.value || "";
 
   if (isPublicPath && auth) {
@@ -23,19 +16,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: [
-    "/",
-    "/authentication",
-    "/authentication/login",
-    "/authentication/signup",
-    "/authentication/verifyemail",
-    "/aboutus",
-    "/blogupload",
-    "/categories",
-    "/contactus",
-    "/featureless",
-    "/profiled",
-    "/profilemarked",
-    "/writer",
-  ],
+  matcher: ["/", "/admin", "stylesheets/basic-color"],
 };

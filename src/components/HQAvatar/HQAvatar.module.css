@@ -1,0 +1,13 @@
+.avatar :global .ant-avatar-string {
+    font-size: 20px;
+}
+
+.avatar {
+    border: 0;
+    width: 45px;
+    height: 45px;
+}
+
+.imgContain:global.ant-avatar>img {
+    object-fit: contain;
+}

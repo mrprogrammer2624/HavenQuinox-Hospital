@@ -6,6 +6,10 @@
   font-family: var(--primary-font);
 }
 
+html {
+  font-size: var(--html);
+}
+
 body {
   font-size: 14px;
   font-family: var(--primary-font);
@@ -14,44 +18,54 @@ body {
 }
 
 main {
-  padding: 20px;
+  padding: var(--spacing-lg) + var(--spacing-xs);
   height: 100%;
 }
 
 /* Font Start */
 .h1,
 h1 {
-  font-size: var(--h1-size);
+  font-size: var(--font-4xl);
 }
 
 .h2,
 h2 {
-  font-size: var(--h2-size);
+  font-size: var(--font-3xl);
 }
 
 .h3,
 h3 {
-  font-size: var(--h3-size);
+  font-size: var(--font-2xl);
 }
 
 .h4,
 h4 {
-  font-size: var(--h4-size);
+  font-size: var(--font-xl);
 }
 
 .h5,
 h5 {
-  font-size: var(--h5-size);
+  font-size: var(--font-lg);
 }
 
 .h6,
 h6 {
-  font-size: var(--h6-size);
+  font-size: var(--font-md);
+}
+
+.p.big,
+p.bif {
+  font-size: var(--font-sm);
 }
 
 .p,
 p {
-  font-size: var(--p-size);
+  font-size: var(--font-xs);
+}
+
+.p.small,
+p.small {
+  font-size: var(--font-xxs);
 }
 
 /* Font WEIGHTS */

@@ -1,3 +1,11 @@
+import { Footer, Header } from "@/components";
+
 export default function Home() {
-  return <main>Main Page Is hear</main>;
+  return (
+    <>
+      <Header />
+      <main>Main Page Is hear</main>
+      <Footer />
+    </>
+  );
 }

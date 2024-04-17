@@ -27,7 +27,10 @@ export default function RootLayout({ children }) {
           items={AdminMenuItems}
         />
         <Layout
-          style={{ marginLeft: marginLeft }}
+          style={{
+            marginLeft: marginLeft,
+            transition: `var(--transition-all)`,
+          }}
           className={styles.AKContentLayout}
         >
           <HQHeader />

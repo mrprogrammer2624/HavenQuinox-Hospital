@@ -1,9 +1,8 @@
 "use client";
 import { HQBasicCard } from "@/components";
-import styles from "./HQColors.module.css";
-import { Col, Row } from "antd";
+import styles from "../stylesheets.module.css";
 import clsx from "clsx";
-import { HQColorsWrapper, styleSheetsColorsPrimaryShades } from "@/utility";
+import { HQColorsWrapper } from "@/utility";
 
 const HQColors = () => {
   return (
@@ -24,7 +23,7 @@ const HQColors = () => {
                   ></div>
                   <p className="text-center capitalize fw-700 mt-1">
                     {content.name}
-                    <br/>
+                    <br />
                     {content.code}
                   </p>
                 </div>

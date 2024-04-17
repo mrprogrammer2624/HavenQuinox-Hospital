@@ -1,8 +1,0 @@
-.colorsGridWrapper {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: var(--spacing-24);
-}
-
-.colorsGridBox {
-  min-height: 50px;
-}

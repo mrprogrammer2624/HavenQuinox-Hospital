@@ -6,6 +6,7 @@
   background-color: var(--secondary);
   display: flex;
   align-items: center;
+  transition: var(--transition-all);
   z-index: 1;
 }
 

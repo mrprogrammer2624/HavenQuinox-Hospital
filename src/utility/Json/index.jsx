@@ -91,6 +91,11 @@ export const HQColorsWrapper = [
     title: "primary-shades",
     styleSheetsColors: [
       {
+        name: "primary-shades-100",
+        color: "var(--primary-shades-100)",
+        code: "#D60023",
+      },
+      {
         name: "primary-shades-80",
         color: "var(--primary-shades-80)",
         code: "#E81335",
@@ -259,14 +264,14 @@ export const stylesheetsMenuItems = [
       getItem("Typography", "/stylesheets/typography", null),
       getItem("Basic Color", "/stylesheets/basic-color", null),
       getItem("Buttons", "/stylesheets/button", null),
-      getItem("Avatars", "/stylesheets/avatars"),
-      getItem("Progress Bar", "/stylesheets/progress"),
+      getItem("Avatars", "/stylesheets/avatar", null),
+      getItem("Progress Bar", "/stylesheets/progress-bar", null),
       getItem("Modal", "/stylesheets/modal", null),
-      getItem("Alert", "/stylesheets/alert"),
-      getItem("Popover", "/stylesheets/Popover"),
-      getItem("Tooltip", "/stylesheets/tooltip"),
-      getItem("Badge", "/stylesheets/badge"),
-      getItem("Calendar", "/stylesheets/calendar"),
+      getItem("Alert", "/stylesheets/alert", null),
+      getItem("Popover", "/stylesheets/popover", null),
+      getItem("Tooltip", "/stylesheets/tooltip", null),
+      getItem("Badge", "/stylesheets/badge", null),
+      getItem("Calendar", "/stylesheets/calendar", null),
     ],
     "group"
   ),

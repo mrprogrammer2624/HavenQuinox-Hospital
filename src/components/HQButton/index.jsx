@@ -13,6 +13,7 @@ export const HQButton = ({
   shape,
   size,
   link,
+  disabled,
   ...rest
 }) => {
   return (
@@ -25,6 +26,7 @@ export const HQButton = ({
       type={type}
       onClick={link ? handleNavigate : handleClick}
       block={block}
+      disabled={disabled}
       icon={icon}
       shape={shape}
       size={size}

@@ -1,13 +1,13 @@
 /* Button */
 .buttonWrapper {
   grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  grid-gap: calc(var(--spacing-24) - var(--spacing-4));
+  grid-gap: calc(var(--spacing-xl) - var(--spacing-xs));
 }
 
 /* Basic-Color */
 .colorsGridWrapper {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: var(--spacing-24);
+  grid-gap: var(--spacing-xl);
 }
 
 .colorsGridBox {
@@ -36,7 +36,7 @@
 /* General Icons */
 .AKIconWrapper {
   gap: 12px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
 }
 
 .AKIConCard {
@@ -66,4 +66,14 @@
 .AKIcon svg {
   width: inherit;
   height: inherit;
+}
+
+/* Progress Bar */
+.cardBodyClass {
+  overflow: hidden;
+}
+
+.progressBarBasic {
+  grid-template-columns: repeat(auto-fill, minmax(25.5rem, 1fr));
+  grid-gap: var(--spacing-lg);
 }

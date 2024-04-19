@@ -1,5 +1,5 @@
 :root {
-  --primary-font: "Public Sans";
+  --primary-font: "Public Sans", Arial, sans-serif, system-ui, -apple-system;
 
   /* Header Height */
   --header-height: 100px;
@@ -46,29 +46,34 @@
   --gray-shades-20: #CCCCCC;
 
   /* Fonts Size */
-  --h1-size: 68px;
-  --h2-size: 42px;
-  --h3-size: 26px;
-  --h4-size: 22px;
-  --h5-size: 20px;
-  --h6-size: 18px;
-  --p-big-size: 16px;
-  --p-size: 14px;
-  --p-small-size: 12px;
+  --html: 10px;
+  --font-4xl: 6.8rem;
+  --font-3xl: 4.2rem;
+  --font-2xl: 26px;
+  --font-xl: 22px;
+  --font-lg: 20px;
+  --font-md: 18px;
+  --font-sm: 16px;
+  --font-xs: 14px;
+  --font-xxs: 12px;
 
   /* Spacing Size */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-48: 48px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 3.2rem;
+  --spacing-3xl: 4.8rem;
 
   /* Sidebar Width */
   --sidebar-width: 250px;
   --sidebar-width-collapsed: 80px;
   --sidebar-trigger-height: 48px;
+
+  /* Section Spacing */
+  --section-spacing: 12rem;
+  --section-spacing-small: 6rem;
 
   /* Transitions */
   --transition-all: all .3s linear;

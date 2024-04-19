@@ -1,8 +1,8 @@
 .button {
-  --p-t: calc(var(--spacing-4) * 5);
-  --p-b: calc(var(--spacing-4) * 5);
-  --p-s: calc(var(--spacing-24) * 3);
-  --p-e: calc(var(--spacing-24) * 3);
+  --p-t: calc(var(--spacing-xs) * 5);
+  --p-b: calc(var(--spacing-xs) * 5);
+  --p-s: calc(var(--spacing-xl) * 3);
+  --p-e: calc(var(--spacing-xl) * 3);
   --button-active: var(--primary-shades-100);
   position: relative;
   text-transform: capitalize;
@@ -21,12 +21,6 @@
   z-index: 0;
   overflow: hidden;
 }
-
-/* .button div[style="position: absolute; left: 0px; top: 0px;"] {
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-} */
 
 /* Active Button Effect */
 .button::after {
@@ -48,6 +42,11 @@
 .button:active::after:global.ant-btn.ant-btn-block {
   width: 110%;
   height: 500px;
+}
+
+.button:disabled:active::after {
+  width: 0;
+  height: 0;
 }
 
 .button:active::after {
@@ -89,8 +88,8 @@
 
 /* Lg button Size */
 .button:global.ant-btn-lg {
-  --p-t: calc(var(--spacing-4) * 5);
-  --p-b: calc(var(--spacing-4) * 5);
-  --p-s: calc(var(--spacing-24) * 5);
-  --p-e: calc(var(--spacing-24) * 5);
+  --p-t: calc(var(--spacing-xs) * 5);
+  --p-b: calc(var(--spacing-xs) * 5);
+  --p-s: calc(var(--spacing-xl) * 5);
+  --p-e: calc(var(--spacing-xl) * 5);
 }

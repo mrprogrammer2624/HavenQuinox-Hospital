@@ -1,0 +1,39 @@
+.progress:global.ant-progress .ant-progress-bg {
+    background: var(--kingfisher);
+}
+
+.progress:global.ant-progress.ant-progress-status-success .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+    stroke: #18a718;
+}
+
+.progress:global.ant-progress.ant-progress-status-exception .ant-progress-bg {
+    background-color: #b51a1a;
+}
+
+.progress:global.ant-progress.ant-progress-status-success .ant-progress-bg {
+    background-color: #18a718;
+}
+
+.progress:global.ant-progress.ant-progress-status-exception .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+    stroke: #b51a1a;
+}
+
+.progress:global.ant-progress.ant-progress-line .ant-progress-inner {
+    background-color: var(--swifts);
+}
+
+.progress:global.ant-progress .ant-progress-circle-trail {
+    stroke: var(--swifts);
+}
+
+.progress:global.ant-progress .ant-progress-text {
+    color: var(--title-color)
+}
+
+.progress:global.ant-progress.ant-progress-status-success .ant-progress-text {
+    color: #18a718;
+}
+
+.progress:global.ant-progress.ant-progress-status-exception .ant-progress-text {
+    color: #b51a1a;
+}

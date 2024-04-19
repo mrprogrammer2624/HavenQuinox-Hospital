@@ -48,7 +48,7 @@ export const Icons = {
         d="M20 20L22 22"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   ),
@@ -69,19 +69,19 @@ export const Icons = {
         d="M7 4V2.5"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <path
         d="M17 4V2.5"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <path
         d="M2.5 9H21.5"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <path
         d="M18 17C18 17.5523 17.5523 18 17 18C16.4477 18 16 17.5523 16 17C16 16.4477 16.4477 16 17 16C17.5523 16 18 16.4477 18 17Z"
@@ -133,7 +133,7 @@ export const Icons = {
         d="M17.9692 20C17.8101 17.1085 16.9248 15 12 15C7.07527 15 6.18997 17.1085 6.03082 20"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   ),
@@ -232,7 +232,7 @@ export const Icons = {
         d="M18 8.49998H14M18 14.5H14M18 17.5H14M10 8.49999H8M8 8.49999L6 8.49999M8 8.49999L8 6.49998M8 8.49999L8 10.5M9.5 14.5L8.00001 16M8.00001 16L6.50001 17.5M8.00001 16L6.5 14.5M8.00001 16L9.49999 17.5"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   ),
@@ -257,25 +257,25 @@ export const Icons = {
         d="M22 14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <path
         d="M10 22C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <path
         d="M10 2C6.22876 2 4.34315 2 3.17157 3.17157C2 4.34315 2 6.22876 2 10"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <path
         d="M14 2C17.7712 2 19.6569 2 20.8284 3.17157C22 4.34315 22 6.22876 22 10"
         stroke="currentColor"
         stroke-width="1.5"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
     </svg>
   ),

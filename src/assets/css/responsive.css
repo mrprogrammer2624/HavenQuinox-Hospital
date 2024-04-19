@@ -149,6 +149,8 @@
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  :root {}
+}
 
 @media (max-width: 349px) {}

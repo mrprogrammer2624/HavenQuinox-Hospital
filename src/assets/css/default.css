@@ -11,14 +11,14 @@ html {
 }
 
 body {
-  font-size: 14px;
+  font-size: var(--font-xs);
   font-family: var(--primary-font);
   font-weight: 500;
   margin: 0;
 }
 
 main {
-  padding: var(--spacing-lg) + var(--spacing-xs);
+  padding: var(--spacing-lg) var(--spacing-sm);
   height: 100%;
 }
 
@@ -154,4 +154,33 @@ p.small {
 
 .lowercase {
   text-transform: lowercase;
+}
+
+/* Rotation */
+.deg-0 {
+  rotate: 0deg;
+}
+
+.deg-90 {
+  rotate: 90deg;
+}
+
+.deg-180 {
+  rotate: 180deg;
+}
+
+/* Transition */
+.transition-all {
+  transition: var(--transition-all);
+}
+
+
+/* Componates */
+.ant-tooltip {
+  color: var(--title-color);
+  --antd-arrow-background-color: var(--kingfisher);
+}
+
+.ant-tooltip .ant-tooltip-inner {
+  background-color: var(--antd-arrow-background-color);
 }

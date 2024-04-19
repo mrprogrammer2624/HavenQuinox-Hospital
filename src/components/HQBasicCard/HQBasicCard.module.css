@@ -2,7 +2,7 @@
     border: 1px solid;
     border-color: transparent;
     border-radius: 8px;
-    padding: calc(var(--spacing-md) + 3) calc(var(--spacing-lg) + 2);
+    padding: calc(var(--spacing-md) + 3px) calc(var(--spacing-lg) + 2px);
     background-color: var(--white);
     display: flex;
     flex-direction: column;
@@ -17,11 +17,11 @@
     padding: 15px 18px 0 18px;
 }
 
-.AKCardTitle {
+.HQCardTitle {
     color: var(--title-color);
     font-weight: 600;
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: var(--font-lg);
     text-transform: capitalize;
 }
 

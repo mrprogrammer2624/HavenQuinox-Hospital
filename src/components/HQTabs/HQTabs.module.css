@@ -1,0 +1,23 @@
+.tab :global .ant-tabs-tab.ant-tabs-tab-active {
+    color: var(--title-color);
+}
+
+.tab:global.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--title-color);
+}
+
+.tab:global.ant-tabs .ant-tabs-ink-bar {
+    background: var(--kingfisher);
+}
+
+.tab:global.ant-tabs .ant-tabs-tab:hover {
+    color: var(--kingfisher);
+}
+
+.tab:global.ant-tabs .ant-tabs-tab {
+    font-size: 18px;
+}
+
+.tab:global.ant-tabs .ant-tabs-tab {
+    color: var(--title-color);
+}

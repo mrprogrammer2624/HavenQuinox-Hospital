@@ -1,0 +1,78 @@
+.HQAccordion:global.ant-collapse {
+  color: var(--title-color);
+  border: 1px solid var(--title-color);
+}
+
+.HQAccordion:global.ant-collapse>.ant-collapse-item {
+  border-bottom: 0;
+}
+
+.HQAccordion:global.ant-collapse>.ant-collapse-item:not(:last-child) {
+  border-bottom: 1px solid var(--title-color);
+}
+
+.HQAccordion:global.ant-collapse .ant-collapse-item.ant-collapse-item-active>.ant-collapse-header {
+  background-color: var(--kingfisher);
+}
+
+.HQAccordion:global.ant-collapse .ant-collapse-item:first-child.ant-collapse-item-active>.ant-collapse-header {
+  border-radius: 8px 8px 0 0;
+}
+
+.HQAccordion:global.ant-collapse>.ant-collapse-item>.ant-collapse-header {
+  color: var(--title-color);
+}
+
+.HQAccordion:global.ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-header-text {
+  font-size: var(--font-md);
+}
+
+.HQAccordion:global.ant-collapse .ant-collapse-content {
+  color: var(--title-color);
+  background-color: transparent;
+  border-top: 1px solid var(--title-color);
+}
+
+/* Borderless Accordion */
+.HQAccordion:global.borderless-accordion.ant-collapse {
+  border: 0;
+}
+
+.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item {
+  border-bottom: 0;
+  background-color: var(--swifts);
+  border-radius: 8px;
+}
+
+.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item>.ant-collapse-header,
+.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item:last-child.ant-collapse-item-active>.ant-collapse-header {
+  border-radius: 8px 8px 0 0;
+}
+
+/* Custom Icon Accordion */
+.HQAccordion:global.custom-icon-accordion.ant-collapse .ant-collapse-item.ant-collapse-item-active>.ant-collapse-header {
+  align-items: center;
+}
+
+.HQAccordion:global.custom-icon-accordion.ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-expand-icon {
+  width: 22px;
+}
+
+.HQAccordion:global.custom-icon-accordion.ant-collapse.ant-collapse-icon-position-end>.ant-collapse-item>.ant-collapse-header .ant-collapse-expand-icon {
+  padding-inline-start: 0;
+  margin-inline-start: 12px;
+}
+
+.HQAccordion:global.custom-icon-accordion.ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-arrow {
+  width: 100%;
+  height: 100%;
+}
+
+.HQAccordion:global.custom-icon-accordion.ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-arrow svg {
+  width: 100%;
+  height: 100%;
+}

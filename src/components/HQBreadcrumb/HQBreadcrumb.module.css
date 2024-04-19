@@ -1,0 +1,14 @@
+.HQBreadcrumb:global.ant-breadcrumb,
+.HQBreadcrumb:global.ant-breadcrumb a,
+.HQBreadcrumb:global.ant-breadcrumb .ant-breadcrumb-separator {
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.HQBreadcrumb:global.ant-breadcrumb li:last-child {
+  color: var(--title-color);
+}
+
+.HQBreadcrumb:global.ant-breadcrumb li span {
+  font-size: 16px;
+}

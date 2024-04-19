@@ -7,17 +7,17 @@ const HQFlagIcon = () => {
   return (
     <div>
       <h3 className="mb-5 title-color">Country Flags:</h3>
-      <div className={clsx(styles.AKFlagCardWrapper, "grid")}>
+      <div className={clsx(styles.HQFlagCardWrapper, "grid")}>
         {flagIconImgData.map((flag, index) => {
           return (
             <div
               key={index}
               className={clsx(
-                styles.AKFlagImgWrapper,
+                styles.HQFlagImgWrapper,
                 "flex justify-center items-center"
               )}
             >
-              <div className={clsx(styles.AKFlagImgCard, "overflow-hidden")}>
+              <div className={clsx(styles.HQFlagImgCard, "overflow-hidden")}>
                 <Image
                   width={1920}
                   height={1920}

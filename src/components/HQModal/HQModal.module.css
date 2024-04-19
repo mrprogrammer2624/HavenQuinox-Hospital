@@ -1,0 +1,21 @@
+.modalContainer :global .ant-modal .ant-modal-content {
+    background-color: var(--owl);
+}
+
+.modalContainer :global .ant-modal .ant-modal-header {
+    background: var(--owl);
+}
+
+.modalContainer :global .ant-modal .ant-modal-close,
+.modalContainer :global .ant-modal .ant-modal-title {
+    color: var(--title-color);
+}
+
+.modalContainer :global .ant-modal .ant-modal-title {
+    font-size: 22px;
+}
+
+.modalContainer :global .ant-modal .ant-modal-close {
+    width: 36px;
+    height: 36px;
+}

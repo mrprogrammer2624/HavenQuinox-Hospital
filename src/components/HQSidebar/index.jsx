@@ -35,19 +35,19 @@ export const HQSidebar = ({
         bottom: 0,
       }}
       width={"var(--sidebar-width)"}
-      className={styles.AKSidebar}
+      className={styles.HQSidebar}
       collapsedWidth="var(--sidebar-width-collapsed)"
       {...rest}
     >
-      <div className={styles.AKSidebarLogoWrapper}>
-        <Link href={"/"} className={styles.AKSidebarLogo}>
+      <div className={styles.HQSidebarLogoWrapper}>
+        <Link href={"/"} className={styles.HQSidebarLogo}>
           Logo Here
         </Link>
       </div>
       <Menu
         mode="inline"
         items={items}
-        className={styles.AKSidebarMenu}
+        className={styles.HQSidebarMenu}
         selectedKeys={
           subMenuName.length !== 0
             ? subMenuName

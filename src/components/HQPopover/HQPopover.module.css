@@ -1,0 +1,27 @@
+.popover {}
+
+.customOverlayClass:global.ant-popover .ant-popover-inner {
+    background-color: var(--owl);
+    border-radius: 8px;
+    padding: 20px 24px;
+    color: var(--title-color);
+}
+
+.customOverlayClass:global.ant-popover .ant-popover-title {
+    color: var(--title-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.customOverlayClass:global.ant-popover .ant-popover-inner-content {
+    color: var(--secondary-title-text);
+}
+
+:root[data-theme="dark"] .customOverlayClass:global.ant-popover .ant-popover-inner {
+    /* box-shadow: var(--parrot) 12px 13px 89px 15px; */
+}
+
+.customOverlayClass:global.ant-popover .ant-popover-arrow::after,
+.customOverlayClass:global.ant-popover .ant-popover-arrow:before {
+    background: var(--owl);
+}

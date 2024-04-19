@@ -1,0 +1,21 @@
+.HQRating:global.ant-rate .ant-rate-star-first,
+.HQRating:global.ant-rate .ant-rate-star-second {
+  color: var(--swifts);
+  font-weight: 700;
+}
+
+.HQRating:global.ant-rate .ant-rate-star-half .ant-rate-star-first,
+.HQRating:global.ant-rate .ant-rate-star-full .ant-rate-star-second {
+  color: var(--kingfisher);
+  font-weight: 700;
+}
+
+.HQRating:global.ant-rate .anticon {
+  width: 20px;
+  height: 20px;
+}
+
+.HQRating:global.ant-rate .anticon svg {
+  width: 100%;
+  height: 100%;
+}

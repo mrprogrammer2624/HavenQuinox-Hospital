@@ -31,10 +31,10 @@ export default function RootLayout({ children }) {
             marginLeft: marginLeft,
             transition: `var(--transition-all)`,
           }}
-          className={styles.AKContentLayout}
+          className={styles.HQContentLayout}
         >
           <HQHeader />
-          <main className={styles.AKMainContent}>{children}</main>
+          <main className={styles.HQMainContent}>{children}</main>
         </Layout>
       </Layout>
     </>

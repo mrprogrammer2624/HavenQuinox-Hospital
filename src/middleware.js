@@ -16,5 +16,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/", "/admin", "stylesheets/basic-color"],
+  matcher: ["/", "/admin"],
 };

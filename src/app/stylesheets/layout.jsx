@@ -1,10 +1,8 @@
 "use client";
-
 import { Layout } from "antd";
 import { useState, useEffect, Suspense } from "react";
 import { HQSidebar } from "@/components/HQSidebar";
 import { HQHeader } from "@/components/HQHeader";
-import styles from "./stylesheets.module.css";
 import { stylesheetsMenuItems } from "@/utility";
 import { redirect, usePathname } from "next/navigation";
 
@@ -39,7 +37,6 @@ export default function RootLayout({ children }) {
             marginLeft: marginLeft,
             transition: `var(--transition-all)`,
           }}
-          className={styles.AKContentLayout}
         >
           <HQHeader />
           <main>{children}</main>

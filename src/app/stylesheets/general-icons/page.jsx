@@ -6,23 +6,30 @@ const GeneralIcons = () => {
   return (
     <>
       <h3 className="mb-5 title-color">Icons:</h3>
-      <div className={clsx(styles.AKIconWrapper, "grid")}>
-        {Object.keys(Icons).map((key, index) => {
+      <div className={clsx(styles.HQIconWrapper, "grid")}>
+        {Object.entries(Icons).map((item, index) => {
           return (
             <div
               className={clsx(
-                styles.AKIConCard,
-                "flex justify-center items-center"
+                styles.HQIConCard,
+                "flex flex-col gap-5 justify-center items-center"
               )}
-              key={index}
+              key={item[0] + index}
             >
               <span
                 className={clsx(
-                  styles.AKIcon,
+                  styles.HQIcon,
                   "flex justify-center items-center"
                 )}
               >
-                {Icons[key]}
+                {item[1]}
+              </span>
+              <span
+                className={clsx(
+                  "flex justify-center items-center"
+                )}
+              >
+                {item[0]}
               </span>
             </div>
           );

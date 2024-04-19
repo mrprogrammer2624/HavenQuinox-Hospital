@@ -1,0 +1,75 @@
+.alert {
+    background-color: transparent;
+    border: 1px solid var(--alert-border-color, var(--tertiary));
+    color: var(--alert-text-color, var(--tertiary));
+}
+
+.alert :global .ant-alert-close-icon .anticon-close {
+    --alert-text-color: var(--tertiary);
+    transition: 0.3s all;
+}
+
+.alert :global .ant-alert-close-icon .anticon-close:hover {
+    --alert-text-color: var(--gray);
+}
+
+.default {
+    --alert-border-color: var(--tertiary);
+    --alert-text-color: var(--tertiary);
+}
+
+.success {
+    --alert-border-color: var(--tertiary);
+    --alert-text-color: var(--tertiary);
+}
+
+.info {
+    --alert-border-color: #37A5FE;
+    --alert-text-color: #37A5FE;
+}
+
+.warning {
+    --alert-border-color: var(--quaternary);
+    --alert-text-color: var(--quaternary);
+}
+
+.error {
+    --alert-border-color: var(--primary);
+    --alert-text-color: var(--primary);
+}
+
+/* Icons */
+.info :global .ant-alert-icon,
+.info :global .ant-alert-close-icon .anticon-close,
+.info :global .ant-alert-message,
+.info :global .ant-alert-description {
+    --alert-text-color: #37A5FE;
+}
+
+.error :global .ant-alert-icon,
+.error :global .ant-alert-close-icon .anticon-close,
+.error :global .ant-alert-message,
+.error :global .ant-alert-description {
+    --alert-text-color: var(--primary);
+}
+
+.warning :global .ant-alert-icon,
+.warning :global .ant-alert-close-icon .anticon-close,
+.warning :global .ant-alert-message,
+.warning :global .ant-alert-description {
+    --alert-text-color: var(--quaternary);
+}
+
+.default :global .ant-alert-icon,
+.default :global .ant-alert-close-icon .anticon-close,
+.default :global .ant-alert-message,
+.default :global .ant-alert-description {
+    --alert-text-color: var(--primary-shades-100);
+}
+
+.success :global .ant-alert-icon,
+.success :global .ant-alert-close-icon .anticon-close,
+.success :global .ant-alert-message,
+.success :global .ant-alert-description {
+    --alert-text-color: var(--tertiary);
+}

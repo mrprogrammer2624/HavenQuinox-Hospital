@@ -21,6 +21,7 @@ import {
   Singapore,
   Kenya,
 } from "@/assets/images";
+import { Icons } from "..";
 
 // Style Sheets
 export const flagIconImgData = [
@@ -244,7 +245,46 @@ export const HQColorsWrapper = [
   },
 ];
 
-//  Aside Data
+export const accordionItems = [
+  {
+    key: "1",
+    label: "This is panel header 1",
+    children: (
+      <p>
+        {" "}
+        A dog is a type of domesticated animal. Known for its loyalty and
+        faithfulness, it can be found as a welcome guest in many households
+        across the world.
+      </p>
+    ),
+  },
+  {
+    key: "2",
+    label: "This is panel header 2",
+    children: (
+      <p>
+        {" "}
+        A dog is a type of domesticated animal. Known for its loyalty and
+        faithfulness, it can be found as a welcome guest in many households
+        across the world.
+      </p>
+    ),
+  },
+  {
+    key: "3",
+    label: "This is panel header 3",
+    children: (
+      <p>
+        {" "}
+        A dog is a type of domesticated animal. Known for its loyalty and
+        faithfulness, it can be found as a welcome guest in many households
+        across the world.
+      </p>
+    ),
+  },
+];
+
+// Aside StyleSheets Data
 const getItem = (label, key, icon, children, type) => {
   return {
     key,
@@ -258,20 +298,21 @@ const getItem = (label, key, icon, children, type) => {
 export const stylesheetsMenuItems = [
   getItem(
     "Ui Kits",
-    "Ui-group",
-    null,
+    "Ui Kits",
+    Icons.calendar,
     [
-      getItem("Typography", "/stylesheets/typography", null),
-      getItem("Basic Color", "/stylesheets/basic-color", null),
-      getItem("Buttons", "/stylesheets/button", null),
-      getItem("Avatars", "/stylesheets/avatar", null),
-      getItem("Progress Bar", "/stylesheets/progress-bar", null),
-      getItem("Modal", "/stylesheets/modal", null),
-      getItem("Alert", "/stylesheets/alert", null),
-      getItem("Popover", "/stylesheets/popover", null),
-      getItem("Tooltip", "/stylesheets/tooltip", null),
-      getItem("Badge", "/stylesheets/badge", null),
-      getItem("Calendar", "/stylesheets/calendar", null),
+      getItem("Typography", "/stylesheets/typography", Icons.calendar),
+      getItem("Basic Color", "/stylesheets/basic-color", Icons.palette),
+      getItem("Buttons", "/stylesheets/button", Icons.calendar),
+      getItem("Avatars", "/stylesheets/avatar", Icons.user),
+      getItem("Progress Bar", "/stylesheets/progress-bar", Icons.progress),
+      getItem("Modal", "/stylesheets/modal", Icons.calendar),
+      getItem("Alert", "/stylesheets/alert", Icons.alert),
+      getItem("Popover", "/stylesheets/popover", Icons.calendar),
+      getItem("Tooltip", "/stylesheets/tooltip", Icons.calendar),
+      getItem("Badge", "/stylesheets/badge", Icons.calendar),
+      getItem("Accordion", "/stylesheets/accordion", Icons.calendar),
+      getItem("Calendar", "/stylesheets/calendar", Icons.calendar),
     ],
     "group"
   ),
@@ -281,54 +322,112 @@ export const stylesheetsMenuItems = [
   getItem(
     "Icons",
     "Icons-group",
-    null,
+    Icons.calendar,
     [
-      getItem("General icons", "/stylesheets/general-icons", null),
-      getItem("FlagIcons", "/stylesheets/flag-icons", null),
+      getItem("General Icons", "/stylesheets/general-icons", Icons.vector),
+      getItem("Flag Icons", "/stylesheets/flag-icons", Icons.flag),
     ],
     "group"
   ),
 ];
 
+// Aside Admin Data
 export const AdminMenuItems = [
   getItem(
-    "PAGES",
-    "pages-group",
-    null,
+    "Admin",
+    "Ui Kits",
+    Icons.calendar,
+    [getItem("Dashboard", "/admin", Icons.calendar)],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Doctor",
+    "Doctor-group",
+    Icons.calendar,
     [
-      getItem(
-        "Authentication",
-        "authentication-pages",
-        <i className="ri-fingerprint-2-fill"></i>,
-        [
-          getItem("Login", "/authentication/login"),
-          getItem("Register", "/authentication/register"),
-          getItem("Verify Email", "/authentication/verify-email"),
-          getItem("Forgot Password", "/authentication/forgot-password"),
-          getItem("Forgot Email", "/authentication/forgot-email"),
-          getItem("OTP Verification", "/authentication/otp"),
-        ]
-      ),
-      getItem(
-        "Error Page",
-        "/dashboard/error",
-        <i className="ri-error-warning-fill"></i>
-      ),
-      getItem(
-        "Coming Soon",
-        "/dashboard/coming-soon",
-        <i className="ri-megaphone-fill"></i>
-      ),
-      getItem(
-        "Not Found",
-        "/dashboard/not-found",
-        <i className="ri-forbid-fill"></i>
-      ),
-      getItem(
-        "Under Maintenance",
-        "/dashboard/under-maintenance",
-        <i className="ri-hammer-fill"></i>
-      ),
+      getItem("Doctor List", "/admin/doctor-list", Icons.calendar),
+      getItem("Add Doctor", "/admin/add-doctor", Icons.calendar),
+    ],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Patients",
+    "Patients-group",
+    Icons.calendar,
+    [
+      getItem("Patients  List", "/admin/patients-list", Icons.calendar),
+      getItem("Add Patients ", "/admin/add-patients", Icons.calendar),
+    ],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Staff",
+    "Staff-group",
+    Icons.calendar,
+    [
+      getItem("Staff List", "/admin/staff-list", Icons.calendar),
+      getItem("Add Staff", "/admin/add-staff", Icons.calendar),
+      getItem("Leaves", "/admin/add-staff", Icons.calendar),
+      getItem("Holidays", "/admin/holidays", Icons.calendar),
+      getItem("Attendance Sheet", "/admin/attendance-sheet", Icons.calendar),
+    ],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Doctor Schedule",
+    "Doctor-Schedule-group",
+    Icons.calendar,
+    [
+      getItem("Doctor Schedule", "/admin/doctor-schedule", Icons.calendar),
+      getItem("Add Schedule", "/admin/add-schedule", Icons.calendar),
+    ],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Appointment",
+    "Appointment-group",
+    Icons.calendar,
+    [getItem("Appointment List", "/admin/appointment-list", Icons.calendar)],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Department",
+    "Department-group",
+    Icons.calendar,
+    [
+      getItem("Department List", "/admin/department-list", Icons.calendar),
+      getItem("Add Department", "/admin/add-department", Icons.calendar),
+    ],
+    "group"
+  ),
+  getItem(
+    "Billing",
+    "Billing-group",
+    Icons.calendar,
+    [
+      getItem("Employee Salary", "/admin/employee-salary", Icons.calendar),
+      getItem("Invoice", "Invoice-group", Icons.calendar, [
+        getItem("Invoice List", "/admin/invoice-list", Icons.calendar),
+        getItem("Add Invoice", "/admin/add-invoice", Icons.calendar),
+      ]),
     ],
     "group"
   ),

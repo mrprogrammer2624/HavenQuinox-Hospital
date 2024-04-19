@@ -5,7 +5,8 @@ import styles from "../stylesheets.module.css";
 
 const Buttons = () => {
   return (
-    <>
+    <div className="flex flex-col gap-5">
+      <h2>Buttons</h2>
       <HQBasicCard>
         <h3 className="mb-3 capitalize">Default Buttons</h3>
         <div className={clsx(styles.buttonWrapper, "flex flex-wrap")}>
@@ -49,7 +50,7 @@ const Buttons = () => {
           </HQButton>
         </div>
       </HQBasicCard>
-    </>
+    </div>
   );
 };
 

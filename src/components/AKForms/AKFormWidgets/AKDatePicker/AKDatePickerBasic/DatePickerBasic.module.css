@@ -1,0 +1,59 @@
+.AKDatePickerBasic:global.ant-picker-outlined {
+  padding: 6px 12px;
+  background: transparent;
+  border-color: var(--text-color);
+  color: var(--title-color);
+  border-radius: 6px;
+  min-height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AKDatePickerBasic:global.ant-picker-outlined:focus,
+.AKDatePickerBasic:global.ant-picker-outlined:focus-within,
+.AKDatePickerBasic:global.ant-picker-outlined:hover {
+  border-color: var(--kingfisher);
+  box-shadow: unset;
+}
+
+.AKDatePickerBasic:global.ant-picker .ant-picker-input input {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.AKDatePickerBasic:global.ant-picker .ant-picker-input input::placeholder,
+.AKDatePickerBasic:global.ant-picker .ant-picker-clear,
+.AKDatePickerBasic:global.ant-picker .ant-picker-suffix,
+.AKDatePickerBasic:global.ant-picker-outlined .ant-picker-status-error:not(.ant-picker-disabled) .ant-picker-prefix,
+.AKDatePickerBasic:global.ant-picker-status-error:not(.ant-picker-disabled) .ant-picker-suffix {
+  color: var(--text-color);
+}
+
+.AKDatePickerBasic:global.ant-picker-outlined.ant-picker-status-error:not(.ant-picker-disabled) {
+  background-color: transparent;
+}
+
+.AKDatePickerBasic:global.ant-picker-outlined.ant-picker-status-error:not(.ant-picker-disabled):hover {
+  border-color: var(--clr-red);
+}
+
+:global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-selected:not(.ant-picker-cell-disabled) .ant-picker-cell-inner,
+:global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-disabled) .ant-picker-cell-inner,
+:global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-disabled) .ant-picker-cell-inner {
+  background: var(--kingfisher);
+}
+
+:global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border: 1px solid var(--kingfisher);
+}
+
+.AKRangePickerLabel {
+  color: var(--title-color);
+  margin-bottom: 4px;
+  display: block;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 15px;
+}

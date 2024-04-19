@@ -1,0 +1,15 @@
+.AkSwitch:global.ant-switch {
+  background: var(--text-color);
+}
+
+.AkSwitch:global.ant-switch:hover:not(.ant-switch-disabled) {
+  background: var(--text-color);
+}
+
+.AkSwitch:global.ant-switch.ant-switch-checked {
+  background: var(--kingfisher);
+}
+
+.AkSwitch:global.ant-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
+  background: var(--kingfisher);
+}

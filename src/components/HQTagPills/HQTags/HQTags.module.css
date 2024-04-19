@@ -1,0 +1,34 @@
+.tag {
+    padding: 2px 10px;
+    font-size: 12px;
+    margin-inline-end: 0;
+    text-transform: capitalize
+}
+
+.tag:global.ant-tag-red {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.2);
+    color: rgb(239, 68, 68);
+}
+
+.tag:global.ant-tag-purple {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.2);
+    color: rgb(168, 85, 247);
+}
+
+.tag:global.ant-tag-green {
+    border-color: rgba(36, 151, 130, 0.2);
+    background: rgba(36, 151, 130, 0.2);
+    color: rgb(36, 151, 130);
+}
+
+.tag:global.ant-tag-orange {
+    background: rgb(253 192 79 / 40%);
+    border-color: rgb(253 192 79 / 40%);
+    color: rgb(255, 159, 67);
+}
+
+.pills {
+    border-radius: 14px;
+}

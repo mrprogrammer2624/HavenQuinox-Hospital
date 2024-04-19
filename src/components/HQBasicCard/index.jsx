@@ -25,7 +25,7 @@ export const HQBasicCard = ({
           header == false ? "hidden" : "flex"
         )}
       >
-        <span className={clsx("fw-800", styles.AKCardTitle)}>{cardTitle}</span>
+        <span className={clsx("fw-800", styles.HQCardTitle)}>{cardTitle}</span>
         <span className={clsx(styles.cardExtraContent, "text-color")}>
           {cardExtraContent}
         </span>

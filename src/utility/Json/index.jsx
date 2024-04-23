@@ -301,7 +301,7 @@ export const stylesheetsMenuItems = [
     "Ui Kits",
     Icons.calendar,
     [
-      getItem("Typography", "/stylesheets/typography", Icons.calendar),
+      getItem("Typography", "/stylesheets/typography", Icons.typography),
       getItem("Basic Color", "/stylesheets/basic-color", Icons.palette),
       getItem("Buttons", "/stylesheets/button", Icons.calendar),
       getItem("Avatars", "/stylesheets/avatar", Icons.user),
@@ -313,6 +313,16 @@ export const stylesheetsMenuItems = [
       getItem("Badge", "/stylesheets/badge", Icons.calendar),
       getItem("Accordion", "/stylesheets/accordion", Icons.calendar),
       getItem("Calendar", "/stylesheets/calendar", Icons.calendar),
+      getItem("Form", "From-group", Icons.form, [
+        getItem("Input", "/admin/input", Icons.input),
+        getItem("Rating", "/admin/rating", Icons.star),
+        getItem("Image Cropper", "/admin/image-cropper", Icons.calendar),
+        getItem("Radio & Checkbox", "/admin/radio-checkbox", Icons.calendar),
+        getItem("Rating", "/admin/rating", Icons.calendar),
+      ]),
+      {
+        type: "divider",
+      },
     ],
     "group"
   ),
@@ -322,13 +332,26 @@ export const stylesheetsMenuItems = [
   getItem(
     "Icons",
     "Icons-group",
-    Icons.calendar,
+    null,
     [
       getItem("General Icons", "/stylesheets/general-icons", Icons.vector),
       getItem("Flag Icons", "/stylesheets/flag-icons", Icons.flag),
     ],
     "group"
   ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Map",
+    "Map-group",
+    Icons.calendar,
+    [getItem("Google Map", "/stylesheets/google-map", Icons.map)],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
 ];
 
 // Aside Admin Data
@@ -429,6 +452,16 @@ export const AdminMenuItems = [
         getItem("Add Invoice", "/admin/add-invoice", Icons.calendar),
       ]),
     ],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Blog",
+    "Blog-group",
+    Icons.calendar,
+    [getItem("Blog Add", "/admin/blog-add", Icons.calendar)],
     "group"
   ),
   {

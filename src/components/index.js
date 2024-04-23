@@ -1,6 +1,7 @@
 export * from "./HQAccordion";
 export * from "./HQAlert";
 export * from "./HQAvatar";
+export * from "./HQBadge";
 export * from "./HQBasicCard";
 export * from "./HQBreadcrumb";
 export * from "./HQButton";

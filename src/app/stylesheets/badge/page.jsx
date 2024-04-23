@@ -1,5 +1,6 @@
+"use client";
 import { HQBasicCard } from "@/components";
-import React from "react";
+import { HQStatusBadge } from "@/components/HQBadge";
 
 const Badge = () => {
   const topisInterested = [
@@ -32,12 +33,12 @@ const Badge = () => {
   return (
     <div>
       <div>
-        <HQBasicCard cardTitle={"Group Of Badge"}>
-          {/* <HQStatusBadge group customClass={""} data={topisInterested} /> */}
+        <HQBasicCard header cardTitle={"Group Of Badge"}>
+          <HQStatusBadge group customClass={""} data={topisInterested} />
         </HQBasicCard>
 
-        <HQBasicCard cardTitle={"Single Badge"}>
-          {/* <HQStatusBadge name="Animation" color="green" /> */}
+        <HQBasicCard header cardTitle={"Single Badge"}>
+          <HQStatusBadge name="Animation" color="green" />
         </HQBasicCard>
       </div>
     </div>

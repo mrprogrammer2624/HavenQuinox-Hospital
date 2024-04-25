@@ -314,11 +314,11 @@ export const stylesheetsMenuItems = [
       getItem("Accordion", "/stylesheets/accordion", Icons.calendar),
       getItem("Calendar", "/stylesheets/calendar", Icons.calendar),
       getItem("Form", "From-group", Icons.form, [
-        getItem("Input", "/admin/input", Icons.input),
-        getItem("Rating", "/admin/rating", Icons.star),
-        getItem("Image Cropper", "/admin/image-cropper", Icons.calendar),
-        getItem("Radio & Checkbox", "/admin/radio-checkbox", Icons.calendar),
-        getItem("Rating", "/admin/rating", Icons.calendar),
+        getItem("Input", "/stylesheets/input", Icons.input),
+        getItem("Rating", "/stylesheets/rating", Icons.star),
+        getItem("Image Cropper", "/stylesheets/image-cropper", Icons.calendar),
+        getItem("Radio & Checkbox", "/stylesheets/radio-checkbox", Icons.calendar),
+        getItem("Rating", "/stylesheets/rating", Icons.calendar),
       ]),
       {
         type: "divider",

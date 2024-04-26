@@ -1,3 +1,4 @@
+"use client"
 import { HQBasicCard } from "@/components";
 import { HQProgress } from "@/components/HQProgress";
 import styles from "../stylesheets.module.css";

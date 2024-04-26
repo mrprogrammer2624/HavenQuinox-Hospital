@@ -1,3 +1,4 @@
+"use client"
 import styles from "../stylesheets.module.css";
 import Image from "next/image";
 import { flagIconImgData } from "@/utility";

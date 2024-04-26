@@ -1,3 +1,4 @@
+"use client"
 import { HQBasicCard, HQButton, HQTooltip } from "@/components";
 import clsx from "clsx";
 import styles from "../stylesheets.module.css";

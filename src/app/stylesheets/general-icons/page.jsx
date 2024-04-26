@@ -1,3 +1,4 @@
+"use client"
 import { Icons } from "@/utility";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";

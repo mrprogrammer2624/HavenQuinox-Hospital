@@ -1,6 +1,6 @@
 import { Tabs } from "antd";
 import styles from "./HQTabs.module.css";
-export const AKTabs = ({ handleChange, items, centered, tabPosition }) => {
+export const HQTabs = ({ handleChange, items, centered, tabPosition }) => {
   return (
     <Tabs
       centered={centered}

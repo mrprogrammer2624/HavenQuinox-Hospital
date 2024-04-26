@@ -85,25 +85,124 @@
 }
 
 /* Popoav */
-.AKPopoverCardWrapper {
+.HQPopoverCardWrapper {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px;
 }
 
-.AKPopoverButton:global.ant-btn {
+.HQPopoverButton:global.ant-btn {
   background: var(--kingfisher);
   border-color: var(--kingfisher);
   color: var(--title-color);
 }
 
-.AKPopoverButton:global.ant-btn.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+.HQPopoverButton:global.ant-btn.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
   background: transparent;
   border-color: var(--kingfisher);
   color: var(--kingfisher);
 }
 
 /* tollTip */
-.AKTooltipCardWrapper {
+.HQTooltipCardWrapper {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px;
 }
+
+/* radio-checkbox */
+.checkboxCard {
+  height: 100%;
+}
+
+/* Rating */
+.AKRatingCardWrapper {
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 12px;
+}
+
+/* Inputs */
+.AKInputCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+}
+
+/* Switch */
+.HQSwitchCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 12px;
+}
+
+/* Date Picker */
+.AKDatePickerCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+}
+
+/* Counter */
+.AKCounterCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width:1279px) {
+
+  /* Switch */
+  .AKSwitchCardWrapper,
+  /* Rating */
+  .AKRatingCardWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (max-width:1199px) {
+
+  /* Date Picker */
+  .AKDatePickerCardWrapper,
+  /* Counter */
+  .AKCounterCardWrapper,
+  /* Inputs */
+  .AKInputCardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:991px) {
+
+  /* Switch */
+  .AKSwitchCardWrapper,
+  /* Rating */
+  .AKRatingCardWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width:767px) {
+
+  /* Counter */
+  .AKCounterCardWrapper,
+  /* Date Picker */
+  .AKDatePickerCardWrapper,
+  /* Rating */
+  .AKRatingCardWrapper,
+  /* Inputs */
+  .AKInputCardsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width:575px) {
+
+  /* Switch */
+  .AKSwitchCardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width:374px) {}

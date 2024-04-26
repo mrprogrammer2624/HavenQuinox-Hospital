@@ -5,6 +5,7 @@ export * from "./HQBadge";
 export * from "./HQBasicCard";
 export * from "./HQBreadcrumb";
 export * from "./HQButton";
+export * from "./HQForms";
 export * from "./HQHeader";
 export * from "./HQLoader";
 export * from "./HQModal";

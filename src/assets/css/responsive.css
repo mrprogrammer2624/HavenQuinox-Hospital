@@ -46,6 +46,14 @@
   :root {
     /* Fonts Size */
     --html: 9px;
+
+    /* Header Height */
+    --header-height: 90px;
+
+    /* Sidebar Width */
+    --sidebar-width: 240px;
+    --sidebar-width-collapsed: 70px;
+    --sidebar-trigger-height: 46px;
   }
 }
 
@@ -53,6 +61,14 @@
   :root {
     /* Fonts Size */
     --html: 8px;
+
+    /* Header Height */
+    --header-height: 80px;
+
+    /* Sidebar Width */
+    --sidebar-width: 210px;
+    --sidebar-width-collapsed: 60px;
+    --sidebar-trigger-height: 44px;
   }
 }
 

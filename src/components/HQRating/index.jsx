@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Rate } from "antd";
 import styles from "./HQRating.module.css";
-export const AKRating = ({
+export const HQRating = ({
   value,
   defaultValue,
   character,
@@ -9,7 +9,7 @@ export const AKRating = ({
   allowHalf,
   tooltips,
   handleChange,
-  AKRatingClassname,
+  HQRatingClassname,
   ...rest
 }) => {
   return (
@@ -21,7 +21,7 @@ export const AKRating = ({
       allowHalf={allowHalf}
       tooltips={tooltips}
       onChange={handleChange}
-      className={clsx(styles.HQRating, AKRatingClassname)}
+      className={clsx(styles.HQRating, HQRatingClassname)}
       {...rest}
     />
   );

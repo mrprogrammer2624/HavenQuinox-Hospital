@@ -1,0 +1,48 @@
+.HQClipBoardInput:global.ant-input-outlined {
+  border-color: var(--text-color);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  background-color: transparent;
+  color: var(--title-color);
+  border-radius: 6px;
+  line-height: 1;
+  min-height: 40px;
+}
+
+.HQClipBoardInput:global.ant-input-outlined::placeholder {
+  color: var(--title-color);
+}
+
+
+.HQClipBoardInput:global.ant-input-outlined:hover {
+  border-color: var(--kingfisher);
+  background: transparent;
+  color: var(--title-color);
+}
+
+.HQClipBoardInput:global.ant-input-outlined:focus,
+.HQClipBoardInput:global.ant-input-outlined:focus-within {
+  box-shadow: unset;
+}
+
+.HQClipBoardBtn:global.ant-btn-default {
+  background: var(--kingfisher);
+  border-color: var(--kingfisher);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  min-height: 40px;
+}
+
+.HQClipBoardBtn:global.ant-btn-default span {
+  font-size: 14px;
+}
+
+.HQClipBoardBtn:global.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+  background: transparent;
+  border-color: var(--kingfisher);
+  color: var(--kingfisher);
+}

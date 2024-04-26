@@ -115,13 +115,13 @@ const Modal = () => {
           id={"yourName"}
           label={"Enter Your Name:"}
           placeholder={"Enter your name"}
-          AKInputClassname="mb-5"
+          HQInputClassName="mb-5"
         />
         <HQInput
           id={"emailAddress"}
           label={"Enter your emaill:"}
           placeholder={"Enter your email"}
-          AKInputClassname="mb-5"
+          HQInputClassName="mb-5"
         /> */}
       </HQModal>
 

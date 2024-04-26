@@ -1,0 +1,13 @@
+.HQ-counter-reset-btn:global.ant-btn-fill.ant-btn {
+  background: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.HQ-counter-reset-btn:global.ant-btn-fill.ant-btn:hover {
+  box-shadow: var(--text-color) 0px 0px 20px;
+}
+
+.HQCounterValue {
+  font-size: 32px;
+  color: var(--title-color);
+}

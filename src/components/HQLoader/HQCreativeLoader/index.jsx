@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import styles from "./HQCreativeLoader.module.css";
 
-export const AKCreativeLoader = ({ size }) => {
+export const HQCreativeLoader = ({ size }) => {
   return (
     <>
       <div

@@ -4,7 +4,7 @@ import styles from "../stylesheets.module.css";
 
 const ToolTip = () => {
   return (
-    <div className={clsx(styles.AKTooltipCardWrapper, "grid")}>
+    <div className={clsx(styles.HQTooltipCardWrapper, "grid")}>
       <HQBasicCard header cardTitle="Basic Tooltip:">
         <HQTooltip title="Basic Tooltip" tooltipText="Basic Tooltip">
           <span className="title-color">Basic Tooltip</span>

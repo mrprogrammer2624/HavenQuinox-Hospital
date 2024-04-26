@@ -1,6 +1,6 @@
 import { HQButton } from "..";
 
-export const AKToasts = ({
+export const HQToasts = ({
   openNotification,
   contextHolder,
   toastButtonText,

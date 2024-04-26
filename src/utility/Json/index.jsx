@@ -284,6 +284,17 @@ export const accordionItems = [
   },
 ];
 
+export const themeModeItems = [
+  {
+    name: "Dark",
+    value: "Dark",
+  },
+  {
+    name: "Light",
+    value: "Light",
+  },
+];
+
 // Aside StyleSheets Data
 const getItem = (label, key, icon, children, type) => {
   return {
@@ -314,11 +325,14 @@ export const stylesheetsMenuItems = [
       getItem("Accordion", "/stylesheets/accordion", Icons.calendar),
       getItem("Calendar", "/stylesheets/calendar", Icons.calendar),
       getItem("Form", "From-group", Icons.form, [
-        getItem("Input", "/stylesheets/input", Icons.input),
-        getItem("Rating", "/stylesheets/rating", Icons.star),
-        getItem("Image Cropper", "/stylesheets/image-cropper", Icons.calendar),
-        getItem("Radio & Checkbox", "/stylesheets/radio-checkbox", Icons.calendar),
-        getItem("Rating", "/stylesheets/rating", Icons.calendar),
+        getItem("Input", "/stylesheets/input", null),
+        getItem("Rating", "/stylesheets/rating", null),
+        getItem("Radio & Checkbox", "/stylesheets/radio-checkbox", null),
+        getItem("Switch", "/stylesheets/switch", null),
+        getItem("Text-Editor", "/stylesheets/text-editor", null),
+        getItem("Date Picker", "/stylesheets/date-picker", null),
+        getItem("Counter", "/stylesheets/counter", null),
+        getItem("Clip Board", "/stylesheets/clip-board", null),
       ]),
       {
         type: "divider",

@@ -1,11 +1,10 @@
-"use client";
-import { HQBasicCard, HQTextEditor } from "@/components";
+import { HQBasicCard } from "@/components";
 
 const HQTextEditorPage = () => {
   return (
     <>
       <HQBasicCard header cardTitle="Basic Text Editor:">
-        <HQTextEditor />
+        {/* <HQTextEditor /> */}
       </HQBasicCard>
     </>
   );

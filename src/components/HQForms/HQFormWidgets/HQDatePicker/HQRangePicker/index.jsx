@@ -6,8 +6,8 @@ const { RangePicker } = DatePicker;
 export const HQRangePicker = ({
   id,
   label,
-  labelClassname,
-  HQRangePickerClassname,
+  labelClassName,
+  HQRangePickerClassName,
   handleChange,
   placeholder,
   suffixIcon,
@@ -19,7 +19,7 @@ export const HQRangePicker = ({
       {label && (
         <label
           htmlFor={id}
-          className={clsx(styles.HQRangePickerLabel, labelClassname)}
+          className={clsx(styles.HQRangePickerLabel, labelClassName)}
         >
           {label}
         </label>
@@ -30,7 +30,7 @@ export const HQRangePicker = ({
         status={status}
         // suffixIcon={suffixIcon}
         onChange={handleChange}
-        className={clsx(styles.HQRangePicker, HQRangePickerClassname)}
+        className={clsx(styles.HQRangePicker, HQRangePickerClassName)}
       />
       {status === "error" && errorMessage && (
         <p className="mb-0 mt-1 text-red">{errorMessage}</p>

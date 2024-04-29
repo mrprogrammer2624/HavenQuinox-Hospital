@@ -12,7 +12,7 @@ const HQClipBoardPage = () => {
           <HQClipBoard />
         </HQBasicCard>
         <HQBasicCard header cardTitle="Vertical Clip-board:">
-          <HQClipBoard HQClipBoardCardClassname={"flex-col"} />
+          <HQClipBoard HQClipBoardCardClassName={"flex-col"} />
         </HQBasicCard>
       </div>
     </>

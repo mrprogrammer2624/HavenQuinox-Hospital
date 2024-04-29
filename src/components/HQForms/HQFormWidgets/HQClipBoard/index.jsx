@@ -6,7 +6,7 @@ import styles from "./HQClipBoard.module.css";
 import clsx from "clsx";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { HQButton } from "@/components";
-export const HQClipBoard = ({ HQClipBoardCardClassname, HQInputClassName }) => {
+export const HQClipBoard = ({ HQClipBoardCardClassName, HQInputClassName }) => {
   const [textToCopy, setTextToCopy] = useState(""); // The text you want to copy
   const [copyStatus, setCopyStatus] = useState(false); // To indicate if the text was copied
 
@@ -23,7 +23,7 @@ export const HQClipBoard = ({ HQClipBoardCardClassname, HQInputClassName }) => {
 
   return (
     <>
-      <div className={clsx(HQClipBoardCardClassname, "flex gap-5")}>
+      <div className={clsx(HQClipBoardCardClassName, "flex gap-5")}>
         <div className="w-full">
           <Input
             value={textToCopy}

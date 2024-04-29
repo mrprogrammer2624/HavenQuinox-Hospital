@@ -4,14 +4,14 @@ import clsx from "clsx";
 export const HQBreadcrumb = ({
   items,
   separator,
-  HQBreadcrumbClassname,
+  HQBreadcrumbClassName,
   ...rest
 }) => {
   return (
     <Breadcrumb
       items={items}
       separator={separator}
-      className={clsx(styles.HQBreadcrumb, HQBreadcrumbClassname)}
+      className={clsx(styles.HQBreadcrumb, HQBreadcrumbClassName)}
       {...rest}
     />
   );

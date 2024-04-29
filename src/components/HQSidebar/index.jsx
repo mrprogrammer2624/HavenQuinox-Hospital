@@ -1,12 +1,15 @@
 "use client";
-import { Menu, Layout } from "antd";
-import Sider from "antd/es/layout/Sider";
 import styles from "./HQSidebar.module.css";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "@/contexts/ThemeProvider";
+import { Layout, Menu } from "antd";
 import clsx from "clsx";
+import Image from "next/image";
+import logo from "../../assets/images/logo/HavenQuinox.svg";
+
+const { Sider } = Layout;
 
 export const HQSidebar = ({
   handleSidebarCollapsed,
@@ -53,7 +56,7 @@ export const HQSidebar = ({
   }, []);
   return (
     <Sider
-      breHQpoint="xxl"
+      breakpoint="xxl"
       collapsible
       collapsed={collapsed}
       onCollapse={handleSidebarCollapsed}
@@ -75,7 +78,7 @@ export const HQSidebar = ({
     >
       <div className={styles.HQSidebarLogoWrapper}>
         <Link href={"/"} className={styles.HQSidebarLogo}>
-          Logo Here
+          <Image src={logo} alt="logo" width={100} height={100} />
         </Link>
       </div>
       <Menu

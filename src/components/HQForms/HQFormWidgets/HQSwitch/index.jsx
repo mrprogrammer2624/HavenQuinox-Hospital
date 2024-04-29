@@ -1,4 +1,3 @@
-
 import { Switch } from "antd";
 import styles from "./HQSwitch.module.css";
 import clsx from "clsx";

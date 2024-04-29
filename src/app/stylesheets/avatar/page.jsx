@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Col, Row } from "antd";
 import { HQAvatar, HQBasicCard } from "@/components";
 

@@ -5,8 +5,8 @@ import clsx from "clsx";
 export const HQDatePickerBasic = ({
   id,
   label,
-  labelClassname,
-  HQDatePickerClassname,
+  labelClassName,
+  HQDatePickerClassName,
   handleChange,
   placeholder,
   pickerType,
@@ -20,7 +20,7 @@ export const HQDatePickerBasic = ({
       {label && (
         <label
           htmlFor={id}
-          className={clsx(styles.HQRangePickerLabel, labelClassname)}
+          className={clsx(styles.HQRangePickerLabel, labelClassName)}
         >
           {label}
         </label>
@@ -30,7 +30,7 @@ export const HQDatePickerBasic = ({
         status={status}
         picker={pickerType}
         placeholder={placeholder}
-        className={clsx(styles.HQDatePickerBasic, HQDatePickerClassname)}
+        className={clsx(styles.HQDatePickerBasic, HQDatePickerClassName)}
         onChange={handleChange}
         // suffixIcon={suffixIcon}
         {...rest}

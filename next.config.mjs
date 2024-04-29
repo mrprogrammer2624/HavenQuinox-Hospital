@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // distDir: "dist",
-  // output: "export",
+  reactStrictMode: false,
+  distDir: "dist",
+  output: "export",
   images: {
+    unoptimized: false,
     domains: ["images.wsj.net", "picsum.photos"],
   },
   swcMinify: true,

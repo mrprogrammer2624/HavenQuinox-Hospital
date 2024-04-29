@@ -21,6 +21,9 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     document.querySelector("html").dataset.sidebarShow = sidebarToggle;
   }, [sidebarToggle]);
+  sidebarToggle === true
+    ? setHeaderPaddingLeft("75px")
+    : setHeaderPaddingLeft("20px");
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,12 +43,6 @@ export default function RootLayout({ children }) {
       window.removeEventListener("resize", handleResize);
     };
   }, [collapsed]);
-
-  useEffect(() => {
-    sidebarToggle === true
-      ? setHeaderPaddingLeft("75px")
-      : setHeaderPaddingLeft("20px");
-  }, [useContext]);
 
   return (
     <Suspense fallback={<p>Loading feed...</p>}>

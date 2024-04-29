@@ -7,7 +7,7 @@ export const HQPagination = ({
   size,
   handleChange,
   onShowSizeChange,
-  HQPaginationClassname,
+  HQPaginationClassName,
   ...rest
 }) => {
   return (
@@ -18,7 +18,7 @@ export const HQPagination = ({
         size={size}
         onChange={handleChange}
         onShowSizeChange={onShowSizeChange}
-        className={clsx(styles.HQPagination, HQPaginationClassname)}
+        className={clsx(styles.HQPagination, HQPaginationClassName)}
         {...rest}
       />
     </div>

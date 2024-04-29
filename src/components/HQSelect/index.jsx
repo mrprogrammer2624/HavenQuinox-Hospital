@@ -12,7 +12,7 @@ export const HQSelect = ({
   suffixIcon,
   label,
   id,
-  HQSelectLabelClassname,
+  HQSelectLabelClassName,
   variant = "outlined",
 }) => {
   return (
@@ -20,7 +20,7 @@ export const HQSelect = ({
       {label && (
         <label
           htmlFor={id}
-          className={clsx(styles.HQInputLabel, HQSelectLabelClassname)}
+          className={clsx(styles.HQInputLabel, HQSelectLabelClassName)}
         >
           {label}
         </label>

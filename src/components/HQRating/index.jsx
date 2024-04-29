@@ -9,7 +9,7 @@ export const HQRating = ({
   allowHalf,
   tooltips,
   handleChange,
-  HQRatingClassname,
+  HQRatingClassName,
   ...rest
 }) => {
   return (
@@ -21,7 +21,7 @@ export const HQRating = ({
       allowHalf={allowHalf}
       tooltips={tooltips}
       onChange={handleChange}
-      className={clsx(styles.HQRating, HQRatingClassname)}
+      className={clsx(styles.HQRating, HQRatingClassName)}
       {...rest}
     />
   );

@@ -3,7 +3,7 @@ import { HQBasicCard, HQSwitch } from "@/components";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const HQSwitchPage = () => {
+const SwitchPage = () => {
   return (
     <div>
       <h3 className="mb-5 title-color">Switch Types:</h3>
@@ -46,4 +46,4 @@ const HQSwitchPage = () => {
   );
 };
 
-export default HQSwitchPage;
+export default SwitchPage;

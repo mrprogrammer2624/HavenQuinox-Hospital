@@ -1,6 +1,6 @@
 import { HQBasicCard } from "@/components";
 
-const HQTextEditorPage = () => {
+const TextEditorPage = () => {
   return (
     <>
       <HQBasicCard header cardTitle="Basic Text Editor:">
@@ -10,4 +10,4 @@ const HQTextEditorPage = () => {
   );
 };
 
-export default HQTextEditorPage;
+export default TextEditorPage;

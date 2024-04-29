@@ -4,7 +4,7 @@ import { HQRadio, HQBasicCard, HQCheckBox } from "@/components";
 import styles from "../stylesheets.module.css";
 import { themeModeItems } from "@/utility";
 
-const HQCheckboxAndRadio = () => {
+const CheckboxAndRadioPage = () => {
   return (
     <div className="mb-3">
       <h3 className="mb-5 title-color">Radio Types:</h3>
@@ -205,4 +205,4 @@ const HQCheckboxAndRadio = () => {
     </div>
   );
 };
-export default HQCheckboxAndRadio;
+export default CheckboxAndRadioPage;

@@ -3,7 +3,7 @@ import { HQBasicCard, HQButton, HQPopover } from "@/components";
 import clsx from "clsx";
 import styles from "../stylesheets.module.css";
 
-const Popover = () => {
+const PopoverPage = () => {
   const content = (
     <div>
       <p>Content</p>
@@ -124,4 +124,4 @@ const Popover = () => {
   );
 };
 
-export default Popover;
+export default PopoverPage;

@@ -5,7 +5,7 @@ import { HQBasicCard, HQButton, HQModal } from "@/components";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const Modal = () => {
+const ModalPage = () => {
   // custom modal start
 
   const [isCustomModalOpen, setCustomModalOpen] = useState(false);
@@ -184,4 +184,4 @@ const Modal = () => {
     </div>
   );
 };
-export default Modal;
+export default ModalPage;

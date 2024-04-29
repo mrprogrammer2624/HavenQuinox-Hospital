@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 
-const GoogleMap = () => {
+const GoogleMapPage = () => {
   return <div>GoogleMap</div>;
 };
 
-export default GoogleMap;
+export default GoogleMapPage;

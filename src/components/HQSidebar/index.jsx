@@ -77,8 +77,17 @@ export const HQSidebar = ({
       {...rest}
     >
       <div className={styles.HQSidebarLogoWrapper}>
-        <Link href={"/"} className={styles.HQSidebarLogo}>
-          <Image src={logo} alt="logo" width={100} height={100} />
+        <Link
+          href={"/"}
+          className={clsx(styles.HQSidebarLogo, "w-full h-full")}
+        >
+          <Image
+            src={logo}
+            alt="logo"
+            className={"w-full h-full"}
+            width={100}
+            height={100}
+          />
         </Link>
       </div>
       <Menu

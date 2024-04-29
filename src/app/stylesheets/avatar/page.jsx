@@ -2,7 +2,7 @@
 import { Col, Row } from "antd";
 import { HQAvatar, HQBasicCard } from "@/components";
 
-const Avatar = () => {
+const AvatarPage = () => {
   const userData = [
     {
       bg: "red",
@@ -56,4 +56,4 @@ const Avatar = () => {
   );
 };
 
-export default Avatar;
+export default AvatarPage;

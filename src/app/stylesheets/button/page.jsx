@@ -3,7 +3,7 @@ import { HQBasicCard, HQButton } from "@/components";
 import clsx from "clsx";
 import styles from "../stylesheets.module.css";
 
-const Buttons = () => {
+const ButtonsPage = () => {
   return (
     <div className="flex flex-col gap-5">
       <h2>Buttons</h2>
@@ -54,4 +54,4 @@ const Buttons = () => {
   );
 };
 
-export default Buttons;
+export default ButtonsPage;

@@ -3,7 +3,7 @@ import { HQDatePickerBasic, HQRangePicker, HQBasicCard } from "@/components";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const HQDatePickerPage = () => {
+const DatePickerPage = () => {
   return (
     <div>
       <h3 className="mb-5 title-color">Date Picker Types:</h3>
@@ -64,4 +64,4 @@ const HQDatePickerPage = () => {
   );
 };
 
-export default HQDatePickerPage;
+export default DatePickerPage;

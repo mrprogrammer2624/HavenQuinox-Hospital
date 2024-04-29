@@ -1,8 +1,7 @@
 "use client";
 import { HQBasicCard } from "@/components";
-import { Col, Row } from "antd";
 
-const Typography = () => {
+const TypographyPage = () => {
   return (
     <div>
       <h2 className="title-color mb-5">Title in different level:</h2>
@@ -21,4 +20,4 @@ const Typography = () => {
   );
 };
 
-export default Typography;
+export default TypographyPage;

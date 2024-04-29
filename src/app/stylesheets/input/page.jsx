@@ -2,7 +2,7 @@
 import { HQInput, HQBasicCard } from "@/components";
 import styles from "../stylesheets.module.css";
 import { Icons } from "@/utility";
-const HQInputControls = () => {
+const InputControlsPage = () => {
   return (
     <>
       <div className="mb-5">
@@ -58,4 +58,4 @@ const HQInputControls = () => {
     </>
   );
 };
-export default HQInputControls;
+export default InputControlsPage;

@@ -1,5 +1,4 @@
-import { HQButton } from "..";
-
+import { HQButton } from "@/components";
 export const HQToasts = ({
   openNotification,
   contextHolder,

@@ -3,7 +3,7 @@ import { HQBasicCard, HQButton, HQTooltip } from "@/components";
 import clsx from "clsx";
 import styles from "../stylesheets.module.css";
 
-const ToolTip = () => {
+const ToolTipPage = () => {
   return (
     <div className={clsx(styles.HQTooltipCardWrapper, "grid")}>
       <HQBasicCard header cardTitle="Basic Tooltip:">
@@ -127,4 +127,4 @@ const ToolTip = () => {
   );
 };
 
-export default ToolTip;
+export default ToolTipPage;

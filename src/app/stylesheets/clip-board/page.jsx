@@ -3,7 +3,7 @@ import { HQBasicCard, HQClipBoard } from "@/components";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const HQClipBoardPage = () => {
+const ClipBoardPage = () => {
   return (
     <>
       <h3 className="mb-5 title-color">Clip-board Types:</h3>
@@ -19,4 +19,4 @@ const HQClipBoardPage = () => {
   );
 };
 
-export default HQClipBoardPage;
+export default ClipBoardPage;

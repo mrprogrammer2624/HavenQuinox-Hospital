@@ -2,7 +2,7 @@
 import { HQBasicCard } from "@/components";
 import { HQStatusBadge } from "@/components/HQBadge";
 
-const Badge = () => {
+const BadgePage = () => {
   const topisInterested = [
     {
       name: "UI Design",
@@ -45,4 +45,4 @@ const Badge = () => {
   );
 };
 
-export default Badge;
+export default BadgePage;

@@ -4,7 +4,7 @@ import { HQProgress } from "@/components/HQProgress";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const ProgressBar = () => {
+const ProgressBarPage = () => {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-5">
@@ -139,4 +139,4 @@ const ProgressBar = () => {
   );
 };
 
-export default ProgressBar;
+export default ProgressBarPage;

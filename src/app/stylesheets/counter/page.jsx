@@ -3,7 +3,7 @@ import { HQCounter, HQBasicCard } from "@/components";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const HQCounterPage = () => {
+const CounterPage = () => {
   return (
     <>
       <h3 className="mb-5 title-color">Counter Types:</h3>
@@ -19,4 +19,4 @@ const HQCounterPage = () => {
   );
 };
 
-export default HQCounterPage;
+export default CounterPage;

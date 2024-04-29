@@ -114,13 +114,13 @@
 }
 
 /* Rating */
-.AKRatingCardWrapper {
+.HQRatingCardWrapper {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 12px;
 }
 
 /* Inputs */
-.AKInputCardsContainer {
+.HQInputCardsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px;
@@ -134,17 +134,59 @@
 }
 
 /* Date Picker */
-.AKDatePickerCardWrapper {
+.HQDatePickerCardWrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px;
 }
 
 /* Counter */
-.AKCounterCardWrapper {
+.HQCounterCardWrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px
+}
+
+/* Pagination */
+.AKPaginationPageCardWrapper {
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 12px;
+}
+
+@media (max-width:991px) {
+  .AKPaginationPageCardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* BreadCranmb */
+.AKBreadcrumbCardWrapper {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+}
+
+@media (max-width:1279px) {
+  .AKBreadcrumbCardWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:991px) {
+  .AKBreadcrumbCardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Range Slider */
+.AKRangeSliderCard {
+  grid-template-columns: repeat(2, 50%);
+  grid-gap: 12px;
+}
+
+@media (max-width:991px) {
+  .AKRangeSliderCard {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /* RESPONSIVE STYLES */
@@ -152,9 +194,9 @@
 @media (max-width:1279px) {
 
   /* Switch */
-  .AKSwitchCardWrapper,
+  .HQSwitchCardWrapper,
   /* Rating */
-  .AKRatingCardWrapper {
+  .HQRatingCardWrapper {
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -163,11 +205,11 @@
 @media (max-width:1199px) {
 
   /* Date Picker */
-  .AKDatePickerCardWrapper,
+  .HQDatePickerCardWrapper,
   /* Counter */
-  .AKCounterCardWrapper,
+  .HQCounterCardWrapper,
   /* Inputs */
-  .AKInputCardsContainer {
+  .HQInputCardsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -175,9 +217,9 @@
 @media (max-width:991px) {
 
   /* Switch */
-  .AKSwitchCardWrapper,
+  .HQSwitchCardWrapper,
   /* Rating */
-  .AKRatingCardWrapper {
+  .HQRatingCardWrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -186,13 +228,13 @@
 @media (max-width:767px) {
 
   /* Counter */
-  .AKCounterCardWrapper,
+  .HQCounterCardWrapper,
   /* Date Picker */
-  .AKDatePickerCardWrapper,
+  .HQDatePickerCardWrapper,
   /* Rating */
-  .AKRatingCardWrapper,
+  .HQRatingCardWrapper,
   /* Inputs */
-  .AKInputCardsContainer {
+  .HQInputCardsContainer {
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -200,7 +242,7 @@
 @media (max-width:575px) {
 
   /* Switch */
-  .AKSwitchCardWrapper {
+  .HQSwitchCardWrapper {
     grid-template-columns: repeat(1, 1fr);
   }
 }

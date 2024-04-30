@@ -4,7 +4,7 @@ import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 import { HQColorsWrapper } from "@/utility";
 
-const HQColors = () => {
+const ColorsPage = () => {
   return (
     <div>
       <h2 className="title-color mb-5">Colors in different level:</h2>
@@ -36,4 +36,4 @@ const HQColors = () => {
   );
 };
 
-export default HQColors;
+export default ColorsPage;

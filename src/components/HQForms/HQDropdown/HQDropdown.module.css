@@ -1,0 +1,23 @@
+.HQDropzone:global.ant-upload-wrapper .ant-upload-drag {
+  border: 1px dashed var(--text-color);
+  background: rgba(var(--kingfisher-rgb), 0.1);
+}
+
+.HQDropzone:global.ant-upload-wrapper .ant-upload-drag:not(.ant-upload-disabled):hover,
+.HQDropzone:global.ant-upload-wrapper.ant-upload-drag-hover:not(.ant-upload-disabled) {
+  border-color: var(--kingfisher);
+}
+
+.HQDropzone:global.ant-upload-wrapper .ant-upload-drag .ant-upload-text {
+  color: var(--title-color);
+}
+
+.HQDropzone:global.ant-upload-wrapper .ant-upload-drag .ant-upload-hint {
+  color: var(--text-color);
+}
+
+.HQDropzone:global.ant-upload-wrapper .ant-upload-drag .inbox-icon {
+  width: 50px;
+  height: 50px;
+  color: var(--kingfisher);
+}

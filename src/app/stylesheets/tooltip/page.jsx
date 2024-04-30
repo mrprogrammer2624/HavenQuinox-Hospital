@@ -1,10 +1,11 @@
+"use client"
 import { HQBasicCard, HQButton, HQTooltip } from "@/components";
 import clsx from "clsx";
 import styles from "../stylesheets.module.css";
 
-const ToolTip = () => {
+const ToolTipPage = () => {
   return (
-    <div className={clsx(styles.AKTooltipCardWrapper, "grid")}>
+    <div className={clsx(styles.HQTooltipCardWrapper, "grid")}>
       <HQBasicCard header cardTitle="Basic Tooltip:">
         <HQTooltip title="Basic Tooltip" tooltipText="Basic Tooltip">
           <span className="title-color">Basic Tooltip</span>
@@ -126,4 +127,4 @@ const ToolTip = () => {
   );
 };
 
-export default ToolTip;
+export default ToolTipPage;

@@ -251,7 +251,6 @@ export const accordionItems = [
     label: "This is panel header 1",
     children: (
       <p>
-        {" "}
         A dog is a type of domesticated animal. Known for its loyalty and
         faithfulness, it can be found as a welcome guest in many households
         across the world.
@@ -263,7 +262,6 @@ export const accordionItems = [
     label: "This is panel header 2",
     children: (
       <p>
-        {" "}
         A dog is a type of domesticated animal. Known for its loyalty and
         faithfulness, it can be found as a welcome guest in many households
         across the world.
@@ -275,11 +273,178 @@ export const accordionItems = [
     label: "This is panel header 3",
     children: (
       <p>
-        {" "}
         A dog is a type of domesticated animal. Known for its loyalty and
         faithfulness, it can be found as a welcome guest in many households
         across the world.
       </p>
+    ),
+  },
+];
+
+export const themeModeItems = [
+  {
+    name: "Dark",
+    value: "Dark",
+  },
+  {
+    name: "Light",
+    value: "Light",
+  },
+];
+
+// Drop Items
+export const simpleDropDownItems = [
+  {
+    key: "1",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/">
+        1st menu item
+      </a>
+    ),
+  },
+  {
+    key: "2",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/">
+        2nd menu item
+      </a>
+    ),
+  },
+  {
+    key: "3",
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href="/">
+        3rd menu item
+      </a>
+    ),
+  },
+];
+
+export const userDropItems = [
+  {
+    key: "1",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.antgroup.com"
+      >
+        profile
+      </a>
+    ),
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"></path>
+      </svg>
+    ),
+  },
+  {
+    key: "2",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.aliyun.com"
+      >
+        inbox
+      </a>
+    ),
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path>
+      </svg>
+    ),
+  },
+  {
+    key: "3",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.luohanacademy.com"
+      >
+        task manager
+      </a>
+    ),
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M19 4H5V20H19V4ZM3 2.9918C3 2.44405 3.44749 2 3.9985 2H19.9997C20.5519 2 20.9996 2.44772 20.9997 3L21 20.9925C21 21.5489 20.5551 22 20.0066 22H3.9934C3.44476 22 3 21.5447 3 21.0082V2.9918ZM11.2929 13.1213L15.5355 8.87868L16.9497 10.2929L11.2929 15.9497L7.40381 12.0607L8.81802 10.6464L11.2929 13.1213Z"></path>
+      </svg>
+    ),
+  },
+  {
+    key: "4",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.luohanacademy.com"
+      >
+        Settings
+      </a>
+    ),
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M12 1L21.5 6.5V17.5L12 23L2.5 17.5V6.5L12 1ZM12 3.311L4.5 7.65311V16.3469L12 20.689L19.5 16.3469V7.65311L12 3.311ZM12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12C16 14.2091 14.2091 16 12 16ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"></path>
+      </svg>
+    ),
+  },
+  {
+    key: "5",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.luohanacademy.com"
+      >
+        Support
+      </a>
+    ),
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M22 17.0022C21.999 19.8731 19.9816 22.2726 17.2872 22.8616L16.6492 20.9476C17.8532 20.7511 18.8765 20.0171 19.4649 19H17C15.8954 19 15 18.1046 15 17V13C15 11.8954 15.8954 11 17 11H19.9381C19.446 7.05369 16.0796 4 12 4C7.92038 4 4.55399 7.05369 4.06189 11H7C8.10457 11 9 11.8954 9 13V17C9 18.1046 8.10457 19 7 19H4C2.89543 19 2 18.1046 2 17V12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12V12.9987V13V17V17.0013V17.0022ZM20 17V13H17V17H20ZM4 13V17H7V13H4Z"></path>
+      </svg>
+    ),
+  },
+  {
+    key: "6",
+    label: (
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.luohanacademy.com"
+      >
+        Logout
+      </a>
+    ),
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M5 22C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V6H18V4H6V20H18V18H20V21C20 21.5523 19.5523 22 19 22H5ZM18 16V13H11V11H18V8L23 12L18 16Z"></path>
+      </svg>
     ),
   },
 ];
@@ -301,7 +466,7 @@ export const stylesheetsMenuItems = [
     "Ui Kits",
     Icons.calendar,
     [
-      getItem("Typography", "/stylesheets/typography", Icons.calendar),
+      getItem("Typography", "/stylesheets/typography", Icons.typography),
       getItem("Basic Color", "/stylesheets/basic-color", Icons.palette),
       getItem("Buttons", "/stylesheets/button", Icons.calendar),
       getItem("Avatars", "/stylesheets/avatar", Icons.user),
@@ -313,6 +478,26 @@ export const stylesheetsMenuItems = [
       getItem("Badge", "/stylesheets/badge", Icons.calendar),
       getItem("Accordion", "/stylesheets/accordion", Icons.calendar),
       getItem("Calendar", "/stylesheets/calendar", Icons.calendar),
+      getItem("Dropzone", "/stylesheets/dropzone", Icons.calendar),
+      getItem("Breadcrumb", "/stylesheets/breadcrumb", Icons.calendar),
+      getItem("Pagination", "/stylesheets/pagination", Icons.calendar),
+      getItem("Toast", "/stylesheets/toast", Icons.calendar),
+      getItem("Form", "From-group", Icons.form, [
+        getItem("Input", "/stylesheets/input", null),
+        getItem("Rating", "/stylesheets/rating", null),
+        getItem("Radio & Checkbox", "/stylesheets/radio-checkbox", null),
+        getItem("Switch", "/stylesheets/switch", null),
+        getItem("Text-Editor", "/stylesheets/text-editor", null),
+        getItem("Date Picker", "/stylesheets/date-picker", null),
+        getItem("Dropdown", "/stylesheets/dropdown", null),
+        getItem("Select", "/stylesheets/select", null),
+        getItem("Counter", "/stylesheets/counter", null),
+        getItem("Clip Board", "/stylesheets/clip-board", null),
+        getItem("Range slider", "/stylesheets/range-slider", null),
+      ]),
+      {
+        type: "divider",
+      },
     ],
     "group"
   ),
@@ -322,13 +507,26 @@ export const stylesheetsMenuItems = [
   getItem(
     "Icons",
     "Icons-group",
-    Icons.calendar,
+    null,
     [
       getItem("General Icons", "/stylesheets/general-icons", Icons.vector),
       getItem("Flag Icons", "/stylesheets/flag-icons", Icons.flag),
     ],
     "group"
   ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Map",
+    "Map-group",
+    Icons.calendar,
+    [getItem("Google Map", "/stylesheets/google-map", Icons.map)],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
 ];
 
 // Aside Admin Data
@@ -429,6 +627,16 @@ export const AdminMenuItems = [
         getItem("Add Invoice", "/admin/add-invoice", Icons.calendar),
       ]),
     ],
+    "group"
+  ),
+  {
+    type: "divider",
+  },
+  getItem(
+    "Blog",
+    "Blog-group",
+    Icons.calendar,
+    [getItem("Blog Add", "/admin/blog-add", Icons.calendar)],
     "group"
   ),
   {

@@ -1,17 +1,17 @@
 import { Breadcrumb } from "antd";
 import styles from "./HQBreadcrumb.module.css";
 import clsx from "clsx";
-export const AKBreadcrumb = ({
+export const HQBreadcrumb = ({
   items,
   separator,
-  AKBreadcrumbClassname,
+  HQBreadcrumbClassName,
   ...rest
 }) => {
   return (
     <Breadcrumb
       items={items}
       separator={separator}
-      className={clsx(styles.HQBreadcrumb, AKBreadcrumbClassname)}
+      className={clsx(styles.HQBreadcrumb, HQBreadcrumbClassName)}
       {...rest}
     />
   );

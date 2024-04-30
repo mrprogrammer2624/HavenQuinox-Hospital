@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Select } from "antd";
 import styles from "./HQSelect.module.css";
-export const AKSelect = ({
+export const HQSelect = ({
   defaultValue,
   handleChange,
   isOpen,
@@ -12,7 +12,7 @@ export const AKSelect = ({
   suffixIcon,
   label,
   id,
-  AKSelectLabelClassname,
+  HQSelectLabelClassName,
   variant = "outlined",
 }) => {
   return (
@@ -20,7 +20,7 @@ export const AKSelect = ({
       {label && (
         <label
           htmlFor={id}
-          className={clsx(styles.HQInputLabel, AKSelectLabelClassname)}
+          className={clsx(styles.HQInputLabel, HQSelectLabelClassName)}
         >
           {label}
         </label>

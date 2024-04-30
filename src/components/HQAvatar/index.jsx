@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { Avatar } from "antd";
 import styles from "./HQAvatar.module.css";

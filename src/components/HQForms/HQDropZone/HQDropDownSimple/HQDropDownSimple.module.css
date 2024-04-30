@@ -1,0 +1,77 @@
+.dropDwn {
+    font-size: 16px;
+    color: var(--title-color);
+    box-shadow: unset;
+    padding: 10px 16px;
+    border-radius: 6px;
+    display: inline-flex;
+    border: 1px solid;
+    border-color: var(--kingfisher);
+    background-color: var(--kingfisher);
+    text-transform: capitalize;
+}
+
+.dropDwn.label {
+    background-color: transparent;
+    border-color: var(--kingfisher);
+    color: var(--kingfisher);
+}
+
+.dropDwn.textOnly {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.customDropdown:global.ant-dropdown .ant-dropdown-menu {
+    background-color: var(--parrot);
+}
+
+.customDropdown:global.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+    color: var(--title-color);
+    padding: 10px 24px;
+    text-transform: capitalize;
+}
+
+.customDropdown:global.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-title-content {
+    font-size: 16px;
+}
+
+.customDropdown:global.ant-dropdown .ant-dropdown-menu-item.ant-dropdown-menu-item-active {
+    color: var(--white);
+}
+
+.dropDwn:global.ant-dropdown-trigger.ant-dropdown-open {
+    color: var(--title-color);
+}
+
+.dropDwn.label:global.ant-dropdown-trigger.ant-dropdown-open {
+    color: var(--kingfisher);
+}
+
+
+.dropDwn.text:global.ant-dropdown-trigger.ant-dropdown-open {
+    color: var(--swifts);
+}
+
+.customDropdown:global.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item:hover,
+.customDropdown:global.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item-active {
+    background-color: var(--swifts);
+    color: var(--kingfisher);
+}
+
+.dropDwn :global .ant-space-item:last-child svg {
+    height: 14px;
+    width: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* RESPONSIVE STYLES START */
+
+@media (max-width:767px) {
+    .dropDwn {
+        padding: 10px;
+    }
+}

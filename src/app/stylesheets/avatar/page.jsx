@@ -1,8 +1,8 @@
+"use client";
 import { Col, Row } from "antd";
-// import styles from "./HQAvatarPage.module.css";
 import { HQAvatar, HQBasicCard } from "@/components";
 
-const Avatar = () => {
+const AvatarPage = () => {
   const userData = [
     {
       bg: "red",
@@ -56,4 +56,4 @@ const Avatar = () => {
   );
 };
 
-export default Avatar;
+export default AvatarPage;

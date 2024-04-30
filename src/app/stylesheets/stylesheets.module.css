@@ -85,25 +85,166 @@
 }
 
 /* Popoav */
-.AKPopoverCardWrapper {
+.HQPopoverCardWrapper {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px;
 }
 
-.AKPopoverButton:global.ant-btn {
+.HQPopoverButton:global.ant-btn {
   background: var(--kingfisher);
   border-color: var(--kingfisher);
   color: var(--title-color);
 }
 
-.AKPopoverButton:global.ant-btn.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+.HQPopoverButton:global.ant-btn.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
   background: transparent;
   border-color: var(--kingfisher);
   color: var(--kingfisher);
 }
 
 /* tollTip */
-.AKTooltipCardWrapper {
+.HQTooltipCardWrapper {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px;
 }
+
+/* radio-checkbox */
+.checkboxCard {
+  height: 100%;
+}
+
+/* Rating */
+.HQRatingCardWrapper {
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 12px;
+}
+
+/* Inputs */
+.HQInputCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+}
+
+/* Switch */
+.HQSwitchCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 12px;
+}
+
+/* Date Picker */
+.HQDatePickerCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+}
+
+/* Counter */
+.HQCounterCardWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px
+}
+
+/* Pagination */
+.AKPaginationPageCardWrapper {
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 12px;
+}
+
+@media (max-width:991px) {
+  .AKPaginationPageCardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* BreadCranmb */
+.AKBreadcrumbCardWrapper {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+}
+
+@media (max-width:1279px) {
+  .AKBreadcrumbCardWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:991px) {
+  .AKBreadcrumbCardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Range Slider */
+.AKRangeSliderCard {
+  grid-template-columns: repeat(2, 50%);
+  grid-gap: 12px;
+}
+
+@media (max-width:991px) {
+  .AKRangeSliderCard {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width:1279px) {
+
+  /* Switch */
+  .HQSwitchCardWrapper,
+  /* Rating */
+  .HQRatingCardWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (max-width:1199px) {
+
+  /* Date Picker */
+  .HQDatePickerCardWrapper,
+  /* Counter */
+  .HQCounterCardWrapper,
+  /* Inputs */
+  .HQInputCardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:991px) {
+
+  /* Switch */
+  .HQSwitchCardWrapper,
+  /* Rating */
+  .HQRatingCardWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width:767px) {
+
+  /* Counter */
+  .HQCounterCardWrapper,
+  /* Date Picker */
+  .HQDatePickerCardWrapper,
+  /* Rating */
+  .HQRatingCardWrapper,
+  /* Inputs */
+  .HQInputCardsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width:575px) {
+
+  /* Switch */
+  .HQSwitchCardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width:374px) {}

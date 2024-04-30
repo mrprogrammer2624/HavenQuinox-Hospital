@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { HQAccordion, HQBasicCard } from "@/components";
 import { Icons, accordionItems } from "@/utility";
 
-const Accordion = () => {
+const AccordionPage = () => {
   return (
     <div className={clsx(styles.HQAccordionCardWrapper, "grid")}>
       <HQBasicCard header cardTitle="Basic Accordion:">
@@ -34,4 +34,4 @@ const Accordion = () => {
   );
 };
 
-export default Accordion;
+export default AccordionPage;

@@ -1,8 +1,9 @@
+"use client"
 import { Icons } from "@/utility";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const GeneralIcons = () => {
+const GeneralIconsPage = () => {
   return (
     <>
       <h3 className="mb-5 title-color">Icons:</h3>
@@ -39,4 +40,4 @@ const GeneralIcons = () => {
   );
 };
 
-export default GeneralIcons;
+export default GeneralIconsPage;

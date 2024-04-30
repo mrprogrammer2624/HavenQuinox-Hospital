@@ -1,7 +1,7 @@
 import { Tag } from "antd";
 import clsx from "clsx";
 import styles from "./HQTags.module.css";
-export const AKTags = ({ color, title, customClass, pills, icon }) => {
+export const HQTags = ({ color, title, customClass, pills, icon }) => {
   return (
     <Tag
       color={color}

@@ -1,6 +1,5 @@
-import { HQButton } from "..";
-
-export const AKToasts = ({
+import { HQButton } from "@/components";
+export const HQToasts = ({
   openNotification,
   contextHolder,
   toastButtonText,

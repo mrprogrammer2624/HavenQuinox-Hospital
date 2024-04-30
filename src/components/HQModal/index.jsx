@@ -1,5 +1,5 @@
-import React from 'react';
-import { Modal } from 'antd';
+import React from "react";
+import { Modal } from "antd";
 import styles from "./HQModal.module.css";
 export const HQModal = ({
   handleOk,
@@ -10,7 +10,7 @@ export const HQModal = ({
   closeIcon,
   customFooter,
   width,
-  centered = true
+  centered = true,
 }) => {
   return (
     <>
@@ -19,7 +19,7 @@ export const HQModal = ({
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
-        className={styles.modal}
+        ClassName={styles.modal}
         wrapClassName={styles.modalContainer}
         closeIcon={closeIcon}
         footer={customFooter}
@@ -29,5 +29,5 @@ export const HQModal = ({
         {children}
       </Modal>
     </>
-  )
-}
+  );
+};

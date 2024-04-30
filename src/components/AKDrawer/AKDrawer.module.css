@@ -1,0 +1,8 @@
+.AKDrawer:global.ant-drawer-content {
+    background: var(--parrot);
+}
+
+.AKDrawer :global .ant-drawer-close,
+.AKDrawer :global .ant-drawer-title {
+    color: var(--title-color);
+}

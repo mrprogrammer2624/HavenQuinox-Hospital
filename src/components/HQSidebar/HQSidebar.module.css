@@ -97,6 +97,15 @@
   align-items: center;
 }
 
-.HQSidebar :global .ant-menu-vertical .ant-menu-item svg{
+.HQSidebar :global .ant-menu-vertical .ant-menu-item svg {
   flex: 0 0 auto;
+}
+
+html[data-sidebar-show=false] .HQSidebarToggled.HQSidebar:global.ant-layout-sider {
+  transform: translate(-100%, 0);
+  min-height: inherit;
+}
+
+html[data-sidebar-show=true] .HQSidebarToggled.HQSidebar:global.ant-layout-sider {
+  min-height: 100vh;
 }

@@ -1,0 +1,9 @@
+.badge:global.ant-badge.ant-badge-status .ant-badge-status-text {
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.badge:global.ant-badge.ant-badge-status .ant-badge-status-dot {
+    width: 14px;
+    height: 14px;
+}

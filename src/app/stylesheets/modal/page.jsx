@@ -5,7 +5,7 @@ import { HQBasicCard, HQButton, HQModal } from "@/components";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
 
-const Modal = () => {
+const ModalPage = () => {
   // custom modal start
 
   const [isCustomModalOpen, setCustomModalOpen] = useState(false);
@@ -115,13 +115,13 @@ const Modal = () => {
           id={"yourName"}
           label={"Enter Your Name:"}
           placeholder={"Enter your name"}
-          AKInputClassname="mb-5"
+          HQInputClassName="mb-5"
         />
         <HQInput
           id={"emailAddress"}
           label={"Enter your emaill:"}
           placeholder={"Enter your email"}
-          AKInputClassname="mb-5"
+          HQInputClassName="mb-5"
         /> */}
       </HQModal>
 
@@ -184,4 +184,4 @@ const Modal = () => {
     </div>
   );
 };
-export default Modal;
+export default ModalPage;

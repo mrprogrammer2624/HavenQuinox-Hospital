@@ -1,8 +1,15 @@
-import { Menu } from "antd";
-import Sider from "antd/es/layout/Sider";
+"use client";
 import styles from "./HQSidebar.module.css";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "@/contexts/ThemeProvider";
+import { Layout, Menu } from "antd";
+import clsx from "clsx";
+import Image from "next/image";
+import logo from "../../assets/images/logo/HavenQuinox.svg";
+
+const { Sider } = Layout;
 
 export const HQSidebar = ({
   handleSidebarCollapsed,
@@ -10,7 +17,9 @@ export const HQSidebar = ({
   items,
   ...rest
 }) => {
+  const [marginLeft, setMarginLeft] = useState("var(--sidebar-width)");
   const router = useRouter();
+  const { sidebarToggleBtn, setHeaderPaddingLeft } = useContext(ThemeContext);
   let subMenuName = [];
   const pathname = usePathname();
 
@@ -20,9 +29,34 @@ export const HQSidebar = ({
   if (selectItem) {
     selectMenuItem.push(selectItem.key);
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1600) {
+        {
+          !collapsed
+            ? setMarginLeft("var(--sidebar-width)")
+            : setMarginLeft("var(--sidebar-width-collapsed)");
+        }
+      } else {
+        setMarginLeft(0);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [collapsed]);
+
+  useEffect(() => {
+    sidebarToggleBtn === true
+      ? setHeaderPaddingLeft("75px")
+      : setHeaderPaddingLeft("20px");
+  }, []);
   return (
     <Sider
-      breakpoint="lg"
+      breakpoint="xxl"
       collapsible
       collapsed={collapsed}
       onCollapse={handleSidebarCollapsed}
@@ -35,13 +69,25 @@ export const HQSidebar = ({
         bottom: 0,
       }}
       width={"var(--sidebar-width)"}
-      className={styles.HQSidebar}
+      className={clsx(
+        styles.HQSidebar,
+        sidebarToggleBtn && styles.HQSidebarToggled
+      )}
       collapsedWidth="var(--sidebar-width-collapsed)"
       {...rest}
     >
       <div className={styles.HQSidebarLogoWrapper}>
-        <Link href={"/"} className={styles.HQSidebarLogo}>
-          Logo Here
+        <Link
+          href={"/"}
+          className={clsx(styles.HQSidebarLogo, "w-full h-full")}
+        >
+          <Image
+            src={logo}
+            alt="logo"
+            className={"w-full h-full"}
+            width={100}
+            height={100}
+          />
         </Link>
       </div>
       <Menu

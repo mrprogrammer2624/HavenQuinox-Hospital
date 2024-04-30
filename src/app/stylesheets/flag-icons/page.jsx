@@ -1,9 +1,10 @@
+"use client"
 import styles from "../stylesheets.module.css";
 import Image from "next/image";
 import { flagIconImgData } from "@/utility";
 import clsx from "clsx";
 
-const HQFlagIcon = () => {
+const FlagIconPage = () => {
   return (
     <div>
       <h3 className="mb-5 title-color">Country Flags:</h3>
@@ -34,4 +35,4 @@ const HQFlagIcon = () => {
   );
 };
 
-export default HQFlagIcon;
+export default FlagIconPage;

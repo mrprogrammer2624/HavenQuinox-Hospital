@@ -2,7 +2,7 @@
 import { HQAlert, HQBasicCard } from "@/components";
 import styles from "../stylesheets.module.css";
 import clsx from "clsx";
-const Alert = () => {
+const AlertPage = () => {
   return (
     <div>
       <h2 className="title-color mb-5">Basic Alert : </h2>
@@ -116,4 +116,4 @@ const Alert = () => {
   );
 };
 
-export default Alert;
+export default AlertPage;

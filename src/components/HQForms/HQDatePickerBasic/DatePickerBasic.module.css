@@ -1,0 +1,59 @@
+.HQDatePickerBasic:global.ant-picker-outlined {
+  padding: 6px 12px;
+  background: transparent;
+  border-color: var(--text-color);
+  color: var(--title-color);
+  border-radius: 6px;
+  min-height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HQDatePickerBasic:global.ant-picker-outlined:focus,
+.HQDatePickerBasic:global.ant-picker-outlined:focus-within,
+.HQDatePickerBasic:global.ant-picker-outlined:hover {
+  border-color: var(--kingfisher);
+  box-shadow: unset;
+}
+
+.HQDatePickerBasic:global.ant-picker .ant-picker-input input {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.HQDatePickerBasic:global.ant-picker .ant-picker-input input::placeholder,
+.HQDatePickerBasic:global.ant-picker .ant-picker-clear,
+.HQDatePickerBasic:global.ant-picker .ant-picker-suffix,
+.HQDatePickerBasic:global.ant-picker-outlined .ant-picker-status-error:not(.ant-picker-disabled) .ant-picker-prefix,
+.HQDatePickerBasic:global.ant-picker-status-error:not(.ant-picker-disabled) .ant-picker-suffix {
+  color: var(--text-color);
+}
+
+.HQDatePickerBasic:global.ant-picker-outlined.ant-picker-status-error:not(.ant-picker-disabled) {
+  background-color: transparent;
+}
+
+.HQDatePickerBasic:global.ant-picker-outlined.ant-picker-status-error:not(.ant-picker-disabled):hover {
+  border-color: var(--clr-red);
+}
+
+.HQDatePickerBasic :global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-selected:not(.ant-picker-cell-disabled) .ant-picker-cell-inner,
+.HQDatePickerBasic :global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-disabled) .ant-picker-cell-inner,
+.HQDatePickerBasic :global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-disabled) .ant-picker-cell-inner {
+  background: var(--kingfisher);
+}
+
+.HQDatePickerBasic :global .ant-picker-dropdown .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border: 1px solid var(--kingfisher);
+}
+
+.HQRangePickerLabel {
+  color: var(--title-color);
+  margin-bottom: 4px;
+  display: block;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 15px;
+}

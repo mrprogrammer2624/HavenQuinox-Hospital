@@ -1,7 +1,0 @@
-.AKColorPicker:global.ant-color-picker-trigger {
-  border: 1px solid var(--kingfisher);
-}
-
-.AKColorPicker:global.ant-color-picker-trigger.ant-color-picker-trigger-active {
-  box-shadow: unset;
-}

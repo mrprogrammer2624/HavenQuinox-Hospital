@@ -1,0 +1,56 @@
+.AKRangeSlider:global.ant-slider .ant-slider-rail {
+  background-color: var(--text-color);
+}
+
+.AKRangeSlider:global.ant-slider .ant-slider-track {
+  background-color: var(--kingfisher);
+}
+
+.AKRangeSlider:global.ant-slider:hover .ant-slider-track {
+  background-color: rgba(var(--kingfisher-rgb), 0.7);
+}
+
+.AKRangeSlider:global.ant-slider .ant-slider-handle::after {
+  box-shadow: 0 0 0 2px var(--kingfisher);
+}
+
+.AKRangeSlider:global.ant-slider .ant-slider-handle:hover::after,
+.AKRangeSlider:global.ant-slider .ant-slider-handle:active::after,
+.AKRangeSlider:global.ant-slider .ant-slider-handle:focus::after {
+  box-shadow: 0 0 0 4px var(--kingfisher);
+}
+
+.AKRangeSlider:global.ant-slider .ant-slider-dot-active {
+  border-color: var(--kingfisher);
+}
+
+.AKRangeSlider:global.ant-slider .ant-slider-mark-text {
+  color: var(--text-color);
+}
+
+.AKRangeSlider:global.ant-slider .ant-slider-mark-text-active {
+  color: var(--title-color);
+}
+
+/* Slider Input */
+.AKSliderInputNumber:global.ant-input-number-outlined {
+  background: transparent;
+  border-color: var(--text-color);
+  width: 100%;
+  max-width: 80px;
+  text-align: center;
+}
+
+.AKSliderInputNumber:global.ant-input-number .ant-input-number-input {
+  color: var(--title-color);
+  text-align: center;
+}
+
+.AKSliderInputNumber:global.ant-input-number .ant-input-number-handler-wrap {
+  display: none;
+}
+
+.AKSliderInputNumber:global.ant-input-number:hover .ant-input-number-handler-wrap,
+.AKSliderInputNumber:global.ant-input-number-focused .ant-input-number-handler-wrap {
+  display: none;
+}

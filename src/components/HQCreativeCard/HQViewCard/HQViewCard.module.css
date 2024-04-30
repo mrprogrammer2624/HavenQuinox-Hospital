@@ -1,0 +1,99 @@
+.iconContainer {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #845ADF;
+    color: #ffffff;
+}
+
+.iconContainer svg {
+    width: 100%;
+    height: 100%;
+}
+
+.purpleBg {
+    background-color: #845ADF;
+    color: #ffffff;
+}
+
+.skyBlueBg {
+    background-color: #23B7E5;
+    color: #ffffff;
+}
+
+.greenBg {
+    background-color: green;
+    color: #ffffff;
+}
+
+.orangeBg {
+    background-color: #E6533C;
+    color: #ffffff;
+}
+
+.pinkBg {
+    background-color: #FF0A9E;
+    color: var(--white);
+}
+
+.yellowBg {
+    background-color: #FCE220;
+    color: var(--white);
+}
+
+.pinkColor {
+    color: #FF0A9E;
+}
+
+.yellowColor {
+    color: #FCE220;
+}
+
+.purpleColor {
+    color: #845ADF;
+}
+
+.skyBlueColor {
+    color: #23B7E5;
+}
+
+.greenColor {
+    color: green;
+}
+
+.orangeColor {
+    color: #E6533C;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width:1799px) {
+    .iconContainer {
+        width: 45px;
+        height: 45px;
+        padding: 8px;
+        border-radius: 4px;
+    }
+}
+
+@media (max-width:1599px) {
+    .iconContainer {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media (max-width:1399px) {
+    .iconContainer {
+        width: 38px;
+        height: 38px;
+    }
+
+}

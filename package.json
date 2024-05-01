@@ -11,6 +11,7 @@
   "dependencies": {
     "antd": "^5.16.1",
     "antd-css-utilities": "^2.0.5",
+    "axios": "^1.6.8",
     "chart.js": "^4.4.2",
     "clsx": "^2.1.0",
     "iconsax-react": "^0.0.8",

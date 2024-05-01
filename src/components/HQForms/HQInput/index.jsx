@@ -13,6 +13,7 @@ export const HQInput = ({
   status,
   errorMessage,
   prefix,
+  ...rest
 }) => {
   return (
     <div className={HQInputContainerClassName}>
@@ -31,6 +32,7 @@ export const HQInput = ({
         placeholder={placeholder}
         className={clsx(styles.HQInput, HQInputClassName)}
         prefix={prefix}
+        {...rest}
       />
       {status === "error" && errorMessage && (
         <p className="mb-0 mt-1 text-red">{errorMessage}</p>

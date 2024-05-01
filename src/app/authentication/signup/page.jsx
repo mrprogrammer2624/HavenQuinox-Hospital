@@ -23,16 +23,14 @@ const SignUpForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
-    console.log(...user);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Hwllo");
-      setLoading(true);
+      setLoading(false);
       await axios.post("../../api/authentication/signup", user);
-      router.push("login");
+      router.push("/login");
     } catch (error) {
       console.log(error.message);
     } finally {
@@ -68,7 +66,7 @@ const SignUpForm = () => {
             Name
           </label>
           <HQInput
-            type="text"
+            type="primary"
             id="name"
             name="name"
             className="w-full border-2 border-gray-200 p-3 rounded outline-none text-black focus:border-purple-500"
@@ -116,7 +114,8 @@ const SignUpForm = () => {
         </div>
 
         <HQButton
-          type="submit"
+          type="primary"
+          htmlType="submit"
           className={clsx(
             "block w-full bg-yellow-400  hover:bg-yellow-300 p-4 rounded text-yellow-900 hover:text-yellow-800 transition duration-300",
             buttonDisabled ? "pointer-events-none" : "pointer-events-auto"

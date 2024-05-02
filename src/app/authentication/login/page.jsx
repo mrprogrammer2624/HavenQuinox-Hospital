@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -46,7 +47,7 @@ const LoginForm = () => {
 
   return (
     <>
-      {loading && <Loading />}
+      {/* {loading && <Loading />} */}
       <section
         className={clsx(
           "h-dvh authentication-bg bg-no-repeat bg-cover flex items-center justify-center"
@@ -92,9 +93,9 @@ const LoginForm = () => {
               </div>
               <div className="flex flex-col gap-2 text-center">
                 <HQButton
-                  type="submit"
-                  variant={"primary"}
-                  disabled={buttonDisabled === true ? true : false}
+                  type="primary"
+                  htmlType="submit"
+                  // disabled={buttonDisabled === true ? true : false}
                 >
                   Sign Up
                 </HQButton>

@@ -42,7 +42,7 @@ export async function POST(request) {
     const tokenData = {
       id: existingUser._id,
       name: existingUser.name,
-      email: existingUser.loginPassword,
+      email: existingUser.email,
       isAdmin: existingUser.isAdmin,
     };
 

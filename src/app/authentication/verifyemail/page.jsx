@@ -1,7 +1,6 @@
 "use client";
-import { Button } from "@/components";
+import { HQButton } from "@/components";
 import axios from "axios";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -14,7 +13,9 @@ const VerifyEmail = () => {
 
   const verifyUserEmail = async () => {
     try {
-      let test = await axios.post("../../api/authentication/verifyemail", { token });
+      let test = await axios.post("../../api/authentication/verifyemail", {
+        token,
+      });
 
       setVerify(true);
     } catch (error) {
@@ -39,17 +40,17 @@ const VerifyEmail = () => {
       {verify && (
         <div>
           <h2>Your Email Is Verify</h2>
-          <Button variant={"primary"} handleChange={() => route.push("login")}>
+          <HQButton variant={"primary"} handleClick={() => route.push("login")}>
             Login
-          </Button>
+          </HQButton>
         </div>
       )}
       {error && (
         <div>
           <h2>Error</h2>
-          <Button variant={"primary"} handleChange={() => route.push("login")}>
+          <HQButton variant={"primary"} handleClick={() => route.push("login")}>
             Login
-          </Button>
+          </HQButton>
         </div>
       )}
     </div>

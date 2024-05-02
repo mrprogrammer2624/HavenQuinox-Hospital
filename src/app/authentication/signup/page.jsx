@@ -30,7 +30,7 @@ const SignUpForm = () => {
     try {
       setLoading(false);
       await axios.post("../../api/authentication/signup", user);
-      router.push("/login");
+      router.push("/authentication/login");
     } catch (error) {
       console.log(error.message);
     } finally {

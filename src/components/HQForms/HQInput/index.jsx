@@ -5,6 +5,7 @@ import clsx from "clsx";
 export const HQInput = ({
   HQInputClassName,
   placeholder,
+  handleChange,
   label,
   id,
   HQInputLabelClassName,
@@ -32,6 +33,7 @@ export const HQInput = ({
         placeholder={placeholder}
         className={clsx(styles.HQInput, HQInputClassName)}
         prefix={prefix}
+        onChange={handleChange}
         {...rest}
       />
       {status === "error" && errorMessage && (

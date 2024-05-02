@@ -77,7 +77,7 @@ export const HQImageCard = ({
                 <HQButton
                   customClass="mt-4"
                   type="fill"
-                  handleChange={() => console.log("handleChange")}
+                  handleClick={() => console.log("handleChange")}
                   size={"small"}
                   block={block}
                   link={link}

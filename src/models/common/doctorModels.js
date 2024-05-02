@@ -1,24 +1,23 @@
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 
-// const contactUsSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: [true, "Please provide a name"],
-//     unique: false,
-//   },
-//   email: {
-//     type: String,
-//     required: [true, "Please provide an email"],
-//     unique: false,
-//   },
-//   explanation: {
-//     type: String,
-//     required: [true, "Please provide an explanation"],
-//     unique: false,
-//   },
-// });
+const doctorSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Please provide a name"],
+    unique: false,
+  },
+  email: {
+    type: String,
+    required: [true, "Please provide an email"],
+    unique: false,
+  },
+  explanation: {
+    type: String,
+    required: [true, "Please provide an explanation"],
+    unique: false,
+  },
+});
 
-// const ContactUs =
-//   mongoose.models.ContactUs || mongoose.model("ContactUs", contactUsSchema);
+const Doctor = mongoose.models.Doctor || mongoose.model("Doctor", doctorSchema);
 
-// export default ContactUs;
+export default Doctor;

@@ -3,7 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import styles from "./HQHeader.module.css";
 import clsx from "clsx";
 import { ThemeContext } from "@/contexts/ThemeProvider";
-import { HQButton } from "..";
+import { HQButton, HQDropDownImg } from "../";
+import { userDropItems } from "@/utility";
+import { useSession, signOut } from "next-auth/react";
 
 export const HQHeader = () => {
   const {
@@ -14,6 +16,7 @@ export const HQHeader = () => {
     headerPaddingLeft,
   } = useContext(ThemeContext);
   const [isActive, setIsActive] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     if (isActive) {
@@ -75,6 +78,9 @@ export const HQHeader = () => {
                 </HQButton>
               )}
             </div>
+          </div>
+          <div>
+            <HQDropDownImg name={session.user.name} items={userDropItems} />
           </div>
         </div>
       </header>

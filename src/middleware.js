@@ -15,7 +15,9 @@ export function middleware(request) {
     path === "/authentication/signup" ||
     path === "/authentication/verifyemail";
 
-  const auth = request.cookies.get("auth")?.value || "";
+  const auth =
+    request.cookies.get("next-auth.session-token")?.value ||
+    request.cookies.get("auth")?.value || "";
 
   if (isPublicPath && auth) {
     return NextResponse.redirect(new URL("/", request.nextUrl));

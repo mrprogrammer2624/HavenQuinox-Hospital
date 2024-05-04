@@ -20,6 +20,12 @@ import Vietnam from "./flags/vietnam.png";
 import Singapore from "./flags/singapore.png";
 import Kenya from "./flags/kenya.png";
 
+// AUTHENTICATION
+import Faq from "./authentication/faq.png";
+import Login from "./authentication/login.png";
+import Otp from "./authentication/otp.png";
+import Password from "./authentication/password.png";
+
 export {
   // Flags
   America,
@@ -42,4 +48,9 @@ export {
   Vietnam,
   Singapore,
   Kenya,
+  // AUTHENTICATION
+  Faq,
+  Login,
+  Otp,
+  Password,
 };

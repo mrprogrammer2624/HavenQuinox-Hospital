@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+import { signIn } from "next-auth/react";
 
-const authentication = () => {
-  return <div>authentication</div>;
-};
-
-export default authentication;
+export default function Component() {
+  return (
+    <>
+      <button onClick={() => signIn("github")}>Sign in github</button>
+      <button onClick={() => signIn("google")}>Sign in google</button>
+    </>
+  );
+}

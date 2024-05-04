@@ -1,11 +1,13 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
+import clsx from "clsx";
+import { Col, Row } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import clsx from "clsx";
 import { HQButton, HQInput, Loading } from "@/components";
+import styles from "../authentication.module.css";
+import { Icons } from "@/utility";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -18,6 +20,7 @@ const LoginForm = () => {
   const [buttonDisabled, setButtonDisabled] = useState(false);
   // Set Loading State
   const [loading, setLoading] = useState(false);
+  const [buttonLoader, setButtonLoader] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,13 +30,15 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setLoading(true);
-      const response = await axios.post("../../api/authentication/login", user);
+      // setLoading(true);
+      setButtonLoader(true);
+      await axios.post("../../api/authentication/login", user);
       router.push("/");
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
+      // setLoading(false);
+      setButtonLoader(false);
     }
   };
 
@@ -46,74 +51,81 @@ const LoginForm = () => {
   }, [user]);
 
   return (
-    <>
-      {/* {loading && <Loading />} */}
-      <section
-        className={clsx(
-          "h-dvh authentication-bg bg-no-repeat bg-cover flex items-center justify-center"
-        )}
-      >
-        <div className="container">
-          <form onSubmit={handleSubmit}>
-            <div className="max-w-[40%] mx-auto bg-white p-[3.5rem] flex flex-col gap-[2.6rem] rounded-3xl">
-              <div className="flex flex-col gap-[8px] text-center">
-                <Link href="/" className="text-secondary h1 font-semibold">
-                  MEGA.news
-                </Link>
-                <h2 className="font-medium leading-tight">Login Account</h2>
-              </div>
-              <div className="flex flex-col gap-5">
-                <HQInput
-                  type="email"
-                  label="Enter Your Email"
-                  value={user.email}
-                  id="loginEmail"
-                  name="loginEmail"
-                  handleChange={handleChange}
-                />
-                <HQInput
-                  type="password"
-                  label="Enter Your Password"
-                  value={user.password}
-                  id="loginPassword"
-                  name="loginPassword"
-                  handleChange={handleChange}
-                />
-                <div className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id="agree"
-                    name="agree"
-                    className="mr-2"
-                  />
-                  <label htmlFor="agree" className="text-gray-700 text-sm">
-                    Remember me
-                  </label>
-                </div>
-              </div>
-              <div className="flex flex-col gap-2 text-center">
-                <HQButton
-                  type="primary"
-                  htmlType="submit"
-                  // disabled={buttonDisabled === true ? true : false}
-                >
-                  Sign Up
-                </HQButton>
-                <h4>
-                  Don&apos;t have an account?
-                  <Link
-                    href="/authentication/signup"
-                    className="h5 text-red-600"
-                  >
-                    signup
-                  </Link>
-                </h4>
-              </div>
-            </div>
+    <div className={clsx(styles.authContent)}>
+      <Row gutter={[20, 20]}>
+        <Col xs={24} className="">
+          <h2 className="mb-1 title-color fw-700">Welcome To</h2>
+          <p className="mb-0 small text-color fw-400">
+            Please sign-in to your account and start the adventure
+          </p>
+        </Col>
+        <Col xs={24}>
+          <form onSubmit={handleSubmit} className="w-full flex flex-col gap-12">
+            <HQInput
+              type="email"
+              label="Enter Your Email"
+              value={user.email}
+              id="loginEmail"
+              name="loginEmail"
+              handleChange={handleChange}
+            />
+            <HQInput
+              type="password"
+              label="Enter Your Password"
+              value={user.password}
+              id="loginPassword"
+              name="loginPassword"
+              handleChange={handleChange}
+            />
+            <HQButton
+              type="default"
+              htmlType="submit"
+              block
+              loading={buttonLoader}
+              // disabled={buttonDisabled === true ? true : false}
+            >
+              Sign Up
+            </HQButton>
           </form>
-        </div>
-      </section>
-    </>
+        </Col>
+        <Col xs={24} className="">
+          <h3 className="title-color small text-center mx-auto fw-500">
+            New on our platform ?{" "}
+            <Link
+              className="text-kingfisher h3 small"
+              href="/authentication/signup"
+            >
+              Create an account
+            </Link>
+          </h3>
+        </Col>
+        <Col xs={24} className="">
+          <div className="flex items-center justify-center">
+            <Link
+              href="https://www.facebook.com"
+              target="_blank"
+              className="social-icons blue"
+            >
+              {Icons.facebook}
+            </Link>
+            <Link
+              href="https://google.com"
+              target="_blank"
+              className="social-icons red ml-3"
+            >
+              {Icons.google}
+            </Link>
+            <Link
+              href="https://twitter.com"
+              target="_blank"
+              className="social-icons white ml-3"
+            >
+              {Icons.twitter}
+            </Link>
+          </div>
+        </Col>
+      </Row>
+    </div>
   );
 };
 

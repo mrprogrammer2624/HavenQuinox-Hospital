@@ -16,6 +16,7 @@ const DropdownPage = () => {
       >
         <Col xs={24} lg={12}>
           <HQBasicCard
+            header
             cardTitle={"Primary Drop Down:"}
             customClass={styles.card}
             customCardBodyClass="flex flex-wrap gap-4"
@@ -25,6 +26,7 @@ const DropdownPage = () => {
         </Col>
         <Col xs={24} lg={12}>
           <HQBasicCard
+            header
             cardTitle={"Drop Down Direction:"}
             customClass={styles.card}
             customCardBodyClass="flex flex-wrap gap-5"
@@ -57,7 +59,7 @@ const DropdownPage = () => {
           </HQBasicCard>
         </Col>
         <Col xs={24} lg={12}>
-          <HQBasicCard cardTitle={"Label:"} customClass={styles.card}>
+          <HQBasicCard header cardTitle={"Label:"} customClass={styles.card}>
             <HQDropDownSimple
               title="Label Drop Down"
               label
@@ -67,6 +69,7 @@ const DropdownPage = () => {
         </Col>
         <Col xs={24} lg={12}>
           <HQBasicCard
+            header
             cardTitle={"Drop With Image:"}
             customClass="mb-5"
             className={styles.card}
@@ -76,6 +79,7 @@ const DropdownPage = () => {
         </Col>
         <Col xs={24} lg={12}>
           <HQBasicCard
+            header
             cardTitle={"Drop Down Text Only:"}
             customClass={styles.card}
             customCardBodyClass="flex flex-wrap gap-4"
@@ -89,6 +93,7 @@ const DropdownPage = () => {
         </Col>
         <Col xs={24} lg={12}>
           <HQBasicCard
+            header
             cardTitle={"Drop Down Icon Only:"}
             customClass={styles.card}
             customCardBodyClass="flex flex-wrap gap-4"

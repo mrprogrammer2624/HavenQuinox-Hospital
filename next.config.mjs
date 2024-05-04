@@ -5,7 +5,12 @@ const nextConfig = {
   // output: "export",
   images: {
     unoptimized: false,
-    domains: ["images.wsj.net", "picsum.photos", "i.pravatar.cc"],
+    domains: [
+      "images.wsj.net",
+      "picsum.photos",
+      "i.pravatar.cc",
+      "avatars.githubusercontent.com",
+    ],
   },
   swcMinify: true,
 };

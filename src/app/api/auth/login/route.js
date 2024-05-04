@@ -36,17 +36,16 @@ export async function POST(request) {
       });
     }
 
-    console.log("tokenData");
-
     // Create Token Data
     const tokenData = {
       id: existingUser._id,
       name: existingUser.name,
       email: existingUser.email,
       isAdmin: existingUser.isAdmin,
+      isDoctor: existingUser.isDoctor,
+      isReception: existingUser.isReception,
+      isPatient: existingUser.isPatient,
     };
-
-    console.log(tokenData);
 
     // Create Token (JWT)
     const token = jwt.sign(tokenData, process.env.TOKEN_SECRET, {

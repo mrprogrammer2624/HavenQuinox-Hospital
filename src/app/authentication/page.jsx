@@ -5,7 +5,7 @@ export default function Component() {
   return (
     <>
       <button onClick={() => signIn("github")}>Sign in github</button>
-      <button onClick={() => signIn("google")}>Sign in google</button>
+      <button onClick={() => signIn("facebook")}>Sign in facebook</button>
     </>
   );
 }

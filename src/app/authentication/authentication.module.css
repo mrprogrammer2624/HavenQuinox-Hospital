@@ -7,6 +7,19 @@
   height: 100%;
 }
 
+.authenticationTitle {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.authContentCol {
+  background-color: #F5F8FA;
+  padding: var(--spacing-xs) 18rem;
+}
+
+.label {
+  background-color: #F5F8FA;
+}
+
 .authCover {
   width: 100%;
   height: 100%;

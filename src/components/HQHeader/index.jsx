@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { ThemeContext } from "@/contexts/ThemeProvider";
 import { HQButton, HQDropDownImg } from "../";
 import { userDropItems } from "@/utility";
-import { useSession, signOut } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 
 export const HQHeader = () => {
   const {
@@ -16,7 +16,8 @@ export const HQHeader = () => {
     headerPaddingLeft,
   } = useContext(ThemeContext);
   const [isActive, setIsActive] = useState(false);
-  const { data: session } = useSession();
+  // const session = useSession();
+  // console.log(session.data.user.name);
 
   useEffect(() => {
     if (isActive) {
@@ -80,7 +81,10 @@ export const HQHeader = () => {
             </div>
           </div>
           <div>
-            <HQDropDownImg name={session.user.name} items={userDropItems} />
+            <HQDropDownImg
+              // image={session.data.user.image}
+              items={userDropItems}
+            />
           </div>
         </div>
       </header>

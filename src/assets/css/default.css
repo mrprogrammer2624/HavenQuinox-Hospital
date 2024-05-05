@@ -169,6 +169,15 @@ p.small {
   rotate: 180deg;
 }
 
+/* Link */
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--black);
+}
+
 /* Transition */
 .transition-all {
   transition: var(--transition-all);

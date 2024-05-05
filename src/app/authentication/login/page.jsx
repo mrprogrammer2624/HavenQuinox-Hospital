@@ -1,13 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import { Col, Row } from "antd";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { HQButton, HQInput, Loading } from "@/components";
+import { HQButton, HQInput, HQInputPassword, Loading } from "@/components";
 import styles from "../authentication.module.css";
-import { Icons } from "@/utility";
+import Link from "next/link";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -51,81 +49,50 @@ const LoginForm = () => {
   }, [user]);
 
   return (
-    <div className={clsx(styles.authContent)}>
-      <Row gutter={[20, 20]}>
-        <Col xs={24} className="">
-          <h2 className="mb-1 title-color fw-700">Welcome To</h2>
-          <p className="mb-0 small text-color fw-400">
-            Please sign-in to your account and start the adventure
-          </p>
-        </Col>
-        <Col xs={24}>
-          <form onSubmit={handleSubmit} className="w-full flex flex-col gap-12">
-            <HQInput
-              type="email"
-              label="Enter Your Email"
-              value={user.email}
-              id="loginEmail"
-              name="loginEmail"
-              handleChange={handleChange}
-            />
-            <HQInput
-              type="password"
-              label="Enter Your Password"
-              value={user.password}
-              id="loginPassword"
-              name="loginPassword"
-              handleChange={handleChange}
-            />
-            <HQButton
-              type="default"
-              htmlType="submit"
-              block
-              loading={buttonLoader}
-              // disabled={buttonDisabled === true ? true : false}
-            >
-              Sign Up
-            </HQButton>
-          </form>
-        </Col>
-        <Col xs={24} className="">
-          <h3 className="title-color small text-center mx-auto fw-500">
-            New on our platform ?{" "}
-            <Link
-              className="text-kingfisher h3 small"
-              href="/authentication/signup"
-            >
-              Create an account
-            </Link>
-          </h3>
-        </Col>
-        <Col xs={24} className="">
-          <div className="flex items-center justify-center">
-            <Link
-              href="https://www.facebook.com"
-              target="_blank"
-              className="social-icons blue"
-            >
-              {Icons.facebook}
-            </Link>
-            <Link
-              href="https://google.com"
-              target="_blank"
-              className="social-icons red ml-3"
-            >
-              {Icons.google}
-            </Link>
-            <Link
-              href="https://twitter.com"
-              target="_blank"
-              className="social-icons white ml-3"
-            >
-              {Icons.twitter}
-            </Link>
-          </div>
-        </Col>
-      </Row>
-    </div>
+    <>
+      <div className={clsx(styles.authenticationTitle, "w-full")}>
+        <h2 className="mb-1 title-color fw-700">Welcome Back!</h2>
+        <p className="mb-0 h5 fw-400 text-gray">
+          Please log in to your Haven Quinox Hospital Account to continue
+        </p>
+      </div>
+      <form onSubmit={handleSubmit} className="w-full">
+        <div className="flex flex-col gap-12">
+          <HQInput
+            type="email"
+            label="Enter Your Email"
+            placeholder="Enter Email"
+            HQInputLabelClassName={styles.label}
+            value={user.email}
+            id="loginEmail"
+            name="loginEmail"
+            handleChange={handleChange}
+          />
+          <HQInputPassword
+            type="password"
+            label="Enter Your Password"
+            HQInputLabelClassName={styles.label}
+            value={user.password}
+            id="loginPassword"
+            name="loginPassword"
+            handleChange={handleChange}
+            placeholder="Enter Password"
+          />
+        </div>
+        <Link href={""} className="my-2 flex justify-end">
+          Forgot Password?
+        </Link>
+        <HQButton type="default" htmlType="submit" block loading={buttonLoader}>
+          Login
+        </HQButton>
+      </form>
+      <div>
+        <p className="mt-3 h6 flex justify-center gap-3 items-center">
+          Don't Have A account?
+          <Link href={"/authentication/signup"}>Sign Up</Link>
+        </p>
+      </div>
+    </>
   );
 };
 

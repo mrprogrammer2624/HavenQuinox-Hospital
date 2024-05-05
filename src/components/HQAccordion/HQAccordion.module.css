@@ -1,6 +1,6 @@
 .HQAccordion:global.ant-collapse {
-  color: var(--title-color);
-  border: 1px solid var(--title-color);
+  color: var(--black-shades-80);
+  border: 1px solid var(--black-shades-80);
 }
 
 .HQAccordion:global.ant-collapse>.ant-collapse-item {
@@ -8,11 +8,16 @@
 }
 
 .HQAccordion:global.ant-collapse>.ant-collapse-item:not(:last-child) {
-  border-bottom: 1px solid var(--title-color);
+  border-bottom: 1px solid var(--black-shades-80);
+}
+
+.HQAccordion :global .ant-collapse .borderless-accordion .ant-collapse-item {
+  background-color: var(--primary);
 }
 
 .HQAccordion:global.ant-collapse .ant-collapse-item.ant-collapse-item-active>.ant-collapse-header {
-  background-color: var(--kingfisher);
+  background-color: var(--primary-shades-80);
+  color: var(--white);
 }
 
 .HQAccordion:global.ant-collapse .ant-collapse-item:first-child.ant-collapse-item-active>.ant-collapse-header {
@@ -20,7 +25,7 @@
 }
 
 .HQAccordion:global.ant-collapse>.ant-collapse-item>.ant-collapse-header {
-  color: var(--title-color);
+  color: var(--black-shades-80);
 }
 
 .HQAccordion:global.ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-header-text {
@@ -28,9 +33,9 @@
 }
 
 .HQAccordion:global.ant-collapse .ant-collapse-content {
-  color: var(--title-color);
+  color: var(--black-shades-80);
   background-color: transparent;
-  border-top: 1px solid var(--title-color);
+  border-top: 1px solid var(--black-shades-80);
 }
 
 /* Borderless Accordion */

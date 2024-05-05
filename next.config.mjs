@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  // distDir: "dist",
-  // output: "export",
+  distDir: "dist",
+  output: "export",
   images: {
     unoptimized: false,
     domains: [

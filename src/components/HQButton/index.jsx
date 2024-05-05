@@ -24,7 +24,7 @@ export const HQButton = ({
         borderSize == "md" ? styles.borderMd : styles.borderSm
       )}
       type={type}
-      onClick={link ? handleNavigate : handleClick}
+      onClick={handleClick}
       block={block}
       disabled={disabled}
       icon={icon}

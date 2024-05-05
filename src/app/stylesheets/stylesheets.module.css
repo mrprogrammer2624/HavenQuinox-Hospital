@@ -147,44 +147,62 @@
   grid-gap: 12px
 }
 
+/* Off canvas */
+.AKOffCanvasCardWrapper {
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 12px;
+}
+
+@media (max-width:991px) {
+  .AKOffCanvasCardWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width:767px) {
+  .AKOffCanvasCardWrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 /* Pagination */
-.AKPaginationPageCardWrapper {
+.HQPaginationPageCardWrapper {
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 12px;
 }
 
 @media (max-width:991px) {
-  .AKPaginationPageCardWrapper {
+  .HQPaginationPageCardWrapper {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
-/* BreadCranmb */
-.AKBreadcrumbCardWrapper {
+/* BreadCramp */
+.HQBreadcrumbCardWrapper {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 12px;
 }
 
 @media (max-width:1279px) {
-  .AKBreadcrumbCardWrapper {
+  .HQBreadcrumbCardWrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width:991px) {
-  .AKBreadcrumbCardWrapper {
+  .HQBreadcrumbCardWrapper {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 /* Range Slider */
-.AKRangeSliderCard {
+.HQRangeSliderCard {
   grid-template-columns: repeat(2, 50%);
   grid-gap: 12px;
 }
 
 @media (max-width:991px) {
-  .AKRangeSliderCard {
+  .HQRangeSliderCard {
     grid-template-columns: repeat(1, 1fr);
   }
 }

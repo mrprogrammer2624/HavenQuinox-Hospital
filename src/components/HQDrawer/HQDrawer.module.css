@@ -1,0 +1,8 @@
+.HQDrawer:global.ant-drawer-content {
+    background: var(--parrot);
+}
+
+.HQDrawer :global .ant-drawer-close,
+.HQDrawer :global .ant-drawer-title {
+    color: var(--title-color);
+}

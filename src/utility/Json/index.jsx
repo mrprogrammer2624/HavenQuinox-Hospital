@@ -449,6 +449,121 @@ export const userDropItems = [
   },
 ];
 
+// Card Data Design
+export const analyticsViewData = [
+  {
+    name: "Earnings",
+    value: "$33,200",
+    path: "/",
+    pathname: "View All",
+    bg: "purple",
+    icon: Icons.clock,
+  },
+  {
+    name: "Order ",
+    value: "2080",
+    path: "/",
+    pathname: "View All",
+    bg: "orange",
+    icon: Icons.dataBase,
+  },
+  {
+    name: "Team Members",
+    value: "800",
+    path: "/",
+    pathname: "View All",
+    bg: "skyblue",
+    icon: Icons.team,
+  },
+  {
+    name: "Profit",
+    value: "$ 9825",
+    path: "/",
+    pathname: "View All",
+    bg: "green",
+    icon: Icons.dollar,
+  },
+  {
+    name: "Projects",
+    value: "5000",
+    path: "/",
+    pathname: "View All",
+    bg: "pink",
+    icon: Icons.dataBaseTwo,
+  },
+  {
+    name: "Total Visitor",
+    value: "208",
+    path: "/",
+    pathname: "View All",
+    bg: "yellow",
+    icon: Icons.group,
+  },
+];
+
+export const analyticsProgressData = [
+  {
+    name: "Products Sold",
+    totalItems: "14,865",
+    percentage: 80,
+  },
+  {
+    name: "Customers",
+    totalItems: "22,456",
+    percentage: 50,
+  },
+  {
+    name: "Followers",
+    totalItems: "54,412",
+    percentage: 74,
+  },
+];
+
+export const recordsData = [
+  {
+    name: "Total Revenue",
+    description: "$236.18",
+    backgroundColor: "rgba(59, 130, 246, 0.2)",
+    color: "rgb(59, 130, 246)",
+    icon: Icons.revenue,
+  },
+  {
+    name: "Total Orders",
+    description: "11,220",
+    backgroundColor: "rgba(168, 85, 247, 0.2)",
+    color: "rgb(168, 85, 247)",
+    icon: Icons.box,
+  },
+  {
+    name: "Delivered",
+    description: "15,550",
+    backgroundColor: "rgba(36, 151, 130, 0.2)",
+    color: "rgb(36, 151, 130)",
+    icon: Icons.truck,
+  },
+  {
+    name: "Cancelled",
+    description: "4,266",
+    backgroundColor: "rgba(239, 68, 68, 0.2)",
+    color: "rgb(239, 68, 68)",
+    icon: Icons.box,
+  },
+  {
+    name: "Sales",
+    description: "2,365",
+    backgroundColor: "rgba(59, 130, 246, 0.2)",
+    color: "rgb(59, 130, 246)",
+    icon: Icons.shoppingCart,
+  },
+  {
+    name: "Total Visitor",
+    description: "3,400",
+    backgroundColor: "rgba(168, 85, 247, 0.2)",
+    color: "rgb(168, 85, 247)",
+    icon: Icons.team,
+  },
+];
+
 // Aside StyleSheets Data
 const getItem = (label, key, icon, children, type) => {
   return {
@@ -481,6 +596,8 @@ export const stylesheetsMenuItems = [
       getItem("Dropzone", "/stylesheets/dropzone", Icons.calendar),
       getItem("Breadcrumb", "/stylesheets/breadcrumb", Icons.calendar),
       getItem("Pagination", "/stylesheets/pagination", Icons.calendar),
+      getItem("Creative Card", "/stylesheets/creative-card", Icons.calendar),
+      getItem("OffCanvas", "/stylesheets/offcanvas", Icons.calendar),
       getItem("Toast", "/stylesheets/toast", Icons.calendar),
       getItem("Form", "From-group", Icons.form, [
         getItem("Input", "/stylesheets/input", null),

@@ -1,0 +1,21 @@
+.imgContainer {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    padding: 14px;
+    background-color: var(--kingfisher);
+    color: rgb(59, 130, 246);
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.imgContainer.imgContainerSm {
+    width: 52px;
+    height: 52px;
+}
+
+.imgContainer img,
+.imgContainer svg {
+    width: 100%;
+    object-fit: contain;
+}

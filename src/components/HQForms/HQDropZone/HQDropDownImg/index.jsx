@@ -2,7 +2,7 @@ import { Dropdown } from "antd";
 import styles from "./HQDropDownImg.module.css";
 import Image from "next/image";
 import clsx from "clsx";
-export const HQDropDownImg = ({ items }) => {
+export const HQDropDownImg = ({ items, name, image, email, imageAlt }) => {
   return (
     <Dropdown
       menu={{
@@ -15,19 +15,14 @@ export const HQDropDownImg = ({ items }) => {
     >
       <button className={clsx(styles.dropDwnButton, "flex gap-5")}>
         <div className={clsx(styles.dropdownImgContainer)}>
-          <Image
-            src="https://i.pravatar.cc"
-            width={100}
-            height={100}
-            alt="pravatar"
-          />
+          <Image src={image} width={100} height={100} alt={imageAlt} />
         </div>
         <div className={styles.dropDwnContent}>
           <div className={clsx(styles.dropDwnTitle, "block text-left mb-1")}>
-            Json Taylor
+            {name}
           </div>
           <div className={clsx(styles.dropDwnSubTitle, "block  text-left")}>
-            Web Designer
+            {email}
           </div>
         </div>
       </button>

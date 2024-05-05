@@ -20,6 +20,7 @@
   transition: var(--transition-all);
   z-index: 0;
   overflow: hidden;
+  min-height: 6rem;
 }
 
 /* Active Button Effect */

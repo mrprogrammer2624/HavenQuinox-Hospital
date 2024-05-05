@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import styles from "./HQHeader.module.css";
 import clsx from "clsx";
 import { ThemeContext } from "@/contexts/ThemeProvider";
-import { HQButton } from "..";
+import { HQButton, HQDropDownImg } from "../";
+import { userDropItems } from "@/utility";
 
 export const HQHeader = () => {
   const {
@@ -75,6 +76,12 @@ export const HQHeader = () => {
                 </HQButton>
               )}
             </div>
+          </div>
+          <div>
+            <HQDropDownImg
+              // image={session.data.user.image}
+              items={userDropItems}
+            />
           </div>
         </div>
       </header>

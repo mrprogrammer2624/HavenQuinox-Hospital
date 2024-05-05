@@ -1,0 +1,94 @@
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: var(--owl);
+    background-color: var(--owl);
+    box-shadow: 0 0.25px 1.25px var(--owl);
+}
+
+.cardImgContainer {
+    width: 100%;
+    padding-bottom: 88%;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardImgContainer div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cardImgContainer img,
+.cardImgContainer svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.cardImg {
+    transform: scale(1);
+    transition: 0.5s all;
+}
+
+.cardImg:hover {
+    transform: scale(1.1);
+}
+
+.cardBody {
+    padding: 15px 15px 22px 15px;
+    height: inherit;
+}
+
+.cardUserImgContainer {
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cardUserImgContainer svg,
+.cardUserImgContainer img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.cardImgContainerOverlay::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 30%);
+}
+
+@media (max-width:1799px) {
+
+    .card {
+        border-radius: 6px;
+    }
+}
+
+@media (max-width:1599px) {
+    .cardBody {
+        padding: 10px 10px 14px 10px;
+    }
+
+    .card {
+        border-radius: 4px;
+    }
+}
+
+@media (max-width:575px) {
+    .cardBody {
+        padding: 16px 10px 16px 10px;
+    }
+}

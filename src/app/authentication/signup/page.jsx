@@ -19,7 +19,6 @@ const SignUpForm = () => {
     name: "",
     email: "",
     password: "",
-    rePassword: "",
   });
 
   const handleChange = (e) => {
@@ -31,7 +30,7 @@ const SignUpForm = () => {
     e.preventDefault();
     try {
       setButtonLoader(true);
-      await axios.post("../../api/authentication/signup", user);
+      await axios.post("../../api/auth/signup", user);
       router.push("/authentication/login");
     } catch (error) {
       console.log(error.message);
@@ -80,7 +79,7 @@ const SignUpForm = () => {
             value={user.password}
             onChange={handleChange}
           />
-          <HQInputPassword
+          {/* <HQInputPassword
             type="password"
             id="ReenterPassword"
             name="ReenterPassword"
@@ -89,7 +88,7 @@ const SignUpForm = () => {
             HQInputLabelClassName={styles.label}
             value={user.rePassword}
             onChange={handleChange}
-          />
+          /> */}
         </div>
         <HQButton
           customClass={"mt-5"}

@@ -13,7 +13,7 @@ const VerifyEmail = () => {
 
   const verifyUserEmail = async () => {
     try {
-      let test = await axios.post("../../api/authentication/verifyemail", {
+      let test = await axios.post("../../api/auth/verifyemail", {
         token,
       });
 

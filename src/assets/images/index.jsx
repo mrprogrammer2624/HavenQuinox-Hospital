@@ -20,6 +20,9 @@ import Vietnam from "./flags/vietnam.png";
 import Singapore from "./flags/singapore.png";
 import Kenya from "./flags/kenya.png";
 
+// Cover
+import BagShowcase from "./cover/bag.jpg";
+
 // AUTHENTICATION
 import Authentication from "./authentication/authentication.svg";
 
@@ -47,4 +50,6 @@ export {
   Kenya,
   // AUTHENTICATION
   Authentication,
+  // cover
+  BagShowcase,
 };

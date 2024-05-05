@@ -30,7 +30,7 @@ const LoginForm = () => {
     try {
       // setLoading(true);
       setButtonLoader(true);
-      await axios.post("../../api/authentication/login", user);
+      await axios.post("../../api/auth/login", user);
       router.push("/");
     } catch (error) {
       console.log(error);

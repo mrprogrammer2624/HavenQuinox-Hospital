@@ -1,6 +1,6 @@
 "use client";
 import { Col, Row } from "antd";
-import { BagShowcase } from "@/assets/images/avatar/avatar-four.png";
+import { BagShowcase } from "@/assets/images";
 import {
   HQBasicCard,
   HQViewCard,

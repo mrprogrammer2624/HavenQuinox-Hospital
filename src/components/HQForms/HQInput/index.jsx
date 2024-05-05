@@ -17,7 +17,7 @@ export const HQInput = ({
   ...rest
 }) => {
   return (
-    <div className={clsx(HQInputContainerClassName, "relative")}>
+    <div className={clsx(HQInputContainerClassName, "relative w-full")}>
       {label && (
         <label
           htmlFor={id}
@@ -64,7 +64,7 @@ export const HQInputPassword = ({
   ...rest
 }) => {
   return (
-    <div className={clsx(HQInputContainerClassName, "relative")}>
+    <div className={clsx(HQInputContainerClassName, "relative w-full")}>
       {label && (
         <label
           htmlFor={id}

@@ -188,7 +188,7 @@ a:hover {
   min-height: inherit;
 }
 
-/* Componates */
+/* Components */
 .ant-tooltip {
   color: var(--title-color);
   --antd-arrow-background-color: var(--kingfisher);
@@ -259,4 +259,10 @@ a:hover {
 
 .social-icons.white:hover {
   background: rgba(59, 130, 246, 0.3);
+}
+
+/* Authentication */
+.authentication-right {
+  overflow: auto;
+  padding: 5rem 18rem;
 }

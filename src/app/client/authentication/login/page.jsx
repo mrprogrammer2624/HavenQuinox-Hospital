@@ -49,12 +49,9 @@ const LoginForm = () => {
   }, [user]);
 
   return (
-    <>
+    <div className="ma-auto w-full authentication-right">
       <div className={clsx(styles.authenticationTitle, "w-full")}>
-        <h2 className="mb-1 title-color fw-700">Welcome Back!</h2>
-        <p className="mb-0 h5 fw-400 text-gray">
-          Please log in to your Haven Quinox Hospital Account to continue
-        </p>
+        <h2 className="mb-1 title-color fw-700 text-center">Welcome Back!</h2>
       </div>
       <form onSubmit={handleSubmit} className="w-full">
         <div className="flex flex-col gap-12">
@@ -86,13 +83,7 @@ const LoginForm = () => {
           Login
         </HQButton>
       </form>
-      <div>
-        <p className="mt-3 h6 flex justify-center gap-3 items-center">
-          Don't Have A account?
-          <Link href={"/authentication/signup"}>Sign Up</Link>
-        </p>
-      </div>
-    </>
+    </div>
   );
 };
 

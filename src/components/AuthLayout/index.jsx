@@ -32,10 +32,7 @@ export const AuthLayout = ({ children }) => {
             xs={24}
             lg={24}
             xl={12}
-            className={clsx(
-              "flex items-center flex-col justify-center",
-              styles.authContentCol
-            )}
+            className={clsx("flex flex-col h-screen", styles.authContentCol)}
           >
             {children}
           </Col>

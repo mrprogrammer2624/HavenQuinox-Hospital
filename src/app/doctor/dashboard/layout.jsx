@@ -5,7 +5,7 @@ import { HQSidebar } from "@/components/HQSidebar";
 import { HQHeader } from "@/components/HQHeader";
 import { AdminMenuItems } from "@/utility";
 import { usePathname } from "next/navigation";
-import styles from "../admin.module.css";
+import styles from "../../admin/admin.module.css";
 
 export default function DashboardLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false);

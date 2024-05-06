@@ -1,23 +1,17 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
-import axios from "axios";
 import { HQButton, HQInput, HQInputPassword, Loading } from "@/components";
 import styles from "../authentication.module.css";
 import Link from "next/link";
+import { axiosApi } from "@/axiosApi";
 
 const LoginForm = () => {
-  const router = useRouter();
-
   const [user, setUser] = useState({
     loginEmail: "",
     loginPassword: "",
   });
 
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  // Set Loading State
-  const [loading, setLoading] = useState(false);
   const [buttonLoader, setButtonLoader] = useState(false);
 
   const handleChange = (e) => {
@@ -28,24 +22,25 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // setLoading(true);
       setButtonLoader(true);
-      await axios.post("../../api/auth/login", user);
-      router.push("/");
+      const response = await axiosApi({
+        method: "post",
+        url: "/admin/insertAdminData",
+        data: {
+          email: user.loginEmail,
+          password: user.loginPassword,
+        },
+      });
     } catch (error) {
       console.log(error);
     } finally {
-      // setLoading(false);
       setButtonLoader(false);
     }
   };
 
   useEffect(() => {
-    if (user.loginEmail.length > 0 && user.loginPassword.length > 0) {
-      setButtonDisabled(false);
-    } else {
-      setButtonDisabled(true);
-    }
+    const { loginEmail, loginPassword } = user;
+    // setButtonDisabled(!(loginEmail && loginPassword)); // Disable button if either field is empty
   }, [user]);
 
   return (
@@ -60,7 +55,7 @@ const LoginForm = () => {
             label="Enter Your Email"
             placeholder="Enter Email"
             HQInputLabelClassName={styles.label}
-            value={user.email}
+            value={user.loginEmail} // Changed from user.email
             id="loginEmail"
             name="loginEmail"
             handleChange={handleChange}
@@ -69,7 +64,7 @@ const LoginForm = () => {
             type="password"
             label="Enter Your Password"
             HQInputLabelClassName={styles.label}
-            value={user.password}
+            value={user.loginPassword} // Changed from user.password
             id="loginPassword"
             name="loginPassword"
             handleChange={handleChange}
@@ -79,7 +74,13 @@ const LoginForm = () => {
         <Link href={""} className="my-2 flex justify-end">
           Forgot Password?
         </Link>
-        <HQButton type="default" htmlType="submit" block loading={buttonLoader}>
+        <HQButton
+          type="default"
+          htmlType="submit"
+          block
+          // disabled={buttonDisabled}
+          loading={buttonLoader}
+        >
           Login
         </HQButton>
       </form>

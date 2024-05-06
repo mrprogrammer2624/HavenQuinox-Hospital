@@ -19,7 +19,6 @@ const getBase64 = (file) =>
 
 const SignUpForm = () => {
   const [buttonLoader, setButtonLoader] = useState(false);
-  const [fileList, setFileList] = useState([]);
   const [admin, setAdmin] = useState({
     adminImage: "", // This state should hold the selected image
     fname: "",
@@ -79,7 +78,6 @@ const SignUpForm = () => {
     try {
       // append data
       let formData = new FormData();
-      console.log({ admin });
       formData.append("adminImage", admin?.adminImage);
       formData.append("fname", admin.fname);
       formData.append("lname", admin.lname);
@@ -90,19 +88,16 @@ const SignUpForm = () => {
       formData.append("password", admin.password);
       formData.append("cPass", admin.cPass);
 
-      console.log(admin.adminImage);
       const response = await axiosApi({
         method: "post",
         url: `/admin/insertAdminData`,
         data: formData,
         headers: { "Content-Type": "multipart/form-data" },
       });
-      console.log(response.data, "response.data");
     } catch (error) {
       console.error("Error submitting form:", error);
     } finally {
       setButtonLoader(false);
-      console.log("solved");
     }
   };
 

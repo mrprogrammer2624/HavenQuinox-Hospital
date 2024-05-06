@@ -760,3 +760,18 @@ export const AdminMenuItems = [
     type: "divider",
   },
 ];
+
+export const gender = [
+  {
+    value: "male",
+    label: "male",
+  },
+  {
+    value: "female",
+    label: "female",
+  },
+  {
+    value: "other",
+    label: "other",
+  },
+];

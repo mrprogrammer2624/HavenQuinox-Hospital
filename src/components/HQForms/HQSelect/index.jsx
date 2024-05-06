@@ -10,6 +10,7 @@ export const HQSelect = ({
   selectClass,
   options,
   placeholder,
+  HQSelectContainerClassName,
   suffixIcon,
   label,
   id,
@@ -17,7 +18,7 @@ export const HQSelect = ({
   variant = "outlined",
 }) => {
   return (
-    <div>
+    <div className={clsx(HQSelectContainerClassName, "relative w-full")}>
       {label && (
         <label
           htmlFor={id}

@@ -1,6 +1,6 @@
 "use client";
 import { Layout } from "antd";
-import { useState, useEffect, Suspense, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { HQSidebar } from "@/components/HQSidebar";
 import { HQHeader } from "@/components/HQHeader";
 import { stylesheetsMenuItems } from "@/utility";
@@ -45,23 +45,21 @@ export default function RootLayout({ children }) {
   }, [collapsed]);
 
   return (
-    <Suspense fallback={<p>Loading feed...</p>}>
-      <Layout hasSider style={{ minHeight: "100vh" }}>
-        <HQSidebar
-          collapsed={collapsed}
-          handleSidebarCollapsed={(value) => setCollapsed(value)}
-          items={stylesheetsMenuItems}
-        />
-        <Layout
-          style={{
-            marginLeft: marginLeft,
-            transition: `var(--transition-all)`,
-          }}
-        >
-          <HQHeader />
-          <main>{children}</main>
-        </Layout>
+    <Layout hasSider style={{ minHeight: "100vh" }}>
+      <HQSidebar
+        collapsed={collapsed}
+        handleSidebarCollapsed={(value) => setCollapsed(value)}
+        items={stylesheetsMenuItems}
+      />
+      <Layout
+        style={{
+          marginLeft: marginLeft,
+          transition: `var(--transition-all)`,
+        }}
+      >
+        <HQHeader />
+        <main>{children}</main>
       </Layout>
-    </Suspense>
+    </Layout>
   );
 }

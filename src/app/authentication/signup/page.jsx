@@ -103,7 +103,7 @@ const SignUpForm = () => {
       <div>
         <p className="mt-3 h6 flex justify-center gap-3 items-center">
           You Have Already Account
-          <Link href={"/authentication/signup"}>Login</Link>
+          <Link href={"/authentication/login"}>Login</Link>
         </p>
       </div>
     </>

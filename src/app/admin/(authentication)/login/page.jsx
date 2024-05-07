@@ -1,47 +1,66 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import { HQButton, HQInput, HQInputPassword, Loading } from "@/components";
+import { HQButton, HQInput, HQInputPassword, HQToasts } from "@/components";
 import styles from "../authentication.module.css";
 import Link from "next/link";
-import { axiosApi } from "@/axiosApi";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { notification } from "antd";
 
 const LoginForm = () => {
-  const [user, setUser] = useState({
-    loginEmail: "",
-    loginPassword: "",
+  const router = useRouter();
+  const [error, setError] = useState(null);
+  const [buttonLoader, setButtonLoader] = useState(false);
+  const [api, contextHolder] = notification.useNotification();
+  const [adminCredentials, setAdminCredentials] = useState({
+    email: "",
+    password: "",
   });
 
-  const [buttonLoader, setButtonLoader] = useState(false);
+  const typeNotification = (type) => {
+    api[type]({
+      message: `Notification ${type}`,
+    });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setAdminCredentials({ ...adminCredentials, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setButtonLoader(true);
-      const response = await axiosApi({
-        method: "post",
-        url: "/admin/insertAdminData",
-        data: {
-          email: user.loginEmail,
-          password: user.loginPassword,
+      const config = {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-      });
+      };
+      const response = await axios.post(
+        "http://192.168.134.166:8004/admin/login",
+        adminCredentials,
+        config
+      );
+      const { token } = response.data;
+      if (token) {
+        document.cookie = `Admintoken=${token}; path=/admin/`;
+      }
+      typeNotification("success", "Login successful!");
+      router.push("/admin/dashboard");
     } catch (error) {
-      console.log(error);
+      console.error("Login failed:", error);
+      if (error.response && error.response.status === 401) {
+        setError("Invalid email or password."); // Set error message
+        typeNotification("Error", "Login unsuccessful!");
+      } else {
+        setError("An error occurred during login."); // Set generic error message
+      }
     } finally {
       setButtonLoader(false);
     }
   };
-
-  useEffect(() => {
-    const { loginEmail, loginPassword } = user;
-    // setButtonDisabled(!(loginEmail && loginPassword)); // Disable button if either field is empty
-  }, [user]);
 
   return (
     <div className="ma-auto w-full authentication-right">
@@ -55,18 +74,18 @@ const LoginForm = () => {
             label="Enter Your Email"
             placeholder="Enter Email"
             HQInputLabelClassName={styles.label}
-            value={user.loginEmail} // Changed from user.email
+            value={adminCredentials.email}
             id="loginEmail"
-            name="loginEmail"
+            name="email"
             handleChange={handleChange}
           />
           <HQInputPassword
             type="password"
             label="Enter Your Password"
             HQInputLabelClassName={styles.label}
-            value={user.loginPassword} // Changed from user.password
+            value={adminCredentials.password}
             id="loginPassword"
-            name="loginPassword"
+            name="password"
             handleChange={handleChange}
             placeholder="Enter Password"
           />
@@ -74,16 +93,11 @@ const LoginForm = () => {
         <Link href={""} className="my-2 flex justify-end">
           Forgot Password?
         </Link>
-        <HQButton
-          type="default"
-          htmlType="submit"
-          block
-          // disabled={buttonDisabled}
-          loading={buttonLoader}
-        >
+        <HQButton type="default" htmlType="submit" block loading={buttonLoader}>
           Login
         </HQButton>
       </form>
+      <HQToasts contextHolder={contextHolder} />
     </div>
   );
 };

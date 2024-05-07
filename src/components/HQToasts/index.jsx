@@ -7,9 +7,11 @@ export const HQToasts = ({
   return (
     <div>
       {contextHolder}
-      <HQButton type="fill" handleClick={openNotification}>
-        {toastButtonText}
-      </HQButton>
+      {toastButtonText && (
+        <HQButton type="fill" handleClick={openNotification}>
+          {toastButtonText}
+        </HQButton>
+      )}
     </div>
   );
 };

@@ -110,12 +110,6 @@ const AddDoctor = () => {
   };
   return (
     <div className="ma-auto w-full authentication-right">
-      <div className={clsx(styles.authenticationTitle, "w-full")}>
-        <h2 className="mb-1 title-color fw-700">Welcome Haven Quinox</h2>
-        <p className="mb-0 h5 fw-400 text-gray">
-          Please Create your HavenQuinox Hospital Account to continue
-        </p>
-      </div>
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"

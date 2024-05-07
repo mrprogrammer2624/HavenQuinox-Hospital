@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import {
@@ -8,20 +9,20 @@ import {
   HQInputPassword,
   HQToasts,
 } from "@/components";
-import styles from "../authentication.module.css";
+import styles from "../../../admin.module.css";
 import { gender } from "@/utility";
 import { axiosApi } from "@/axiosApi";
 import { useRouter } from "next/navigation";
 import { notification } from "antd";
 import axios from "axios";
 
-const SignUpForm = () => {
+const AddDoctor = () => {
   const router = useRouter();
   const [error, setError] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
   const [api, contextHolder] = notification.useNotification();
-  const [admin, setAdmin] = useState({
-    adminImage: "", // This state should hold the selected image
+  const [doctor, setDoctor] = useState({
+    doctorImage: "", // This state should hold the selected image
     fname: "",
     lname: "",
     email: "",
@@ -34,9 +35,9 @@ const SignUpForm = () => {
 
   const handleImageChange = (e) => {
     const file = e.target;
-    setAdmin({
-      ...admin,
-      adminImage: e.target.files[0], // Update adminImage state with the selected file object
+    setDoctor({
+      ...doctor,
+      doctorImage: e.target.files[0], // Update adminImage state with the selected file object
     });
   };
 
@@ -47,16 +48,16 @@ const SignUpForm = () => {
   };
 
   // Admin Data
-  const adminData = (e) => {
+  const doctorData = (e) => {
     const { name, value } = e.target;
-    setAdmin((prevUser) => ({
+    setDoctor((prevUser) => ({
       ...prevUser,
       [name]: value,
     }));
   };
 
   const handleGenderChange = (selectedGender) => {
-    setAdmin((prevUser) => ({
+    setDoctor((prevUser) => ({
       ...prevUser,
       gender: selectedGender,
     }));
@@ -69,19 +70,19 @@ const SignUpForm = () => {
     try {
       // append data
       let formData = new FormData();
-      formData.append("adminImage", admin?.adminImage);
-      formData.append("fname", admin.fname);
-      formData.append("lname", admin.lname);
-      formData.append("email", admin.email);
-      formData.append("phoneNo", admin.phoneNo);
-      formData.append("city", admin.city);
-      formData.append("gender", admin.gender);
-      formData.append("password", admin.password);
-      formData.append("cPass", admin.cPass);
+      formData.append("doctorImage", doctor?.doctorImage);
+      formData.append("fname", doctor.fname);
+      formData.append("lname", doctor.lname);
+      formData.append("email", doctor.email);
+      formData.append("phoneNo", doctor.phoneNo);
+      formData.append("city", doctor.city);
+      formData.append("gender", doctor.gender);
+      formData.append("password", doctor.password);
+      formData.append("cPass", doctor.cPass);
 
       // const response = await axiosApi({
       //   method: "post",
-      //   url: `/admin/insertAdminData`,
+      //   url: `/admin/insertdoctorData`,
       //   data: formData,
       //   headers: { "Content-Type": "multipart/form-data" },
       // });
@@ -89,12 +90,12 @@ const SignUpForm = () => {
         headers: { "Content-Type": "multipart/form-data" },
       };
       const response = await axios.post(
-        "http://192.168.134.166:8004/admin/insertAdminData",
+        "http://192.168.134.166:8004/admin/doctor/insertDoctor",
         formData,
         config
       );
       typeNotification("success", "SignUp successful!");
-      router.push("/admin/login");
+      router.push("/doctor/login");
     } catch (error) {
       console.error("Error submitting form:", error);
       if (error.response && error.response.status === 401) {
@@ -107,7 +108,6 @@ const SignUpForm = () => {
       setButtonLoader(false);
     }
   };
-
   return (
     <div className="ma-auto w-full authentication-right">
       <div className={clsx(styles.authenticationTitle, "w-full")}>
@@ -133,8 +133,8 @@ const SignUpForm = () => {
               placeholder="Enter First Name"
               HQInputLabelClassName={styles.label}
               label="first name"
-              value={admin.fname}
-              handleChange={adminData}
+              value={doctor.fname}
+              handleChange={doctorData}
             />
             <HQInput
               type="text"
@@ -143,8 +143,8 @@ const SignUpForm = () => {
               placeholder="Enter Last Name"
               HQInputLabelClassName={styles.label}
               label="last name"
-              value={admin.lname}
-              handleChange={adminData}
+              value={doctor.lname}
+              handleChange={doctorData}
             />
           </div>
           <HQInput
@@ -154,8 +154,8 @@ const SignUpForm = () => {
             placeholder="enter email"
             HQInputLabelClassName={styles.label}
             label="email"
-            value={admin.email}
-            handleChange={adminData}
+            value={doctor.email}
+            handleChange={doctorData}
           />
           <HQInput
             type="number"
@@ -164,8 +164,8 @@ const SignUpForm = () => {
             placeholder="enter mobile number"
             HQInputLabelClassName={styles.label}
             label="mobile number"
-            value={admin.phoneNo}
-            handleChange={adminData}
+            value={doctor.phoneNo}
+            handleChange={doctorData}
           />
           <div className="flex w-full gap-12">
             <HQInput
@@ -175,8 +175,8 @@ const SignUpForm = () => {
               placeholder="enter City"
               HQInputLabelClassName={styles.label}
               label="Enter City"
-              value={admin.city}
-              handleChange={adminData}
+              value={doctor.city}
+              handleChange={doctorData}
             />
             <HQSelect
               id="gender"
@@ -196,8 +196,8 @@ const SignUpForm = () => {
             placeholder="enter password"
             HQInputLabelClassName={styles.label}
             label="password"
-            value={admin.password}
-            handleChange={adminData}
+            value={doctor.password}
+            handleChange={doctorData}
           />
           <HQInputPassword
             type="password"
@@ -206,8 +206,8 @@ const SignUpForm = () => {
             placeholder="Re Enter password"
             label="Re Enter password"
             HQInputLabelClassName={styles.label}
-            value={admin.cPass}
-            handleChange={adminData}
+            value={doctor.cPass}
+            handleChange={doctorData}
           />
         </div>
         <HQButton
@@ -225,4 +225,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default AddDoctor;

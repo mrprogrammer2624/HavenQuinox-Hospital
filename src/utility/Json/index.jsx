@@ -691,7 +691,7 @@ export const AdminMenuItems = [
     [
       getItem("Staff List", "/admin/staff-list", Icons.calendar),
       getItem("Add Staff", "/admin/add-staff", Icons.calendar),
-      getItem("Leaves", "/admin/add-staff", Icons.calendar),
+      getItem("Leaves", "/admin/leaves", Icons.calendar),
       getItem("Holidays", "/admin/holidays", Icons.calendar),
       getItem("Attendance Sheet", "/admin/attendance-sheet", Icons.calendar),
     ],

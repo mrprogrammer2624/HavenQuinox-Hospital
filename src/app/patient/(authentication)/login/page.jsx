@@ -83,6 +83,10 @@ const LoginForm = () => {
           Login
         </HQButton>
       </form>
+      <h5 className="flex mt-3 gap-4 justify-center">
+        New on our platform?
+        <Link href="/patient/signup">Create an account</Link>
+      </h5>
     </div>
   );
 };

@@ -120,9 +120,6 @@ const SignUpForm = () => {
         className="w-full"
       >
         <div className="flex flex-col gap-12">
-          <div>
-            <input type="file" onChange={handleImageChange} />
-          </div>
           <div className="flex w-full gap-12">
             <HQInput
               type="text"
@@ -155,38 +152,6 @@ const SignUpForm = () => {
             value={admin.email}
             handleChange={adminData}
           />
-          <HQInput
-            type="number"
-            id="phoneNo"
-            name="phoneNo"
-            placeholder="enter mobile number"
-            HQInputLabelClassName={styles.label}
-            label="mobile number"
-            value={admin.phoneNo}
-            handleChange={adminData}
-          />
-          <div className="flex w-full gap-12">
-            <HQInput
-              type="text"
-              id="city"
-              name="city"
-              placeholder="enter City"
-              HQInputLabelClassName={styles.label}
-              label="Enter City"
-              value={admin.city}
-              handleChange={adminData}
-            />
-            <HQSelect
-              id="gender"
-              name="gender"
-              placeholder="enter gender"
-              HQInputLabelClassName={styles.label}
-              HQSelectContainerClassName={"w-full"}
-              label="gender"
-              options={gender}
-              handleChange={handleGenderChange}
-            />
-          </div>
           <HQInputPassword
             type="password"
             id="password"
@@ -218,6 +183,10 @@ const SignUpForm = () => {
           Sign Up
         </HQButton>
       </form>
+      <h5 className="flex mt-3 gap-4 justify-center">
+        Already have an account?
+        <Link href="/patient/login">login in instead</Link>
+      </h5>
     </div>
   );
 };

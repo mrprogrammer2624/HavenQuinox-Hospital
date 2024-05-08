@@ -10,6 +10,7 @@ const nextConfig = {
       "picsum.photos",
       "i.pravatar.cc",
       "avatars.githubusercontent.com",
+      "192.168.134.166",
     ],
   },
   swcMinify: true,

@@ -5,20 +5,20 @@ const axiosApi = axios.create({
   withCredentials: false,
 });
 
-const setAuthHeader = (token) => {
-  axiosApi.defaults.headers.Authorization =
-    token || `Bearer ${localStorage.getItem("_token")}`;
-  axiosApi.defaults.headers.requestToken = getEncryptedString(
-    appConfig?.ENCRYPTION_MESSAGE
-  );
-  axiosApi.defaults.headers.deviceName = appConfig?.DEVICE_TYPE;
-};
+// const setAuthHeader = (token) => {
+//   axiosApi.defaults.headers.Authorization =
+//     token || `Bearer ${localStorage.getItem("_token")}`;
+//   axiosApi.defaults.headers.requestToken = getEncryptedString(
+//     appConfig?.ENCRYPTION_MESSAGE
+//   );
+//   axiosApi.defaults.headers.deviceName = appConfig?.DEVICE_TYPE;
+// };
 
-axiosApi.defaults.headers = {
-  Authorization: `Bearer ${localStorage.getItem("_token")}`,
-  // requestToken: getEncryptedString(appConfig?.ENCRYPTION_MESSAGE),
-  // deviceName: appConfig?.DEVICE_TYPE,
-};
+// axiosApi.defaults.headers = {
+// Authorization: `Bearer ${localStorage.getItem("_token")}`,
+// requestToken: getEncryptedString(appConfig?.ENCRYPTION_MESSAGE),
+// deviceName: appConfig?.DEVICE_TYPE,
+// };
 
 axiosApi.interceptors.response.use(
   (response) => {
@@ -45,4 +45,4 @@ axiosApi.interceptors.response.use(
   }
 );
 
-export { axiosApi, setAuthHeader };
+export { axiosApi };

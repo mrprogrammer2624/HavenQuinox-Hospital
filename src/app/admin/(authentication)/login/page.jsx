@@ -48,7 +48,7 @@ const LoginForm = () => {
       // });
 
       const response = await axios.post(
-        "http://192.168.1.226:8004/admin/login",
+        "http://192.168.134.166:8004/admin/login",
         adminCredentials,
         config
       );

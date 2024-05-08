@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import clsx from "clsx";
 import {
   HQButton,
   HQSelect,
@@ -80,20 +79,22 @@ const AddDoctor = () => {
       formData.append("password", doctor.password);
       formData.append("cPass", doctor.cPass);
 
-      // const response = await axiosApi({
-      //   method: "post",
-      //   url: `/admin/insertdoctorData`,
-      //   data: formData,
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // });
       const config = {
         headers: { "Content-Type": "multipart/form-data" },
       };
-      const response = await axios.post(
-        "http://192.168.134.166:8004/admin/doctor/insertDoctor",
-        formData,
-        config
-      );
+
+      const response = await axiosApi({
+        method: "post",
+        url: `/admin/doctor/insertDoctor`,
+        data: formData,
+        config,
+      });
+
+      // const response = await axios.post(
+      //   "http://192.168.134.166:8004/admin/doctor/insertDoctor",
+      //   formData,
+      //   config
+      // );
       typeNotification("success", "SignUp successful!");
       router.push("/doctor/login");
     } catch (error) {

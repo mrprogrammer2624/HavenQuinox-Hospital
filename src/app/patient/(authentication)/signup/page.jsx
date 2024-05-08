@@ -1,102 +1,76 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import clsx from "clsx";
-import { Upload } from "antd";
-import { HQButton, HQSelect, HQInput, HQInputPassword } from "@/components";
-import styles from "../authentication.module.css";
-import { gender } from "@/utility";
-import ImgCrop from "antd-img-crop";
-import { axiosApi } from "@/axiosApi";
 
-const getBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
+import React, { useState } from "react";
+import { HQButton, HQInput, HQInputPassword, HQToasts } from "@/components";
+import styles from "../../../admin/admin.module.css";
+import { axiosApi } from "@/axiosApi";
+import { useRouter } from "next/navigation";
+import { notification } from "antd";
+import clsx from "clsx";
+import Link from "next/link";
 
 const SignUpForm = () => {
+  const router = useRouter();
+  const [error, setError] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
-  const [fileList, setFileList] = useState([]);
-  const [admin, setAdmin] = useState({
-    adminImage: "", // This state should hold the selected image
+  const [api, contextHolder] = notification.useNotification();
+  const [patients, setPatient] = useState({
     fname: "",
     lname: "",
     email: "",
-    phoneNo: "",
-    city: "",
-    gender: "",
     password: "",
     cPass: "",
   });
 
-  const handleImageChange = (e) => {
-    const file = e.target;
-    setAdmin({
-      ...admin,
-      adminImage: e.target.files[0], // Update adminImage state with the selected file object
+  const typeNotification = (type) => {
+    api[type]({
+      message: `Notification ${type}`,
     });
   };
 
   // Admin Data
-  const adminData = (e) => {
+  const patientsData = (e) => {
     const { name, value } = e.target;
-    setAdmin((prevUser) => ({
+    setPatient((prevUser) => ({
       ...prevUser,
       [name]: value,
     }));
   };
-
-  const handleGenderChange = (selectedGender) => {
-    setAdmin((prevUser) => ({
-      ...prevUser,
-      gender: selectedGender,
-    }));
-  };
-
   // OnSubmit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonLoader(true);
     try {
-      // append data
-      let formData = new FormData();
-      console.log({ admin });
-      formData.append("adminImage", admin?.adminImage);
-      formData.append("fname", admin.fname);
-      formData.append("lname", admin.lname);
-      formData.append("email", admin.email);
-      formData.append("phoneNo", admin.phoneNo);
-      formData.append("city", admin.city);
-      formData.append("gender", admin.gender);
-      formData.append("password", admin.password);
-      formData.append("cPass", admin.cPass);
+      const config = {
+        headers: { "Content-Type": "multipart/form-data" },
+      };
 
-      console.log(admin.adminImage);
       const response = await axiosApi({
         method: "post",
-        url: `/admin/insertAdminData`,
+        url: `/patient/insertPatient`,
         data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
+        config,
       });
-      console.log(response.data, "response.data");
+
+      typeNotification("success", "SignUp successful!");
+      router.push("/patients/login");
     } catch (error) {
       console.error("Error submitting form:", error);
+      if (error.response && error.response.status === 401) {
+        setError("Invalid email or password."); // Set error message
+        typeNotification("Error", "Login unsuccessful!");
+      } else {
+        setError("An error occurred during login."); // Set generic error message
+      }
     } finally {
       setButtonLoader(false);
-      console.log("solved");
     }
   };
 
   return (
     <div className="ma-auto w-full authentication-right">
-      <div className={clsx(styles.authenticationTitle, "w-full")}>
-        <h2 className="mb-1 title-color fw-700">Welcome Haven Quinox</h2>
-        <p className="mb-0 h5 fw-400 text-gray">
-          Please Create your HavenQuinox Hospital Account to continue
-        </p>
+      <div className={clsx(styles.authenticationTitle, "w-full text-center")}>
+        <h2 className="mb-3 title-color fw-700"> Welcome To HavenQuinox</h2>
       </div>
       <form
         onSubmit={handleSubmit}
@@ -112,8 +86,8 @@ const SignUpForm = () => {
               placeholder="Enter First Name"
               HQInputLabelClassName={styles.label}
               label="first name"
-              value={admin.fname}
-              handleChange={adminData}
+              value={patients.fname}
+              handleChange={patientsData}
             />
             <HQInput
               type="text"
@@ -122,8 +96,8 @@ const SignUpForm = () => {
               placeholder="Enter Last Name"
               HQInputLabelClassName={styles.label}
               label="last name"
-              value={admin.lname}
-              handleChange={adminData}
+              value={patients.lname}
+              handleChange={patientsData}
             />
           </div>
           <HQInput
@@ -133,8 +107,8 @@ const SignUpForm = () => {
             placeholder="enter email"
             HQInputLabelClassName={styles.label}
             label="email"
-            value={admin.email}
-            handleChange={adminData}
+            value={patients.email}
+            handleChange={patientsData}
           />
           <HQInputPassword
             type="password"
@@ -143,8 +117,8 @@ const SignUpForm = () => {
             placeholder="enter password"
             HQInputLabelClassName={styles.label}
             label="password"
-            value={admin.password}
-            handleChange={adminData}
+            value={patients.password}
+            handleChange={patientsData}
           />
           <HQInputPassword
             type="password"
@@ -153,8 +127,8 @@ const SignUpForm = () => {
             placeholder="Re Enter password"
             label="Re Enter password"
             HQInputLabelClassName={styles.label}
-            value={admin.cPass}
-            handleChange={adminData}
+            value={patients.cPass}
+            handleChange={patientsData}
           />
         </div>
         <HQButton
@@ -167,10 +141,12 @@ const SignUpForm = () => {
           Sign Up
         </HQButton>
       </form>
-      <h5 className="flex mt-3 gap-4 justify-center">
-        Already have an account?
-        <Link href="/patient/login">login in instead</Link>
-      </h5>
+      <h6 className="flex mt-3 fw-500 gap-4 justify-center">
+        You have already account
+        <Link href="/patient/login">login Now</Link>
+      </h6>
+
+      <HQToasts contextHolder={contextHolder} />
     </div>
   );
 };

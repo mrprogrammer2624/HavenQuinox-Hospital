@@ -3,16 +3,14 @@ import { Layout } from "antd";
 import { useState, useEffect, useContext } from "react";
 import { HQSidebar } from "@/components/HQSidebar";
 import { HQHeader } from "@/components/HQHeader";
-import { stylesheetsMenuItems } from "@/utility";
 import { redirect, usePathname } from "next/navigation";
 import { ThemeContext } from "@/contexts/ThemeProvider";
 
-export default function RootLayout({ children }) {
+export const DashboardLayout = ({ children, sidebarData }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [marginLeft, setMarginLeft] = useState("var(--sidebar-width)");
   const pathname = usePathname();
-  const { sidebarToggle, setHeaderPaddingLeft, setSidebarToggle } =
-    useContext(ThemeContext);
+  const { sidebarToggle, setHeaderPaddingLeft } = useContext(ThemeContext);
 
   if (pathname === "/stylesheets") {
     redirect("stylesheets/typography");
@@ -21,6 +19,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     document.querySelector("html").dataset.sidebarShow = sidebarToggle;
   }, [sidebarToggle]);
+
   sidebarToggle === true
     ? setHeaderPaddingLeft("75px")
     : setHeaderPaddingLeft("20px");
@@ -49,7 +48,7 @@ export default function RootLayout({ children }) {
       <HQSidebar
         collapsed={collapsed}
         handleSidebarCollapsed={(value) => setCollapsed(value)}
-        items={stylesheetsMenuItems}
+        items={sidebarData}
       />
       <Layout
         style={{
@@ -62,4 +61,4 @@ export default function RootLayout({ children }) {
       </Layout>
     </Layout>
   );
-}
+};

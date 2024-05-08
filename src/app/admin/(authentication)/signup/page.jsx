@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import {
   HQButton,
@@ -13,7 +13,6 @@ import { gender } from "@/utility";
 import { axiosApi } from "@/axiosApi";
 import { useRouter } from "next/navigation";
 import { notification } from "antd";
-import axios from "axios";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -79,20 +78,17 @@ const SignUpForm = () => {
       formData.append("password", admin.password);
       formData.append("cPass", admin.cPass);
 
-      // const response = await axiosApi({
-      //   method: "post",
-      //   url: `/admin/insertAdminData`,
-      //   data: formData,
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // });
       const config = {
         headers: { "Content-Type": "multipart/form-data" },
       };
-      const response = await axios.post(
-        "http://192.168.134.166:8004/admin/insertAdminData",
-        formData,
-        config
-      );
+
+      const response = await axiosApi({
+        method: "post",
+        url: `/admin/insertAdminData`,
+        data: formData,
+        config,
+      });
+
       typeNotification("success", "SignUp successful!");
       router.push("/admin/login");
     } catch (error) {

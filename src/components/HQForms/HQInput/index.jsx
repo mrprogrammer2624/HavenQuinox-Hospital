@@ -35,7 +35,7 @@ export const HQInput = ({
         type={type}
         id={id}
         placeholder={placeholder}
-        className={clsx(styles.HQInput, HQInputClassName, "h6")}
+        className={clsx(styles.HQInput, HQInputClassName, "h6 h-full")}
         prefix={prefix}
         onChange={handleChange}
         {...rest}

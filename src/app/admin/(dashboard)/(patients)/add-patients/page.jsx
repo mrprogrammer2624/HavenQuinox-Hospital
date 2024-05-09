@@ -36,11 +36,13 @@ const AddPatients = () => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       };
+      console.log(patients);
       const response = await axios.post(
-        "http://192.168.134.166:8004/patient/login",
+        process.env.NEXT_PUBLIC_WEB_URL + "patient/insertPatient",
         patients,
         config
       );
+
       if (response.status === 200) {
         notification.success({
           message: "Sign Up successful!",

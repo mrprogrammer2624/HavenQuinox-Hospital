@@ -48,11 +48,10 @@ const LoginForm = () => {
       // });
 
       const response = await axios.post(
-        "http://192.168.1.34:8004/admin/login",
+        process.env.NEXT_PUBLIC_WEB_URL + "admin/login",
         adminCredentials,
         config
       );
-
       const { token } = response.data;
       if (token) {
         document.cookie = `Admintoken=${token}; path=/admin`;

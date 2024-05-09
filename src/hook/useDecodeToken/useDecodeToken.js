@@ -19,7 +19,6 @@ const useDecodeToken = (tokenName) => {
           setDecodedToken(null);
         }
       } else {
-        console.log(`No ${tokenName} token found in cookies`);
         setDecodedToken(null);
       }
     };

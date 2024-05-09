@@ -35,7 +35,7 @@ const LoginForm = () => {
       };
 
       const response = await axios.post(
-        "http://192.168.134.166:8004/patient/login",
+        process.env.NEXT_PUBLIC_WEB_URL + "patient/login",
         patientsCredentials,
         config
       );

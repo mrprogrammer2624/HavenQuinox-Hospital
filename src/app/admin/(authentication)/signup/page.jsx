@@ -35,7 +35,7 @@ const SignUpForm = () => {
     const file = e.target;
     setAdmin({
       ...admin,
-      adminImage: e.target.files[0], // Update adminImage state with the selected file object
+      adminImage: file.files[0], // Update adminImage state with the selected file object
     });
   };
 
@@ -61,11 +61,14 @@ const SignUpForm = () => {
     }));
   };
 
+  console.log(admin);
+
   // OnSubmit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonLoader(true);
     try {
+      console.log(admin);
       // append data
       let formData = new FormData();
       formData.append("adminImage", admin?.adminImage);
@@ -79,7 +82,9 @@ const SignUpForm = () => {
       formData.append("cPass", admin.cPass);
 
       const config = {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       };
 
       const response = await axiosApi({
@@ -88,16 +93,15 @@ const SignUpForm = () => {
         data: formData,
         config,
       });
-
       typeNotification("success", "SignUp successful!");
       router.push("/admin/login");
     } catch (error) {
       console.error("Error submitting form:", error);
       if (error.response && error.response.status === 401) {
-        setError("Invalid email or password."); // Set error message
+        setError("Invalid email or password.");
         typeNotification("Error", "Login unsuccessful!");
       } else {
-        setError("An error occurred during login."); // Set generic error message
+        setError("An error occurred during login.");
       }
     } finally {
       setButtonLoader(false);

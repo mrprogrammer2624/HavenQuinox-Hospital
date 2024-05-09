@@ -9,7 +9,7 @@ const PatientsList = () => {
   const fetchPatientsList = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.134.166:8004/patient/viewAllPatient"
+        process.env.NEXT_PUBLIC_WEB_URL + "patient/viewAllPatient"
       );
       setPatientsList(response.data.data);
     } catch (error) {

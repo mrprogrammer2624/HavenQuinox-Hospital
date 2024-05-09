@@ -48,14 +48,14 @@ const LoginForm = () => {
       // });
 
       const response = await axios.post(
-        "http://192.168.134.166:8004/admin/login",
+        "http://192.168.1.34:8004/admin/login",
         adminCredentials,
         config
       );
 
       const { token } = response.data;
       if (token) {
-        document.cookie = `Admintoken=${token}; path=/admin/`;
+        document.cookie = `Admintoken=${token}; path=/admin`;
       }
       typeNotification("success", "Login successful!");
       router.push("/admin");

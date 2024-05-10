@@ -21,8 +21,6 @@ const AvatarPage = () => {
 
   const singleUserData = [
     {
-      bg: "red",
-      children: "t",
       img: "https://i.pravatar.cc/300",
     },
   ];

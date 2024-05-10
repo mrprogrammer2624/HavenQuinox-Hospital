@@ -45,7 +45,7 @@ const LoginForm = () => {
       );
       const { token } = response.data;
       if (token) {
-        document.cookie = `Admintoken=${token}; path=/admin/`;
+        document.cookie = `doctorToken=${token}; path=/doctor/`;
       }
       typeNotification("success", "Login successful!");
       router.push("/doctor/dashboard");

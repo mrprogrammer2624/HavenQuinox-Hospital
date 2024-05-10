@@ -3,7 +3,7 @@
 import { DashboardLayout } from "@/components";
 import { AdminMenuItems } from "@/utility";
 
-export default function RootLayout({ children }) {
+export default function AdminLayout({ children }) {
   return (
     <DashboardLayout sidebarData={AdminMenuItems}>{children}</DashboardLayout>
   );

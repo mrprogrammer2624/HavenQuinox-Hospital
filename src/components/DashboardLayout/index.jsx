@@ -6,7 +6,15 @@ import { HQHeader } from "@/components/HQHeader";
 import { redirect, usePathname } from "next/navigation";
 import { ThemeContext } from "@/contexts/ThemeProvider";
 
-export const DashboardLayout = ({ children, sidebarData }) => {
+export const DashboardLayout = ({
+  children,
+  sidebarData,
+  items,
+  name,
+  image,
+  email,
+  imageAlt,
+}) => {
   const [collapsed, setCollapsed] = useState(false);
   const [marginLeft, setMarginLeft] = useState("var(--sidebar-width)");
   const pathname = usePathname();
@@ -18,11 +26,10 @@ export const DashboardLayout = ({ children, sidebarData }) => {
 
   useEffect(() => {
     document.querySelector("html").dataset.sidebarShow = sidebarToggle;
+    sidebarToggle === true
+      ? setHeaderPaddingLeft("75px")
+      : setHeaderPaddingLeft("20px");
   }, [sidebarToggle]);
-
-  sidebarToggle === true
-    ? setHeaderPaddingLeft("75px")
-    : setHeaderPaddingLeft("20px");
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,8 +43,11 @@ export const DashboardLayout = ({ children, sidebarData }) => {
         setMarginLeft("0");
       }
     };
+
     handleResize();
+
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -56,7 +66,13 @@ export const DashboardLayout = ({ children, sidebarData }) => {
           transition: `var(--transition-all)`,
         }}
       >
-        <HQHeader />
+        <HQHeader
+          items={items}
+          name={name}
+          image={image}
+          email={email}
+          imageAlt={imageAlt}
+        />
         <main>{children}</main>
       </Layout>
     </Layout>

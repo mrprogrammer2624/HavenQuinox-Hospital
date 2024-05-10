@@ -7,9 +7,11 @@ import {
   HQInput,
   HQInputPassword,
   HQToasts,
+  HQAvatar,
+  HQInputFile,
 } from "@/components";
 import styles from "../../../admin.module.css";
-import { gender } from "@/utility";
+import { Icons, gender } from "@/utility";
 import { axiosApi } from "@/axiosApi";
 import { useRouter } from "next/navigation";
 import { notification } from "antd";
@@ -20,8 +22,11 @@ const AddDoctor = () => {
   const [error, setError] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
   const [api, contextHolder] = notification.useNotification();
+  const [getPath, setPath] = useState({
+    originalImagePath: "",
+  });
   const [doctor, setDoctor] = useState({
-    doctorImage: "", // This state should hold the selected image
+    doctorImage: "",
     fname: "",
     lname: "",
     email: "",
@@ -33,10 +38,15 @@ const AddDoctor = () => {
   });
 
   const handleImageChange = (e) => {
-    const file = e.target;
+    const file = e.target.files[0];
+    const imagePath = URL.createObjectURL(file);
     setDoctor({
       ...doctor,
-      doctorImage: e.target.files[0], // Update adminImage state with the selected file object
+      doctorImage: file,
+    });
+    setPath({
+      ...getPath,
+      originalImagePath: imagePath,
     });
   };
 
@@ -117,8 +127,16 @@ const AddDoctor = () => {
         className="w-full"
       >
         <div className="flex flex-col gap-12">
-          <div>
-            <input type="file" onChange={handleImageChange} />
+          <div className="flex flex-col ma-auto">
+            <HQAvatar
+              single
+              size={150}
+              img={getPath.originalImagePath}
+              alt="Uploaded Image"
+            />
+            <HQInputFile handleChange={handleImageChange}>
+              <span className="flex">{Icons.camera}</span>photos
+            </HQInputFile>
           </div>
           <div className="flex w-full gap-12">
             <HQInput
@@ -204,16 +222,16 @@ const AddDoctor = () => {
             value={doctor.cPass}
             handleChange={doctorData}
           />
+          <HQButton
+            customClass={"mt-5"}
+            type="default"
+            htmlType="submit"
+            loading={buttonLoader}
+            block
+          >
+            Sign Up
+          </HQButton>
         </div>
-        <HQButton
-          customClass={"mt-5"}
-          type="default"
-          htmlType="submit"
-          loading={buttonLoader}
-          block
-        >
-          Sign Up
-        </HQButton>
       </form>
       <HQToasts contextHolder={contextHolder} />
     </div>

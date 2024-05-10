@@ -42,7 +42,7 @@ const LoginForm = () => {
 
       const { token } = response.data;
       if (token) {
-        document.cookie = `Admintoken=${token}; path=/admin/`;
+        document.cookie = `patientsToken=${token}; path=/patient`;
       }
       router.push("/admin");
     } catch (error) {

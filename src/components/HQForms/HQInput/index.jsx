@@ -1,6 +1,7 @@
 import { Input } from "antd";
 import styles from "./HQInput.module.css";
 import clsx from "clsx";
+import { HQButton } from "@/components";
 
 export const HQInput = ({
   HQInputClassName,
@@ -93,5 +94,19 @@ export const HQInputPassword = ({
         <p className="mb-0 mt-1 text-red">{errorMessage}</p>
       )}
     </div>
+  );
+};
+
+export const HQInputFile = ({ handleChange, children, id }) => {
+  return (
+    <label className={styles.HQInputFile} htmlFor={id}>
+      {children}
+      <HQInput
+        type="file"
+        id={id}
+        HQInputClassName="hidden"
+        onChange={handleChange}
+      />
+    </label>
   );
 };

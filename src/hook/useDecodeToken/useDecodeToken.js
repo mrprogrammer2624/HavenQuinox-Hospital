@@ -13,7 +13,7 @@ const useDecodeToken = (tokenName) => {
       if (token) {
         try {
           const decoded = jwtDecode(token);
-          setDecodedToken(decoded);
+          setDecodedToken(decoded.userData);
         } catch (error) {
           console.error(`Error decoding ${tokenName} token:`, error);
           setDecodedToken(null);

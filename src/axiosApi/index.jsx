@@ -46,3 +46,57 @@ axiosApi.interceptors.response.use(
 );
 
 export { axiosApi };
+
+/* 
+
+import axios from "axios";
+import { appConfig } from "@/config";
+
+const axiosApi = axios.create({
+  baseURL: appConfig.API_URL,
+});
+
+const setAuthHeader = (token) => {
+  axiosApi.defaults.headers.Authorization =
+    token || `Bearer ${window?.localStorage?.getItem("_token")}`;
+  // axiosApi.defaults.headers.requestToken = config?.REQUEST_TOKEN;
+};
+
+if (typeof window !== "undefined") {
+  axiosApi.defaults.headers = {
+    Authorization: window?.localStorage?.getItem("_token")
+      ? `Bearer ${window?.localStorage?.getItem("_token")}`
+      : "",
+    // requestToken: config?.REQUEST_TOKEN,
+  };
+}
+
+axiosApi.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error?.response?.status === 404) {
+      console.log("/404");
+    } else if (error?.response?.status === 500) {
+      console.log("/500");
+    } else if (error?.response?.status === 401) {
+      console.log("/401");
+      if (window.location.pathname?.includes("/admin")) {
+        localStorage?.removeItem("_token");
+        window.location.href = "/admin";
+      }
+    } else if (error?.response?.status === 403) {
+      console.log("/403");
+      window.location.href = "/";
+    } else {
+      console.log("/other-errors.");
+    }
+    return Promise.reject(error);
+  }
+);
+
+export { axiosApi, setAuthHeader };
+
+
+*/

@@ -121,3 +121,97 @@ https://www.figma.com/community/file/1101821575593741193
 
 
 <!-- NextJS Essential Extension Pack -->
+
+
+
+const token = request?.cookies?.get("_token")?.value;
+  const isUserAuthenticated = !!token;
+  let userDetails = {};
+  if (token) {
+    try {
+      const userDetailsRes = await fetchUserDetails(token);
+      userDetails = userDetailsRes?.data || {};
+    } catch (error) {
+      console.log({ error });
+    }
+  }
+
+  const activePath = request?.nextUrl?.pathname;
+  // If user is not admin authenticated
+  if (
+    (!isUserAuthenticated && authAdminRoutes.includes(activePath)) ||
+    (isUserAuthenticated &&
+      !userDetails?.userData?.email &&
+      userDetails?.role === "admin")
+  ) {
+    return NextResponse.redirect(new URL("/admin", request.url));
+  }
+
+  //  if user is authenticated
+  if (
+    isUserAuthenticated &&
+    userDetails?.userData?.email &&
+    loginPage.includes(activePath)
+  ) {
+    return NextResponse.redirect(new URL("/admin/transactions", request.url));
+  }
+  return NextResponse.next();
+
+
+  <!--  -->
+  <!--  -->
+  <!--  -->
+  
+const loginPage = ["/admin"];
+
+
+
+
+import { appConfig } from "./config";
+
+const fetchUserDetails = async (token) => {
+  const userDetailsRes = await fetch(
+    appConfig.API_URL + "/v1/admin/user/details",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  return (await userDetailsRes?.json()) || {};
+};
+
+
+
+
+export function middleware(request) {
+  const path = request.nextUrl.pathname;
+
+  const isPublicPath =
+    path === "/" ||
+    path === "/admin/login" ||
+    path === "/doctor/login" ||
+    path === "/patient/login" ||
+    path === "/patient/signup" ||
+    path === "/reception/login";
+
+  const adminAuth = request.cookies.get("adminToken")?.value;
+  const patientAuth = request.cookies.get("patientToken")?.value;
+  const doctorAuth = request.cookies.get("doctorToken")?.value;
+
+  if (isPublicPath && adminAuth && patientAuth && doctorAuth) {
+    return NextResponse.redirect(new URL("/", request.nextUrl));
+  }
+
+  if (!isPublicPath && !adminAuth) {
+    return NextResponse.redirect(new URL("/admin/login", request.nextUrl));
+  }
+  if (!isPublicPath && !doctorAuth) {
+    return NextResponse.redirect(new URL("/doctor/login", request.nextUrl));
+  }
+  if (!isPublicPath && !patientAuth) {
+    return NextResponse.redirect(new URL("/patient/login", request.nextUrl));
+  }
+}

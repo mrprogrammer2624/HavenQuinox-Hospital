@@ -13,12 +13,13 @@ export const HQAvatar = ({
   icon,
   bg,
   img,
+  parentAvatar,
   children,
 }) => {
   return (
     <>
       {!single ? (
-        <Avatar.Group shape={shape}>
+        <Avatar.Group className={parentAvatar} shape={shape}>
           {data &&
             data.map((item, index) => {
               return (
@@ -39,7 +40,7 @@ export const HQAvatar = ({
             })}
         </Avatar.Group>
       ) : (
-        <Avatar.Group shape={shape}>
+        <Avatar.Group className={parentAvatar} shape={shape}>
           <Avatar
             size={size}
             style={{ backgroundColor: bg }}

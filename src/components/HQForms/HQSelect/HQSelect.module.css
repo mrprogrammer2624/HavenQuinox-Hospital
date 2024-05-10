@@ -1,6 +1,6 @@
 .HQInputLabel {
     color: var(--gray);
-    background: var(--white);
+    background: #F5F8FA;
     top: -10px;
     left: 15px;
     z-index: 2;

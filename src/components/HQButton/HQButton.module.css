@@ -21,6 +21,7 @@
   z-index: 0;
   overflow: hidden;
   min-height: 6rem;
+  width: fit-content;
 }
 
 /* Active Button Effect */

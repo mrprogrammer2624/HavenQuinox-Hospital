@@ -63,29 +63,27 @@ const AddPatients = () => {
   };
 
   return (
-    <div className="ma-auto w-full authentication-right">
+    <div className="ma-auto w-full dashboard-add-from">
       <form onSubmit={handleSubmit} className="w-full">
-        <div className="flex flex-col gap-12">
-          <div className="flex gap-12">
-            <HQInput
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter Name"
-              label="Name"
-              value={patients.name}
-              handleChange={handleInputChange}
-            />
-            <HQInput
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter Email"
-              label="Email"
-              value={patients.email}
-              handleChange={handleInputChange}
-            />
-          </div>
+        <div className="grid dashboard-add-from-layout">
+          <HQInput
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter Name"
+            label="Name"
+            value={patients.name}
+            handleChange={handleInputChange}
+          />
+          <HQInput
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter Email"
+            label="Email"
+            value={patients.email}
+            handleChange={handleInputChange}
+          />
           <HQInputPassword
             type="password"
             id="password"

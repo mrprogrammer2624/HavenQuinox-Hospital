@@ -681,35 +681,35 @@ export const AdminMenuItems = [
     ],
     "group"
   ),
-  {
-    type: "divider",
-  },
-  getItem(
-    "Staff",
-    "Staff-group",
-    Icons.calendar,
-    [
-      getItem("Staff List", "/admin/staff-list", Icons.calendar),
-      getItem("Add Staff", "/admin/add-staff", Icons.calendar),
-      getItem("Leaves", "/admin/leaves", Icons.calendar),
-      getItem("Holidays", "/admin/holidays", Icons.calendar),
-      getItem("Attendance Sheet", "/admin/attendance-sheet", Icons.calendar),
-    ],
-    "group"
-  ),
-  {
-    type: "divider",
-  },
-  getItem(
-    "Doctor Schedule",
-    "Doctor-Schedule-group",
-    Icons.calendar,
-    [
-      getItem("Doctor Schedule", "/admin/doctor-schedule", Icons.calendar),
-      getItem("Add Schedule", "/admin/add-schedule", Icons.calendar),
-    ],
-    "group"
-  ),
+  // {
+  //   type: "divider",
+  // },
+  // getItem(
+  //   "Staff",
+  //   "Staff-group",
+  //   Icons.calendar,
+  //   [
+  //     getItem("Staff List", "/admin/staff-list", Icons.calendar),
+  //     getItem("Add Staff", "/admin/add-staff", Icons.calendar),
+  //     getItem("Leaves", "/admin/leaves", Icons.calendar),
+  //     getItem("Holidays", "/admin/holidays", Icons.calendar),
+  //     getItem("Attendance Sheet", "/admin/attendance-sheet", Icons.calendar),
+  //   ],
+  //   "group"
+  // ),
+  // {
+  //   type: "divider",
+  // },
+  // getItem(
+  //   "Doctor Schedule",
+  //   "Doctor-Schedule-group",
+  //   Icons.calendar,
+  //   [
+  //     getItem("Doctor Schedule", "/admin/doctor-schedule", Icons.calendar),
+  //     getItem("Add Schedule", "/admin/add-schedule", Icons.calendar),
+  //   ],
+  //   "group"
+  // ),
   {
     type: "divider",
   },
@@ -733,27 +733,31 @@ export const AdminMenuItems = [
     ],
     "group"
   ),
-  getItem(
-    "Billing",
-    "Billing-group",
-    Icons.calendar,
-    [
-      getItem("Employee Salary", "/admin/employee-salary", Icons.calendar),
-      getItem("Invoice", "Invoice-group", Icons.calendar, [
-        getItem("Invoice List", "/admin/invoice-list", Icons.calendar),
-        getItem("Add Invoice", "/admin/add-invoice", Icons.calendar),
-      ]),
-    ],
-    "group"
-  ),
+  // getItem(
+  //   "Billing",
+  //   "Billing-group",
+  //   Icons.calendar,
+  //   [
+  //     getItem("Employee Salary", "/admin/employee-salary", Icons.calendar),
+  //     getItem("Invoice", "Invoice-group", Icons.calendar, [
+  //       getItem("Invoice List", "/admin/invoice-list", Icons.calendar),
+  //       getItem("Add Invoice", "/admin/add-invoice", Icons.calendar),
+  //     ]),
+  //   ],
+  //   "group"
+  // ),
   {
     type: "divider",
   },
   getItem(
-    "Blog",
+    "Web Site",
     "Blog-group",
     Icons.calendar,
-    [getItem("Blog Add", "/admin/blog-add", Icons.calendar)],
+    [
+      getItem("Blog Add", "/admin/blog-add", Icons.calendar),
+      getItem("FAQ Add", "/admin/faq", Icons.calendar),
+      getItem("Testimonial Add", "/admin/testimonials", Icons.calendar),
+    ],
     "group"
   ),
   {

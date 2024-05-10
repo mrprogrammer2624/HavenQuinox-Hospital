@@ -39,8 +39,6 @@
 .select:global.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
     border: 2px solid var(--text-color);
     background: transparent;
-    color: var(--title-color);
-    font-size: var(--font-md);
 }
 
 .select:global.ant-select-single,
@@ -103,12 +101,11 @@
 }
 
 .HQInputLabel {
-    color: var(--title-color);
+    color: var(--gray);
     margin-bottom: 4px;
     display: block;
     letter-spacing: 1px;
     font-weight: 500;
-    font-size: 15px;
 }
 
 .dropdown {

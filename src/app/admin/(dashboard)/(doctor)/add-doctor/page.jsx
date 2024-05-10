@@ -120,17 +120,18 @@ const AddDoctor = () => {
     }
   };
   return (
-    <div className="ma-auto w-full authentication-right">
+    <div className="ma-auto w-full dashboard-add-from">
       <form
         onSubmit={handleSubmit}
         encType="multipart/form-data"
         className="w-full"
       >
         <div className="flex flex-col gap-12">
-          <div className="flex flex-col ma-auto">
+          <div className="flex flex-col gap-5 ma-auto">
             <HQAvatar
               single
               size={150}
+              parentAvatar={"ma-auto"}
               img={getPath.originalImagePath}
               alt="Uploaded Image"
             />
@@ -138,7 +139,7 @@ const AddDoctor = () => {
               <span className="flex">{Icons.camera}</span>photos
             </HQInputFile>
           </div>
-          <div className="flex w-full gap-12">
+          <div className="grid dashboard-add-from-layout">
             <HQInput
               type="text"
               id="fname"
@@ -159,28 +160,36 @@ const AddDoctor = () => {
               value={doctor.lname}
               handleChange={doctorData}
             />
-          </div>
-          <HQInput
-            type="email"
-            id="email"
-            name="email"
-            placeholder="enter email"
-            HQInputLabelClassName={styles.label}
-            label="email"
-            value={doctor.email}
-            handleChange={doctorData}
-          />
-          <HQInput
-            type="number"
-            id="phoneNo"
-            name="phoneNo"
-            placeholder="enter mobile number"
-            HQInputLabelClassName={styles.label}
-            label="mobile number"
-            value={doctor.phoneNo}
-            handleChange={doctorData}
-          />
-          <div className="flex w-full gap-12">
+            <HQInput
+              type="email"
+              id="email"
+              name="email"
+              placeholder="enter email"
+              HQInputLabelClassName={styles.label}
+              label="email"
+              value={doctor.email}
+              handleChange={doctorData}
+            />
+            <HQSelect
+              id="gender"
+              name="gender"
+              placeholder="Mobile Number"
+              HQInputLabelClassName={styles.label}
+              HQSelectContainerClassName={"w-full"}
+              label="Mobile Number"
+              options={gender}
+              handleChange={handleGenderChange}
+            />
+            <HQInput
+              type="number"
+              id="phoneNo"
+              name="phoneNo"
+              placeholder="enter mobile number"
+              HQInputLabelClassName={styles.label}
+              label="mobile number"
+              value={doctor.phoneNo}
+              handleChange={doctorData}
+            />
             <HQInput
               type="text"
               id="city"
@@ -201,37 +210,37 @@ const AddDoctor = () => {
               options={gender}
               handleChange={handleGenderChange}
             />
+            <HQInputPassword
+              type="password"
+              id="password"
+              name="password"
+              placeholder="enter password"
+              HQInputLabelClassName={styles.label}
+              label="password"
+              value={doctor.password}
+              handleChange={doctorData}
+            />
+            <HQInputPassword
+              type="password"
+              id="ReenterPassword"
+              name="cPass"
+              placeholder="Re Enter password"
+              label="Re Enter password"
+              HQInputLabelClassName={styles.label}
+              value={doctor.cPass}
+              handleChange={doctorData}
+            />
           </div>
-          <HQInputPassword
-            type="password"
-            id="password"
-            name="password"
-            placeholder="enter password"
-            HQInputLabelClassName={styles.label}
-            label="password"
-            value={doctor.password}
-            handleChange={doctorData}
-          />
-          <HQInputPassword
-            type="password"
-            id="ReenterPassword"
-            name="cPass"
-            placeholder="Re Enter password"
-            label="Re Enter password"
-            HQInputLabelClassName={styles.label}
-            value={doctor.cPass}
-            handleChange={doctorData}
-          />
-          <HQButton
-            customClass={"mt-5"}
-            type="default"
-            htmlType="submit"
-            loading={buttonLoader}
-            block
-          >
-            Sign Up
-          </HQButton>
         </div>
+        <HQButton
+          customClass={"mt-5"}
+          type="default"
+          htmlType="submit"
+          loading={buttonLoader}
+          block
+        >
+          Sign Up
+        </HQButton>
       </form>
       <HQToasts contextHolder={contextHolder} />
     </div>

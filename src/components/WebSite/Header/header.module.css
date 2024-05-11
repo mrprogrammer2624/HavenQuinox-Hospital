@@ -1,0 +1,23 @@
+.header {
+  top: 25px;
+  z-index: 9;
+}
+
+.headerWrapper {
+  border-radius: 10rem;
+  padding: var(--spacing-xl);
+  grid-template-columns: max-content auto max-content;
+}
+
+.listWrapper {
+  grid-gap: calc(var(--spacing-xs) + var(--spacing-3xl));
+}
+
+.headerRightButton {
+  padding-inline-start: var(--p-s);
+  padding-inline-end: var(--p-e);
+  --min-w-h: 4.5rem;
+  --p-s: calc(var(--spacing-lg) * 3);
+  --p-e: calc(var(--spacing-lg) * 3);
+  padding: var(--p-t) var(--p-e) var(--p-b) var(--p-s);
+}

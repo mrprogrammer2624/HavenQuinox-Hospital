@@ -1,3 +1,11 @@
+import { Footer, Header } from "@/components";
+
 export default function RootLayout({ children }) {
-  return <div>{children}</div>;
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 }

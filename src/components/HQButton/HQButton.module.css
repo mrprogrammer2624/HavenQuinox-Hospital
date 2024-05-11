@@ -4,7 +4,6 @@
   --p-b: calc(var(--spacing-xs) * 5);
   --p-s: calc(var(--spacing-xl) * 3);
   --p-e: calc(var(--spacing-xl) * 3);
-  --button-active: var();
   --button-bg-color: var(--secondary);
   position: relative;
   text-transform: capitalize;
@@ -14,9 +13,9 @@
   justify-content: center;
   cursor: pointer;
   line-height: 194.444%;
-  font-size: var(--h6-size);
+  font-size: var(--font-sm);
   padding: var(--p-t) var(--p-e) var(--p-b) var(--p-s);
-  border: solid 2px var(--button-border-color, var(secondary));
+  border: solid 2px var(--button-border-color, var(--secondary));
   background-color: var(--button-bg-color, transparent);
   color: var(--button-text-color, var(--white));
   transition: var(--transition-all);
@@ -71,6 +70,24 @@
   color: var(--quaternary);
 }
 
+/* Primary */
+.button:global.ant-btn-primary {
+  --button-bg-color: transparent;
+  --button-text-color: var(--secondary);
+}
+
+.button:global.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  color: var(--white);
+  border-color: var(--exotic-lilac);
+  background-color: var(--exotic-lilac);
+}
+
+.button:global.ant-btn-primary:disabled {
+  background-color: var(--exotic-lilac);
+  border-color: var(--exotic-lilac);
+  color: var(--quaternary);
+}
+
 /* Lg button Size */
 .button:global.ant-btn-lg {
   --p-t: calc(var(--spacing-xs) * 5);
@@ -79,7 +96,9 @@
   --p-e: calc(var(--spacing-xl) * 5);
 }
 
-/* Rounded Button */
+/* Circle */
 .button:global.ant-btn.ant-btn-circle.ant-btn {
   min-width: var(--min-w-h);
 }
+
+/* Rounded Button */

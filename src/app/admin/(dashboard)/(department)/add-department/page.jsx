@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { HQButton, HQInput, HQInputPassword, HQToasts } from "@/components";
 import { axiosApi } from "@/axiosApi";
-import { notification } from "antd";
 
 const AddDepartment = () => {
   const [error, setError] = useState(null);
@@ -41,16 +40,12 @@ const AddDepartment = () => {
         headers: { "Content-Type": "multipart/form-data" },
       };
 
-      console.log(department);
       const response = await axiosApi({
         method: "post",
         url: `/admin/addDepartenment`,
         data: formData,
         config,
       });
-
-      typeNotification("success", "SignUp successful!");
-      router.push("/admin/login");
     } catch (error) {
       console.error("Error submitting form:", error);
       if (error.response && error.response.status === 401) {

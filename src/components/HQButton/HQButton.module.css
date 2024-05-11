@@ -1,9 +1,11 @@
 .button {
+  --min-w-h: 6rem;
   --p-t: calc(var(--spacing-xs) * 5);
   --p-b: calc(var(--spacing-xs) * 5);
   --p-s: calc(var(--spacing-xl) * 3);
   --p-e: calc(var(--spacing-xl) * 3);
-  --button-active: var(--primary-shades-100);
+  --button-active: var();
+  --button-bg-color: var(--secondary);
   position: relative;
   text-transform: capitalize;
   font-weight: 500;
@@ -14,20 +16,20 @@
   line-height: 194.444%;
   font-size: var(--h6-size);
   padding: var(--p-t) var(--p-e) var(--p-b) var(--p-s);
-  border: solid 2px var(--button-border-color, var(--primary-shades-80));
+  border: solid 2px var(--button-border-color, var(secondary));
   background-color: var(--button-bg-color, transparent);
-  color: var(--button-text-color, var(--primary-shades-80));
+  color: var(--button-text-color, var(--white));
   transition: var(--transition-all);
   z-index: 0;
   overflow: hidden;
-  min-height: 6rem;
+  min-height: var(--min-w-h);
   width: fit-content;
 }
 
 /* Active Button Effect */
 .button::after {
   content: '';
-  background-color: var(--button-active);
+  background-color: var(--btn-active);
   width: 0;
   height: 0;
   position: absolute;
@@ -59,33 +61,14 @@
 /* Default Type */
 .button:global.ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
   color: var(--white);
-  border-color: var(--primary-shades-80);
-  background-color: var(--primary-shades-80);
+  border-color: var(--exotic-lilac);
+  background-color: var(--exotic-lilac);
 }
 
 .button:global.ant-btn-default:disabled {
-  background-color: var(--primary-shades-20);
-  border-color: var(--primary-shades-20);
-  color: var(--black-shades-20);
-}
-
-/* primary Primary */
-.button:global.ant-btn-primary {
-  --button-bg-color: var(--quaternary);
-  --button-border-color: var(--quaternary);
-  --button-text-color: var(--white);
-  --button-active: var(--quaternary);
-}
-
-.button:global.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
-  background-color: var(--quaternary-shades-60);
-  border-color: var(--quaternary-shades-60);
-}
-
-.button:global.ant-btn-primary:disabled {
-  background-color: var(--quaternary-shades-20);
-  border-color: var(--quaternary-shades-20);
-  color: var(--black-shades-20);
+  background-color: var(--exotic-lilac);
+  border-color: var(--exotic-lilac);
+  color: var(--quaternary);
 }
 
 /* Lg button Size */
@@ -94,4 +77,9 @@
   --p-b: calc(var(--spacing-xs) * 5);
   --p-s: calc(var(--spacing-xl) * 5);
   --p-e: calc(var(--spacing-xl) * 5);
+}
+
+/* Rounded Button */
+.button:global.ant-btn.ant-btn-circle.ant-btn {
+  min-width: var(--min-w-h);
 }

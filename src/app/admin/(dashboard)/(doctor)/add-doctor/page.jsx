@@ -21,6 +21,7 @@ const AddDoctor = () => {
   const router = useRouter();
   const [error, setError] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
+  const [departmentList, setDepartmentList] = useState([]);
   const [api, contextHolder] = notification.useNotification();
   const [getPath, setPath] = useState({
     originalImagePath: "",
@@ -30,8 +31,11 @@ const AddDoctor = () => {
     fname: "",
     lname: "",
     email: "",
+    departnment: "",
     phoneNo: "",
     city: "",
+    state: "",
+    country: "",
     gender: "",
     password: "",
     cPass: "",
@@ -56,6 +60,27 @@ const AddDoctor = () => {
     });
   };
 
+  // Get DepartmentList
+  useEffect(() => {
+    const fetchDepartmentList = async () => {
+      try {
+        const response = await axios.get(
+          process.env.NEXT_PUBLIC_WEB_URL + "admin/viewAllDepart"
+        );
+        const updatedDepartmentList = response.data.data.map((department) => ({
+          ...department,
+          label: department._id,
+          value: department._id,
+        }));
+        setDepartmentList(updatedDepartmentList);
+      } catch (error) {
+        console.error("Error fetching department data:", error);
+      }
+    };
+
+    fetchDepartmentList();
+  }, []);
+
   // Admin Data
   const doctorData = (e) => {
     const { name, value } = e.target;
@@ -72,6 +97,13 @@ const AddDoctor = () => {
     }));
   };
 
+  const handleDepartmentChange = (selectedDepartmentChange) => {
+    setDoctor((prevUser) => ({
+      ...prevUser,
+      departnment: selectedDepartmentChange,
+    }));
+  };
+
   // OnSubmit
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -83,8 +115,11 @@ const AddDoctor = () => {
       formData.append("fname", doctor.fname);
       formData.append("lname", doctor.lname);
       formData.append("email", doctor.email);
+      formData.append("departnment", doctor.departnment);
       formData.append("phoneNo", doctor.phoneNo);
       formData.append("city", doctor.city);
+      formData.append("state", doctor.state);
+      formData.append("country", doctor.country);
       formData.append("gender", doctor.gender);
       formData.append("password", doctor.password);
       formData.append("cPass", doctor.cPass);
@@ -100,13 +135,8 @@ const AddDoctor = () => {
         config,
       });
 
-      // const response = await axios.post(
-      //   "http://192.168.134.166:8004/admin/doctor/insertDoctor",
-      //   formData,
-      //   config
-      // );
+      console.log(response.data);
       typeNotification("success", "SignUp successful!");
-      router.push("/doctor/login");
     } catch (error) {
       console.error("Error submitting form:", error);
       if (error.response && error.response.status === 401) {
@@ -119,6 +149,7 @@ const AddDoctor = () => {
       setButtonLoader(false);
     }
   };
+
   return (
     <div className="ma-auto w-full dashboard-add-from">
       <form
@@ -173,12 +204,13 @@ const AddDoctor = () => {
             <HQSelect
               id="gender"
               name="gender"
-              placeholder="Mobile Number"
-              HQInputLabelClassName={styles.label}
+              placeholder="Enter Department"
+              HQSelectLabelClassName={styles.label}
               HQSelectContainerClassName={"w-full"}
-              label="Mobile Number"
-              options={gender}
-              handleChange={handleGenderChange}
+              label="Department"
+              options={departmentList}
+              // options={gender}
+              handleChange={handleDepartmentChange}
             />
             <HQInput
               type="number"
@@ -200,11 +232,31 @@ const AddDoctor = () => {
               value={doctor.city}
               handleChange={doctorData}
             />
+            <HQInput
+              type="text"
+              id="state"
+              name="state"
+              placeholder="enter state"
+              HQInputLabelClassName={styles.label}
+              label="Enter state"
+              value={doctor.state}
+              handleChange={doctorData}
+            />
+            <HQInput
+              type="text"
+              id="country"
+              name="country"
+              placeholder="enter country"
+              HQInputLabelClassName={styles.label}
+              label="Enter country"
+              value={doctor.country}
+              handleChange={doctorData}
+            />
             <HQSelect
               id="gender"
               name="gender"
               placeholder="enter gender"
-              HQInputLabelClassName={styles.label}
+              HQSelectLabelClassName={styles.label}
               HQSelectContainerClassName={"w-full"}
               label="gender"
               options={gender}

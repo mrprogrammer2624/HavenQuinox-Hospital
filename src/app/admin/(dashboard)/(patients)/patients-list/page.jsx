@@ -1,19 +1,24 @@
 "use client";
-import axios from "axios";
-import Image from "next/image";
+import { axiosApi } from "@/axiosApi";
+import { Table } from "antd";
 import { useEffect, useState } from "react";
 
 const PatientsList = () => {
   const [patientsList, setPatientsList] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const fetchPatientsList = async () => {
     try {
-      const response = await axios.get(
-        process.env.NEXT_PUBLIC_WEB_URL + "patient/viewAllPatient"
-      );
+      setLoading(true);
+      const response = await axiosApi({
+        method: "get",
+        url: `patient/viewAllPatient`,
+      });
       setPatientsList(response.data.data);
     } catch (error) {
       console.error("Error fetching patient data:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -25,27 +30,35 @@ const PatientsList = () => {
     fetchData();
   }, []);
 
-  console.log(patientsList);
+  const patientsListColumns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      ellipsis: true,
+    },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+      ellipsis: true,
+    },
+    {
+      title: "RegisterDate",
+      dataIndex: "currentDate",
+      key: "currentDate",
+      ellipsis: true,
+    },
+  ];
 
   return (
     <div>
-      {patientsList ? (
-        <ul>
-          {patientsList.map((patient, index) => (
-            <li key={patient.id + index}>
-              <p>{patient.name}</p>
-              <p>{patient.email}</p>
-              <p>{patient.password}</p>
-              <p>{patient.isActive}</p>
-              <p>{patient.currentDate}</p>
-              <p>{patient.updateDate}</p>
-              <p>{patient.role}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Loading...</p>
-      )}
+      <Table
+        columns={patientsListColumns}
+        dataSource={patientsList}
+        loading={loading}
+        rowKey={_id}
+      />
     </div>
   );
 };

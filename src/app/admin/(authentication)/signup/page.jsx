@@ -7,9 +7,11 @@ import {
   HQInput,
   HQInputPassword,
   HQToasts,
+  HQAvatar,
+  HQInputFile,
 } from "@/components";
 import styles from "../authentication.module.css";
-import { gender } from "@/utility";
+import { Icons, gender } from "@/utility";
 import { axiosApi } from "@/axiosApi";
 import { useRouter } from "next/navigation";
 import { notification } from "antd";
@@ -19,6 +21,10 @@ const SignUpForm = () => {
   const [error, setError] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
   const [api, contextHolder] = notification.useNotification();
+  const [department, setDepartment] = useState();
+  const [getPath, setPath] = useState({
+    originalImagePath: "",
+  });
   const [admin, setAdmin] = useState({
     adminImage: "", // This state should hold the selected image
     fname: "",
@@ -31,11 +37,34 @@ const SignUpForm = () => {
     cPass: "",
   });
 
+  // Get Department Data
+  useEffect(() => {
+    const fetchDoctorList = async () => {
+      try {
+        const response = await axiosApi({
+          method: "get",
+          url: `admin/viewAllDepart`,
+        });
+        setDepartment(response.data.data);
+      } catch (error) {
+        // Handle any errors
+        console.error("Error fetching doctor data:", error);
+      }
+    };
+
+    return fetchDoctorList();
+  }, []);
+
   const handleImageChange = (e) => {
-    const file = e.target;
+    const file = e.target.files[0];
+    const imagePath = URL.createObjectURL(file);
     setAdmin({
       ...admin,
-      adminImage: file.files[0], // Update adminImage state with the selected file object
+      adminImage: file, // Update adminImage state with the selected file object
+    });
+    setPath({
+      ...getPath,
+      originalImagePath: imagePath,
     });
   };
 
@@ -60,8 +89,6 @@ const SignUpForm = () => {
       gender: selectedGender,
     }));
   };
-
-  console.log(admin);
 
   // OnSubmit
   const handleSubmit = async (e) => {
@@ -122,8 +149,17 @@ const SignUpForm = () => {
         className="w-full"
       >
         <div className="flex flex-col gap-12">
-          <div>
-            <input type="file" onChange={handleImageChange} />
+          <div className="flex flex-col gap-5 ma-auto">
+            <HQAvatar
+              single
+              size={150}
+              parentAvatar={"ma-auto"}
+              img={getPath.originalImagePath}
+              alt="Uploaded Image"
+            />
+            <HQInputFile handleChange={handleImageChange}>
+              <span className="flex">{Icons.camera}</span>photos
+            </HQInputFile>
           </div>
           <div className="flex w-full gap-12">
             <HQInput
@@ -182,7 +218,7 @@ const SignUpForm = () => {
               id="gender"
               name="gender"
               placeholder="enter gender"
-              HQInputLabelClassName={styles.label}
+              HQSelectLabelClassName={styles.label}
               HQSelectContainerClassName={"w-full"}
               label="gender"
               options={gender}

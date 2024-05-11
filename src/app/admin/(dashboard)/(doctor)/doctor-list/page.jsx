@@ -1,63 +1,42 @@
 "use client";
-import axios from "axios";
-import Image from "next/image";
+import { axiosApi } from "@/axiosApi";
+import { HQAvatar, HQTeamCard, HQButton } from "@/components";
 import { useEffect, useState } from "react";
 
 const DoctorList = () => {
   const [doctorList, setDoctorList] = useState(null);
 
-  const fetchDoctorList = async () => {
-    try {
-      const response = await axios.get(
-        process.env.NEXT_PUBLIC_WEB_URL + "admin/doctor/viewAllDoctor"
-      );
-      setDoctorList(response.data.data);
-    } catch (error) {
-      // Handle any errors
-      console.error("Error fetching doctor data:", error);
-    }
-  };
-
   useEffect(() => {
-    const fetchData = async () => {
-      await fetchDoctorList();
+    const fetchDoctorList = async () => {
+      try {
+        const response = await axiosApi({
+          method: "get",
+          url: `admin/doctor/viewAllDoctor`,
+        });
+        setDoctorList(response.data.data);
+      } catch (error) {
+        // Handle any errors
+        console.error("Error fetching doctor data:", error);
+      }
     };
-
-    fetchData();
+    fetchDoctorList();
   }, []);
 
   return (
-    <div>
+    <div className="grid items-center justify-center card-listing">
       {doctorList ? (
-        <ul>
-          {doctorList.map((doctor, index) => (
-            <li key={doctor.id + index}>
-              <p>{doctor.name}</p>
-              <p>{doctor.email}</p>
-              <p>{doctor.phoneNo}</p>
-              <p>{doctor.password}</p>
-              <p>{doctor.city}</p>
-              <p>{doctor.gender}</p>
-              <p></p>
-              <img
-                src={
-                  process.env.NEXT_PUBLIC_WEB_URL +
-                  "uploads/doctorImages/" +
-                  doctor.doctorImage
-                }
-                width={150}
-                height={150}
-                alt={doctor.doctorImage}
-              />
-              <p>{doctor.isActive}</p>
-              <p>{doctor.currentDate}</p>
-              <p>{doctor.updateDate}</p>
-              <p>{doctor.role}</p>
-            </li>
-          ))}
-        </ul>
+        doctorList.map((doctor, index) => (
+          <HQTeamCard
+            key={doctor._id + index}
+            img={"http://192.168.1.34:8004" + doctor.doctorImage}
+            departnment={doctor.departnment}
+            name={doctor.name}
+            city={doctor.city}
+            country={doctor.country}
+          ></HQTeamCard>
+        ))
       ) : (
-        <p>Loading...</p>
+        <p>Data Not Found</p>
       )}
     </div>
   );

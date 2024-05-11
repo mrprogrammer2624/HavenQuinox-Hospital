@@ -404,18 +404,16 @@ export const Icons = {
   ),
   location: (
     <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M4 10.1433C4 5.64588 7.58172 2 12 2C16.4183 2 20 5.64588 20 10.1433C20 14.6055 17.4467 19.8124 13.4629 21.6744C12.5343 22.1085 11.4657 22.1085 10.5371 21.6744C6.55332 19.8124 4 14.6055 4 10.1433Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
+        d="M15.3033 14.4701L10 19.7733L4.6967 14.4701C1.76777 11.5411 1.76777 6.79238 4.6967 3.86345C7.62563 0.934515 12.3743 0.934515 15.3033 3.86345C18.2323 6.79238 18.2323 11.5411 15.3033 14.4701ZM10 10.8334C10.9205 10.8334 11.6667 10.0872 11.6667 9.16675C11.6667 8.24627 10.9205 7.50008 10 7.50008C9.0795 7.50008 8.33333 8.24627 8.33333 9.16675C8.33333 10.0872 9.0795 10.8334 10 10.8334Z"
+        fill="#00ABE1"
       />
-      <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
   map: (
@@ -519,11 +517,11 @@ export const Icons = {
       height="24"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      stroke-width="2"
+      strokeWidth="2"
       stroke="currentColor"
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
       <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"></path>

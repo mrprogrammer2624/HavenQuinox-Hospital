@@ -1,8 +1,8 @@
 .card {
     border: 1px solid;
     border-color: transparent;
-    border-radius: 8px;
-    padding: calc(var(--spacing-md) + 3px) calc(var(--spacing-lg) + 2px);
+    border-radius: 3rem;
+    padding: 7px;
     background-color: var(--white);
     display: flex;
     flex-direction: column;

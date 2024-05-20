@@ -1,52 +1,66 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { HQButton, HQInput, HQInputPassword, Loading } from "@/components";
+import { HQButton, HQInput, HQInputPassword, HQToasts } from "@/components";
 import styles from "../authentication.module.css";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { notification } from "antd";
 
 const LoginForm = () => {
   const router = useRouter();
-
-  const [user, setUser] = useState({
-    loginEmail: "",
-    loginPassword: "",
+  const [error, setError] = useState(null);
+  const [buttonLoader, setButtonLoader] = useState(false);
+  const [api, contextHolder] = notification.useNotification();
+  const [doctorCredentials, setDoctorCredentials] = useState({
+    email: "",
+    password: "",
   });
 
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  // Set Loading State
-  const [loading, setLoading] = useState(false);
-  const [buttonLoader, setButtonLoader] = useState(false);
+  const typeNotification = (type) => {
+    api[type]({
+      message: `Notification ${type}`,
+    });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setDoctorCredentials({ ...doctorCredentials, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // setLoading(true);
       setButtonLoader(true);
-      await axios.post("../../api/auth/login", user);
-      router.push("/");
+      const config = {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      };
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_WEB_URL + "admin/doctor/login",
+        doctorCredentials,
+        config
+      );
+      const { token } = response.data;
+      if (token) {
+        document.cookie = `doctorToken=${token}; path=/doctor/`;
+      }
+      typeNotification("success", "Login successful!");
+      router.push("/doctor/dashboard");
     } catch (error) {
-      console.log(error);
+      console.error("Login failed:", error);
+      if (error.response && error.response.status === 401) {
+        setError("Invalid email or password."); // Set error message
+        typeNotification("Error", "Login unsuccessful!");
+      } else {
+        setError("An error occurred during login."); // Set generic error message
+      }
     } finally {
-      // setLoading(false);
       setButtonLoader(false);
     }
   };
-
-  useEffect(() => {
-    if (user.loginEmail.length > 0 && user.loginPassword.length > 0) {
-      setButtonDisabled(false);
-    } else {
-      setButtonDisabled(true);
-    }
-  }, [user]);
 
   return (
     <div className="ma-auto w-full authentication-right">
@@ -60,18 +74,18 @@ const LoginForm = () => {
             label="Enter Your Email"
             placeholder="Enter Email"
             HQInputLabelClassName={styles.label}
-            value={user.email}
+            value={doctorCredentials.email}
             id="loginEmail"
-            name="loginEmail"
+            name="email"
             handleChange={handleChange}
           />
           <HQInputPassword
             type="password"
             label="Enter Your Password"
             HQInputLabelClassName={styles.label}
-            value={user.password}
+            value={doctorCredentials.password}
             id="loginPassword"
-            name="loginPassword"
+            name="password"
             handleChange={handleChange}
             placeholder="Enter Password"
           />
@@ -83,6 +97,7 @@ const LoginForm = () => {
           Login
         </HQButton>
       </form>
+      <HQToasts contextHolder={contextHolder} />
     </div>
   );
 };

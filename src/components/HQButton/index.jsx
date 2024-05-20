@@ -23,7 +23,7 @@ export const HQButton = ({
         customClass,
         borderSize == "md" ? styles.borderMd : styles.borderSm
       )}
-      type={type}
+      type={type == "" ? "default" : type}
       onClick={handleClick}
       block={block}
       disabled={disabled}

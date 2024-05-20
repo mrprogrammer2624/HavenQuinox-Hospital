@@ -15,7 +15,7 @@ export const HQDropDownImg = ({ items, name, image, email, imageAlt }) => {
     >
       <button className={clsx(styles.dropDwnButton, "flex gap-5")}>
         <div className={clsx(styles.dropdownImgContainer)}>
-          <Image src={image} width={100} height={100} alt={imageAlt} />
+          <img src={image} width={100} height={100} alt={imageAlt} />
         </div>
         <div className={styles.dropDwnContent}>
           <div className={clsx(styles.dropDwnTitle, "block text-left mb-1")}>

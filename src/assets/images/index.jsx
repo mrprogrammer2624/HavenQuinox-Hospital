@@ -20,6 +20,9 @@ import Vietnam from "./flags/vietnam.png";
 import Singapore from "./flags/singapore.png";
 import Kenya from "./flags/kenya.png";
 
+// Big Avatar
+import HeroDoctor from "./big-avatar/hero-doctor.png";
+
 // Cover
 import BagShowcase from "./cover/bag.jpg";
 
@@ -52,4 +55,6 @@ export {
   Authentication,
   // cover
   BagShowcase,
+  //  Big Avatar
+  HeroDoctor,
 };

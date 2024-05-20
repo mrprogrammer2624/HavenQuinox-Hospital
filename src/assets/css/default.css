@@ -15,11 +15,18 @@ body {
   font-family: var(--primary-font);
   font-weight: 500;
   margin: 0;
+  color: var(--tertiary);
 }
 
 main {
   padding: var(--spacing-lg) var(--spacing-sm);
   height: 100%;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 /* Font Start */
@@ -156,6 +163,25 @@ p.small {
   text-transform: lowercase;
 }
 
+/* list-unstyle */
+ul,
+li,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--tertiary);
+  transition: var(--transition-all);
+}
+
+a:hover {
+  color: var(--secondary);
+}
+
 /* Rotation */
 .deg-0 {
   rotate: 0deg;
@@ -169,13 +195,9 @@ p.small {
   rotate: 180deg;
 }
 
-/* Link */
-a {
-  color: var(--primary);
-}
-
-a:hover {
-  color: var(--black);
+/* From Data */
+::placeholder {
+  text-transform: capitalize;
 }
 
 /* Transition */
@@ -265,4 +287,25 @@ a:hover {
 .authentication-right {
   overflow: auto;
   padding: 5rem 18rem;
+}
+
+/* Image */
+img {
+  width: inherit;
+  height: inherit;
+  display: block;
+  border-radius: inherit;
+}
+
+/*  */
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.lh-base {
+  line-height: 1.5;
 }

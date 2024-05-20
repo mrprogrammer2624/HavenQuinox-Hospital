@@ -18,18 +18,22 @@ export const HQBasicCard = ({
         removeCardBodySpacing && styles.removeCardSpacing
       )}
     >
-      <div
-        className={clsx(
-          styles.cardHeader,
-          "items-center justify-between",
-          header == false ? "hidden" : "flex"
-        )}
-      >
-        <span className={clsx("fw-800", styles.HQCardTitle)}>{cardTitle}</span>
-        <span className={clsx(styles.cardExtraContent, "text-color")}>
-          {cardExtraContent}
-        </span>
-      </div>
+      {header && (
+        <div
+          className={clsx(
+            styles.cardHeader,
+            "items-center justify-between",
+            header == false ? "hidden" : "flex"
+          )}
+        >
+          <span className={clsx("fw-800", styles.HQCardTitle)}>
+            {cardTitle}
+          </span>
+          <span className={clsx(styles.cardExtraContent, "text-color")}>
+            {cardExtraContent}
+          </span>
+        </div>
+      )}
       <div
         className={clsx(styles.cardBody, "scroll-hover", customCardBodyClass)}
       >

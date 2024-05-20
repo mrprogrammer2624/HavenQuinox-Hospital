@@ -4,9 +4,8 @@ import styles from "./HQHeader.module.css";
 import clsx from "clsx";
 import { ThemeContext } from "@/contexts/ThemeProvider";
 import { HQButton, HQDropDownImg } from "../";
-import { userDropItems } from "@/utility";
 
-export const HQHeader = () => {
+export const HQHeader = ({ items, name, image, email, imageAlt }) => {
   const {
     sidebarToggle,
     setSidebarToggle,
@@ -79,8 +78,11 @@ export const HQHeader = () => {
           </div>
           <div>
             <HQDropDownImg
-              // image={session.data.user.image}
-              items={userDropItems}
+              email={email}
+              name={name}
+              image={image}
+              items={items}
+              imageAlt={imageAlt}
             />
           </div>
         </div>

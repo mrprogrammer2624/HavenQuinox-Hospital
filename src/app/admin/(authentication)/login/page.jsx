@@ -48,7 +48,7 @@ const LoginForm = () => {
       // });
 
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_WEB_URL + "admin/login",
+        process.env.NEXT_PUBLIC_WEB_URL + "/admin/login",
         adminCredentials,
         config
       );

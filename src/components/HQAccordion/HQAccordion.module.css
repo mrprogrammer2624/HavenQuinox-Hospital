@@ -1,70 +1,10 @@
-.HQAccordion:global.ant-collapse {
-  color: var(--black-shades-80);
-  border: 1px solid var(--black-shades-80);
-}
-
-.HQAccordion:global.ant-collapse>.ant-collapse-item {
-  border-bottom: 0;
-}
-
-.HQAccordion:global.ant-collapse>.ant-collapse-item:not(:last-child) {
-  border-bottom: 1px solid var(--black-shades-80);
-}
-
-.HQAccordion :global .ant-collapse .borderless-accordion .ant-collapse-item {
-  background-color: var(--primary);
-}
-
-.HQAccordion:global.ant-collapse .ant-collapse-item.ant-collapse-item-active>.ant-collapse-header {
-  background-color: var(--primary-shades-80);
-  color: var(--white);
-}
-
-.HQAccordion:global.ant-collapse .ant-collapse-item:first-child.ant-collapse-item-active>.ant-collapse-header {
-  border-radius: 8px 8px 0 0;
-}
-
-.HQAccordion:global.ant-collapse>.ant-collapse-item>.ant-collapse-header {
-  color: var(--black-shades-80);
-}
-
-.HQAccordion:global.ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-header-text {
-  font-size: var(--font-md);
-}
-
-.HQAccordion:global.ant-collapse .ant-collapse-content {
-  color: var(--black-shades-80);
-  background-color: transparent;
-  border-top: 1px solid var(--black-shades-80);
-}
-
-/* Borderless Accordion */
-.HQAccordion:global.borderless-accordion.ant-collapse {
-  border: 0;
-}
-
-.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item {
-  border-bottom: 0;
-  background-color: var(--swifts);
-  border-radius: 8px;
-}
-
-.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item>.ant-collapse-header,
-.HQAccordion:global.borderless-accordion.ant-collapse>.ant-collapse-item:last-child.ant-collapse-item-active>.ant-collapse-header {
-  border-radius: 8px 8px 0 0;
-}
-
 /* Custom Icon Accordion */
 .HQAccordion:global.custom-icon-accordion.ant-collapse .ant-collapse-item.ant-collapse-item-active>.ant-collapse-header {
   align-items: center;
 }
 
 .HQAccordion:global.custom-icon-accordion.ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-expand-icon {
-  width: 22px;
+  width: 150px;
 }
 
 .HQAccordion:global.custom-icon-accordion.ant-collapse.ant-collapse-icon-position-end>.ant-collapse-item>.ant-collapse-header .ant-collapse-expand-icon {

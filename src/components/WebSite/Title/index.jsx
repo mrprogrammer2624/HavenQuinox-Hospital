@@ -8,5 +8,3 @@ export const Title = ({ title, children }) => {
     </div>
   );
 };
-
-HavenQuinox

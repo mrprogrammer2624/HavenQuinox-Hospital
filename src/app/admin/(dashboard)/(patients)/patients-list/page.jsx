@@ -57,7 +57,7 @@ const PatientsList = () => {
         columns={patientsListColumns}
         dataSource={patientsList}
         loading={loading}
-        rowKey={_id}
+        rowKey={"_id"}
       />
     </div>
   );

@@ -4,9 +4,10 @@ import clsx from "clsx";
 import { HQButton, HQInput, HQInputPassword, HQToasts } from "@/components";
 import styles from "../authentication.module.css";
 import Link from "next/link";
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { notification } from "antd";
+import { axiosApi } from "@/axiosApi";
+import axios from "axios";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -18,9 +19,9 @@ const LoginForm = () => {
     password: "",
   });
 
-  const typeNotification = (type) => {
+  const typeNotification = (type, message) => {
     api[type]({
-      message: `Notification ${type}`,
+      message: message,
     });
   };
 
@@ -38,22 +39,30 @@ const LoginForm = () => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       };
+
+      // const response = await axiosApi({
+      //   method: "post",
+      //   url: `/admin/login`,
+      //   data: adminCredentials,
+      //   config,
+      // });
+
       const response = await axios.post(
-        "http://192.168.134.166:8004/admin/login",
+        process.env.NEXT_PUBLIC_WEB_URL + "admin/login",
         adminCredentials,
         config
       );
       const { token } = response.data;
       if (token) {
-        document.cookie = `Admintoken=${token}; path=/admin/`;
+        document.cookie = `adminToken=${token}; path=/admin`;
       }
       typeNotification("success", "Login successful!");
-      router.push("/admin/dashboard");
+      router.push("/admin");
     } catch (error) {
       console.error("Login failed:", error);
       if (error.response && error.response.status === 401) {
         setError("Invalid email or password."); // Set error message
-        typeNotification("Error", "Login unsuccessful!");
+        typeNotification("error", "Login unsuccessful!");
       } else {
         setError("An error occurred during login."); // Set generic error message
       }
@@ -70,6 +79,7 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit} className="w-full">
         <div className="flex flex-col gap-12">
           <HQInput
+            required
             type="email"
             label="Enter Your Email"
             placeholder="Enter Email"
@@ -80,6 +90,7 @@ const LoginForm = () => {
             handleChange={handleChange}
           />
           <HQInputPassword
+            required
             type="password"
             label="Enter Your Password"
             HQInputLabelClassName={styles.label}

@@ -76,171 +76,6 @@ export const HQColorsWrapper = [
         color: "var(--white)",
         code: "#ffffff",
       },
-      {
-        name: "black",
-        color: "var(--black)",
-        code: "#000000",
-      },
-      {
-        name: "gray",
-        color: "var(--gray)",
-        code: "#666666",
-      },
-    ],
-  },
-  {
-    title: "primary-shades",
-    styleSheetsColors: [
-      {
-        name: "primary-shades-100",
-        color: "var(--primary-shades-100)",
-        code: "#D60023",
-      },
-      {
-        name: "primary-shades-80",
-        color: "var(--primary-shades-80)",
-        code: "#E81335",
-      },
-      {
-        name: "primary-shades-60",
-        color: "var(--primary-shades-60)",
-        code: "#ED3856",
-      },
-      {
-        name: "primary-shades-40",
-        color: "var(--primary-shades-40)",
-        code: "#F47188",
-      },
-      {
-        name: "primary-shades-20",
-        color: "var(--primary-shades-20)",
-        code: "#FCA9B9",
-      },
-    ],
-  },
-  {
-    title: "quaternary-shades",
-    styleSheetsColors: [
-      {
-        name: "quaternary-shades-80",
-        color: "var(--quaternary-shades-80)",
-        code: "#FAA21D",
-      },
-      {
-        name: "quaternary-shades-60",
-        color: "var(--quaternary-shades-60)",
-        code: "#FBAE3B",
-      },
-      {
-        name: "quaternary-shades-40",
-        color: "var(--quaternary-shades-40)",
-        code: "#FDC575",
-      },
-      {
-        name: "quaternary-shades-20",
-        color: "var(--quaternary-shades-20)",
-        code: "#FED193",
-      },
-    ],
-  },
-  {
-    title: "tertiary-shades",
-    styleSheetsColors: [
-      {
-        name: "tertiary-shades-80",
-        color: "var(--tertiary-shades-80)",
-        code: "#33BB47",
-      },
-      {
-        name: "tertiary-shades-60",
-        color: "var(--tertiary-shades-60)",
-        code: "#63D272",
-      },
-      {
-        name: "tertiary-shades-40",
-        color: "var(--tertiary-shades-40)",
-        code: "#92E89E",
-      },
-      {
-        name: "tertiary-shades-20",
-        color: "var(--tertiary-shades-20)",
-        code: "#C2FFC9",
-      },
-    ],
-  },
-  {
-    title: "white-shades",
-    styleSheetsColors: [
-      {
-        name: "white-shades-80",
-        color: "var(--white-shades-80)",
-        code: "#D9D9D9",
-      },
-      {
-        name: "white-shades-60",
-        color: "var(--white-shades-60)",
-        code: "#C0C0C0",
-      },
-      {
-        name: "white-shades-40",
-        color: "var(--white-shades-40)",
-        code: "#C8C8C8",
-      },
-      {
-        name: "white-shades-20",
-        color: "var(--white-shades-20)",
-        code: "#D9D9D9",
-      },
-    ],
-  },
-  {
-    title: "black-shades",
-    styleSheetsColors: [
-      {
-        name: "black-shades-80",
-        color: "var(--black-shades-80)",
-        code: "#161616",
-      },
-      {
-        name: "black-shades-60",
-        color: "var(--black-shades-60)",
-        code: "#2C2C2C",
-      },
-      {
-        name: "black-shades-40",
-        color: "var(--black-shades-40)",
-        code: "#585858",
-      },
-      {
-        name: "black-shades-20",
-        color: "var(--black-shades-20)",
-        code: "#848484",
-      },
-    ],
-  },
-  {
-    title: "gray-shades",
-    styleSheetsColors: [
-      {
-        name: "Gray-shades-80",
-        color: "var(--gray-shades-80)",
-        code: "#666666",
-      },
-      {
-        name: "Gray-shades-60",
-        color: "var(--gray-shades-60)",
-        code: "#919191",
-      },
-      {
-        name: "Gray-shades-40",
-        color: "var(--gray-shades-40)",
-        code: "#BBBBBB",
-      },
-      {
-        name: "Gray-shades-20",
-        color: "var(--gray-shades-20)",
-        code: "#CCCCCC",
-      },
     ],
   },
 ];
@@ -681,35 +516,35 @@ export const AdminMenuItems = [
     ],
     "group"
   ),
-  {
-    type: "divider",
-  },
-  getItem(
-    "Staff",
-    "Staff-group",
-    Icons.calendar,
-    [
-      getItem("Staff List", "/admin/staff-list", Icons.calendar),
-      getItem("Add Staff", "/admin/add-staff", Icons.calendar),
-      getItem("Leaves", "/admin/leaves", Icons.calendar),
-      getItem("Holidays", "/admin/holidays", Icons.calendar),
-      getItem("Attendance Sheet", "/admin/attendance-sheet", Icons.calendar),
-    ],
-    "group"
-  ),
-  {
-    type: "divider",
-  },
-  getItem(
-    "Doctor Schedule",
-    "Doctor-Schedule-group",
-    Icons.calendar,
-    [
-      getItem("Doctor Schedule", "/admin/doctor-schedule", Icons.calendar),
-      getItem("Add Schedule", "/admin/add-schedule", Icons.calendar),
-    ],
-    "group"
-  ),
+  // {
+  //   type: "divider",
+  // },
+  // getItem(
+  //   "Staff",
+  //   "Staff-group",
+  //   Icons.calendar,
+  //   [
+  //     getItem("Staff List", "/admin/staff-list", Icons.calendar),
+  //     getItem("Add Staff", "/admin/add-staff", Icons.calendar),
+  //     getItem("Leaves", "/admin/leaves", Icons.calendar),
+  //     getItem("Holidays", "/admin/holidays", Icons.calendar),
+  //     getItem("Attendance Sheet", "/admin/attendance-sheet", Icons.calendar),
+  //   ],
+  //   "group"
+  // ),
+  // {
+  //   type: "divider",
+  // },
+  // getItem(
+  //   "Doctor Schedule",
+  //   "Doctor-Schedule-group",
+  //   Icons.calendar,
+  //   [
+  //     getItem("Doctor Schedule", "/admin/doctor-schedule", Icons.calendar),
+  //     getItem("Add Schedule", "/admin/add-schedule", Icons.calendar),
+  //   ],
+  //   "group"
+  // ),
   {
     type: "divider",
   },
@@ -733,27 +568,31 @@ export const AdminMenuItems = [
     ],
     "group"
   ),
-  getItem(
-    "Billing",
-    "Billing-group",
-    Icons.calendar,
-    [
-      getItem("Employee Salary", "/admin/employee-salary", Icons.calendar),
-      getItem("Invoice", "Invoice-group", Icons.calendar, [
-        getItem("Invoice List", "/admin/invoice-list", Icons.calendar),
-        getItem("Add Invoice", "/admin/add-invoice", Icons.calendar),
-      ]),
-    ],
-    "group"
-  ),
+  // getItem(
+  //   "Billing",
+  //   "Billing-group",
+  //   Icons.calendar,
+  //   [
+  //     getItem("Employee Salary", "/admin/employee-salary", Icons.calendar),
+  //     getItem("Invoice", "Invoice-group", Icons.calendar, [
+  //       getItem("Invoice List", "/admin/invoice-list", Icons.calendar),
+  //       getItem("Add Invoice", "/admin/add-invoice", Icons.calendar),
+  //     ]),
+  //   ],
+  //   "group"
+  // ),
   {
     type: "divider",
   },
   getItem(
-    "Blog",
+    "Web Site",
     "Blog-group",
     Icons.calendar,
-    [getItem("Blog Add", "/admin/blog-add", Icons.calendar)],
+    [
+      getItem("Blog Add", "/admin/blog-add", Icons.calendar),
+      getItem("FAQ Add", "/admin/faq-add", Icons.calendar),
+      getItem("Testimonial Add", "/admin/testimonials", Icons.calendar),
+    ],
     "group"
   ),
   {

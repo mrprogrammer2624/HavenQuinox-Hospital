@@ -1,199 +1,115 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import React, { useState } from "react";
+import { HQButton, HQInput, HQInputPassword, HQToasts } from "@/components";
+import { notification } from "antd";
+import axios from "axios";
+import styles from "../../../admin/admin.module.css";
 import clsx from "clsx";
-import { Upload } from "antd";
-import { HQButton, HQSelect, HQInput, HQInputPassword } from "@/components";
-import styles from "../authentication.module.css";
-import { gender } from "@/utility";
-import ImgCrop from "antd-img-crop";
-import { axiosApi } from "@/axiosApi";
-
-const getBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
+import Link from "next/link";
 
 const SignUpForm = () => {
   const [buttonLoader, setButtonLoader] = useState(false);
-  const [fileList, setFileList] = useState([]);
-  const [admin, setAdmin] = useState({
-    adminImage: "", // This state should hold the selected image
-    fname: "",
-    lname: "",
+  const [patients, setPatients] = useState({
+    name: "",
     email: "",
-    phoneNo: "",
-    city: "",
-    gender: "",
     password: "",
     cPass: "",
   });
 
-  const handleImageChange = (e) => {
-    const file = e.target;
-    setAdmin({
-      ...admin,
-      adminImage: e.target.files[0], // Update adminImage state with the selected file object
+  const { error: antdError } = notification;
+
+  const typeNotification = (type, message) => {
+    antdError({
+      message: message,
     });
   };
 
-  // Admin Data
-  const adminData = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setAdmin((prevUser) => ({
-      ...prevUser,
-      [name]: value,
-    }));
+    setPatients({ ...patients, [name]: value });
   };
 
-  const handleGenderChange = (selectedGender) => {
-    setAdmin((prevUser) => ({
-      ...prevUser,
-      gender: selectedGender,
-    }));
-  };
-
-  // OnSubmit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonLoader(true);
     try {
-      // append data
-      let formData = new FormData();
-      console.log({ admin });
-      formData.append("adminImage", admin?.adminImage);
-      formData.append("fname", admin.fname);
-      formData.append("lname", admin.lname);
-      formData.append("email", admin.email);
-      formData.append("phoneNo", admin.phoneNo);
-      formData.append("city", admin.city);
-      formData.append("gender", admin.gender);
-      formData.append("password", admin.password);
-      formData.append("cPass", admin.cPass);
-
-      console.log(admin.adminImage);
-      const response = await axiosApi({
-        method: "post",
-        url: `/admin/insertAdminData`,
-        data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      console.log(response.data, "response.data");
+      const config = {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      };
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_WEB_URL + "patient/insertPatient",
+        patients,
+        config
+      );
+      if (response.status === 200) {
+        notification.success({
+          message: "Sign Up successful!",
+        });
+        // Redirect user to login page or do something else after successful signup
+      } else {
+        throw new Error("Sign Up failed.");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      notification.error({
+        message: "Sign Up unsuccessful!",
+        description: "An error occurred during signup.",
+      });
     } finally {
       setButtonLoader(false);
-      console.log("solved");
     }
   };
 
   return (
     <div className="ma-auto w-full authentication-right">
-      <div className={clsx(styles.authenticationTitle, "w-full")}>
-        <h2 className="mb-1 title-color fw-700">Welcome Haven Quinox</h2>
-        <p className="mb-0 h5 fw-400 text-gray">
-          Please Create your HavenQuinox Hospital Account to continue
-        </p>
+      <div className={clsx(styles.authenticationTitle, "w-full text-center")}>
+        <h2 className="mb-3 title-color fw-700"> Welcome To HavenQuinox</h2>
       </div>
-      <form
-        onSubmit={handleSubmit}
-        encType="multipart/form-data"
-        className="w-full"
-      >
+      <form onSubmit={handleSubmit} className="w-full">
         <div className="flex flex-col gap-12">
-          <div>
-            <input type="file" onChange={handleImageChange} />
-          </div>
-          <div className="flex w-full gap-12">
+          <div className="flex gap-12">
             <HQInput
               type="text"
-              id="fname"
-              name="fname"
-              placeholder="Enter First Name"
-              HQInputLabelClassName={styles.label}
-              label="first name"
-              value={admin.fname}
-              handleChange={adminData}
+              id="name"
+              name="name"
+              placeholder="Enter Name"
+              label="Name"
+              value={patients.name}
+              handleChange={handleInputChange}
             />
             <HQInput
-              type="text"
-              id="lName"
-              name="lname"
-              placeholder="Enter Last Name"
-              HQInputLabelClassName={styles.label}
-              label="last name"
-              value={admin.lname}
-              handleChange={adminData}
-            />
-          </div>
-          <HQInput
-            type="email"
-            id="email"
-            name="email"
-            placeholder="enter email"
-            HQInputLabelClassName={styles.label}
-            label="email"
-            value={admin.email}
-            handleChange={adminData}
-          />
-          <HQInput
-            type="number"
-            id="phoneNo"
-            name="phoneNo"
-            placeholder="enter mobile number"
-            HQInputLabelClassName={styles.label}
-            label="mobile number"
-            value={admin.phoneNo}
-            handleChange={adminData}
-          />
-          <div className="flex w-full gap-12">
-            <HQInput
-              type="text"
-              id="city"
-              name="city"
-              placeholder="enter City"
-              HQInputLabelClassName={styles.label}
-              label="Enter City"
-              value={admin.city}
-              handleChange={adminData}
-            />
-            <HQSelect
-              id="gender"
-              name="gender"
-              placeholder="enter gender"
-              HQInputLabelClassName={styles.label}
-              HQSelectContainerClassName={"w-full"}
-              label="gender"
-              options={gender}
-              handleChange={handleGenderChange}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Email"
+              label="Email"
+              value={patients.email}
+              handleChange={handleInputChange}
             />
           </div>
           <HQInputPassword
             type="password"
             id="password"
             name="password"
-            placeholder="enter password"
-            HQInputLabelClassName={styles.label}
-            label="password"
-            value={admin.password}
-            handleChange={adminData}
+            placeholder="Enter Password"
+            label="Password"
+            value={patients.password}
+            handleChange={handleInputChange}
           />
           <HQInputPassword
             type="password"
             id="ReenterPassword"
             name="cPass"
-            placeholder="Re Enter password"
-            label="Re Enter password"
-            HQInputLabelClassName={styles.label}
-            value={admin.cPass}
-            handleChange={adminData}
+            placeholder="Re-enter Password"
+            label="Re-enter Password"
+            value={patients.cPass}
+            handleChange={handleInputChange}
           />
         </div>
         <HQButton
-          customClass={"mt-5"}
+          customClass="mt-5"
           type="default"
           htmlType="submit"
           loading={buttonLoader}
@@ -202,6 +118,12 @@ const SignUpForm = () => {
           Sign Up
         </HQButton>
       </form>
+      <h6 className="flex mt-3 fw-500 gap-4 justify-center">
+        You have already account
+        <Link href="/patient/login">login Now</Link>
+      </h6>
+
+      <HQToasts contextHolder={notification.useNotification().contextHolder} />
     </div>
   );
 };

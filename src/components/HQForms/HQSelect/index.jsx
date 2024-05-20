@@ -16,13 +16,25 @@ export const HQSelect = ({
   id,
   HQSelectLabelClassName,
   variant = "outlined",
+  status,
+  ...rest
 }) => {
   return (
-    <div className={clsx(HQSelectContainerClassName, "relative w-full")}>
+    <div
+      className={clsx(
+        styles.selectParentClass,
+        HQSelectContainerClassName,
+        "relative w-full"
+      )}
+    >
       {label && (
         <label
           htmlFor={id}
-          className={clsx(styles.HQInputLabel, HQSelectLabelClassName)}
+          className={clsx(
+            styles.HQInputLabel,
+            HQSelectLabelClassName,
+            "absolute capitalize"
+          )}
         >
           {label}
         </label>
@@ -31,16 +43,17 @@ export const HQSelect = ({
         popupClassName={clsx(styles.dropdown, dropdownClass)}
         open={isOpen}
         defaultValue={defaultValue}
-        style={{
-          width: "100%",
-        }}
-        className={clsx(styles.select, selectClass)}
+        className={clsx(styles.select, selectClass, "h6 h-full")}
         onChange={handleChange}
         placeholder={placeholder}
         options={options}
         suffixIcon={suffixIcon}
         variant={variant}
+        {...rest}
       />
+      {status === "error" && errorMessage && (
+        <p className="mb-0 mt-1 text-red">{errorMessage}</p>
+      )}
     </div>
   );
 };

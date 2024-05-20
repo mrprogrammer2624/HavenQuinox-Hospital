@@ -1,0 +1,26 @@
+.heroWrapper {
+  padding: 18rem 5rem 17.1rem;
+}
+
+.HeroDoctor {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.heroWrapper h1 {
+  font-size: 28rem;
+  color: #DBEBFF;
+}
+
+.bottomTexts {
+  max-width: 460px;
+}
+
+.heroIcons {
+  padding: 26px;
+  background: rgb(255 255 255 / 10%);
+  width: max-content;
+  border-radius: 50%;
+}

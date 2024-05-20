@@ -1,5 +1,10 @@
 "use client";
-import { HQInput, HQBasicCard, HQInputPassword } from "@/components";
+import {
+  HQInput,
+  HQBasicCard,
+  HQInputPassword,
+  HQInputFile,
+} from "@/components";
 import styles from "../stylesheets.module.css";
 import { Icons } from "@/utility";
 const InputControlsPage = () => {
@@ -37,6 +42,9 @@ const InputControlsPage = () => {
         </HQBasicCard>
         <HQBasicCard header cardTitle={"Type password:"}>
           <HQInputPassword type="password" placeholder={"Confirm password"} />
+        </HQBasicCard>
+        <HQBasicCard header cardTitle={"Type File Select:"}>
+          <HQInputFile id="demo">Hello</HQInputFile>
         </HQBasicCard>
         <HQBasicCard
           header

@@ -8,6 +8,7 @@ export * from "./HQInput";
 export * from "./HQRadio";
 export * from "./HQRangeSlider";
 export * from "./HQRangePicker";
+export * from "./HQSelect";
 export * from "./HQSwitch";
 export * from "./HQTextEditor";
 export * from "./HQTimePicker";

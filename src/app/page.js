@@ -1,4 +1,4 @@
-import { Blog, Footer, HQButton, Header } from "@/components";
+import { Blog, Faq, Footer, HQButton, Header } from "@/components";
 import styles from "./(webLayout)/website.module.css";
 import clsx from "clsx";
 import Image from "next/image";
@@ -45,6 +45,7 @@ export default function Home() {
         {/* Our Doctors */}
         {/* What Patients Say */}
         {/* FAQ’s */}
+        <Faq />
         {/* Blog */}
         <Blog />
       </main>

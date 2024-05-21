@@ -309,3 +309,7 @@ img {
 .lh-base {
   line-height: 1.5;
 }
+
+section {
+  padding: 13rem 0;
+}

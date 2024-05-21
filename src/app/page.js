@@ -1,4 +1,15 @@
-import { Blog, Faq, Footer, HQButton, Header } from "@/components";
+"use client";
+import {
+  Blog,
+  OurDoctors,
+  Faq,
+  Footer,
+  HQButton,
+  Header,
+  OurServices,
+  AboutUs,
+  PatientsSay,
+} from "@/components";
 import styles from "./(webLayout)/website.module.css";
 import clsx from "clsx";
 import Image from "next/image";
@@ -41,9 +52,13 @@ export default function Home() {
           </div>
         </section>
         {/* About US */}
-        {/* our services */}
+        <AboutUs />
+        {/* Our services */}
+        <OurServices />
         {/* Our Doctors */}
+        <OurDoctors />
         {/* What Patients Say */}
+        <PatientsSay />
         {/* FAQ’s */}
         <Faq />
         {/* Blog */}

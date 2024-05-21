@@ -1,7 +1,13 @@
-import React from 'react'
+"use client";
+import React from "react";
+import { Title } from "../";
 
-export const index = () => {
+export const AboutUs = () => {
   return (
-    <div>index</div>
-  )
-}
+    <section  className="bg-off-white">
+      <div className="container">
+        <Title title="About Us" />
+      </div>
+    </section>
+  );
+};

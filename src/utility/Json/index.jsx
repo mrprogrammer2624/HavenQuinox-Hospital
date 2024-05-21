@@ -614,3 +614,44 @@ export const gender = [
     label: "other",
   },
 ];
+
+//
+
+export const doctorWebList = [
+  {
+    departnment: "Hello",
+    name: "hello",
+    city: "Hello",
+    country: "Hello",
+  },
+  {
+    departnment: "Hello",
+    name: "hellp",
+    city: "Hello",
+    country: "Hello",
+  },
+  {
+    departnment: "Hello",
+    name: "hellp",
+    city: "Hello",
+    country: "Hello",
+  },
+  {
+    departnment: "Hello",
+    name: "hello",
+    city: "Hello",
+    country: "Hello",
+  },
+  {
+    departnment: "Hello",
+    name: "hellp",
+    city: "Hello",
+    country: "Hello",
+  },
+  {
+    departnment: "Hello",
+    name: "hellp",
+    city: "Hello",
+    country: "Hello",
+  },
+];

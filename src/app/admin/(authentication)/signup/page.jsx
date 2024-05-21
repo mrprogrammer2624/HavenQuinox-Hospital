@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import {
   HQButton,
@@ -116,7 +116,7 @@ const SignUpForm = () => {
 
       const response = await axiosApi({
         method: "post",
-        url: `/admin/insertAdminData`,
+        url: `admin/insertAdminData`,
         data: formData,
         config,
       });

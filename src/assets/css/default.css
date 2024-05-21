@@ -29,6 +29,10 @@ main {
   padding: 0 15px;
 }
 
+section {
+  padding: 13rem 0;
+}
+
 /* Font Start */
 .h1,
 h1 {
@@ -148,6 +152,10 @@ p.small {
 
 .bg-gray {
   background-color: var(--gray);
+}
+
+.bg-off-white {
+  background-color: var(--off-white);
 }
 
 /* Text Transform */

@@ -1,0 +1,12 @@
+.TitleWrapper {
+  max-width: 700px;
+  margin: 0 auto 6.4rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: calc(var(--spacing-xl) - var(--spacing-xs));
+}
+
+.TitleWrapper h2 {
+  font-size: 5.2rem;
+  line-height: 1.34;
+}

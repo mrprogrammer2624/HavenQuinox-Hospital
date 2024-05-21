@@ -1,0 +1,17 @@
+.FaqContentWrapper {
+  grid-gap: 9rem;
+}
+
+.faqLeftSideImage {
+  max-width: 550px;
+  bottom: 0;
+}
+
+.faqLeftSideImage img {
+  bottom: -13rem;
+  right: 0;
+}
+
+.FaqContentWrapper :global .faq-icon-accordion {
+  max-width: 800px;
+}

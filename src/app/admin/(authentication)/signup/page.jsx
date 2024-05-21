@@ -116,7 +116,7 @@ const SignUpForm = () => {
 
       const response = await axiosApi({
         method: "post",
-        url: `/admin/insertAdminData`,
+        url: `admin/insertAdminData`,
         data: formData,
         config,
       });

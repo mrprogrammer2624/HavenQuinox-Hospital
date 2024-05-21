@@ -23,6 +23,7 @@
   overflow: hidden;
   min-height: var(--min-w-h);
   width: fit-content;
+  min-width: 15rem;
 }
 
 /* Active Button Effect */

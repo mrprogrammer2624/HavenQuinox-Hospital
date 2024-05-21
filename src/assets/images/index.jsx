@@ -22,6 +22,8 @@ import Kenya from "./flags/kenya.png";
 
 // Big Avatar
 import HeroDoctor from "./big-avatar/hero-doctor.png";
+import AboutDoctor from "./big-avatar/about-doctor.png";
+import FaqDoctor from "./big-avatar/faq-doctor.png";
 
 // Cover
 import BagShowcase from "./cover/bag.jpg";
@@ -57,4 +59,6 @@ export {
   BagShowcase,
   //  Big Avatar
   HeroDoctor,
+  AboutDoctor,
+  FaqDoctor,
 };

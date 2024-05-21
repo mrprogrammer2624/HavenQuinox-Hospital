@@ -130,7 +130,7 @@ const AddDoctor = () => {
 
       const response = await axiosApi({
         method: "post",
-        url: `/admin/doctor/insertDoctor`,
+        url: `admin/doctor/insertDoctor`,
         data: formData,
         config,
       });

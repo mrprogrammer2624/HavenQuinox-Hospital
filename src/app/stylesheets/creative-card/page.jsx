@@ -28,7 +28,7 @@ const CreativeCardPage = () => {
             analyticsViewData.map((item, index) => {
               return (
                 <Col xs={24} sm={12} lg={8} xl={6} key={index}>
-                  <HQBasicCard header={false}>
+                  <HQBasicCard>
                     <HQViewCard
                       title={item.value}
                       subtitle={item.name}
@@ -55,6 +55,7 @@ const CreativeCardPage = () => {
               return (
                 <Col xs={24} sm={12} lg={6} xl={4} key={index}>
                   <HQPrimaryCard
+                    
                     title={item.description}
                     subtitle={item.name}
                     bg={item.backgroundColor}

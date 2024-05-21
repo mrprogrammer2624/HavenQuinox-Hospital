@@ -3,7 +3,7 @@ import React from "react";
 export const Footer = () => {
   return (
     <footer>
-      <div className="container">Hello</div>
+      <div className="container"></div>
     </footer>
   );
 };

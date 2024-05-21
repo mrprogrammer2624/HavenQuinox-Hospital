@@ -30,7 +30,7 @@ export const Header = () => {
               </Link>
             </li>
             <li>
-              <Link className="h5 text-tertiary fw-600" href={"/doctor"}>
+              <Link className="h5 text-tertiary fw-600" href={"/doctors"}>
                 Doctors
               </Link>
             </li>

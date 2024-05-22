@@ -36,31 +36,36 @@ section {
 /* Font Start */
 .h1,
 h1 {
-  font-size: var(--font-4xl);
+  font-size: var(--font-5xl);
 }
 
 .h2,
 h2 {
-  font-size: var(--font-3xl);
+  font-size: var(--font-4xl);
 }
 
 .h3,
 h3 {
-  font-size: var(--font-2xl);
+  font-size: var(--font-3xl);
 }
 
 .h4,
 h4 {
-  font-size: var(--font-xl);
+  font-size: var(--font-2xl);
 }
 
 .h5,
 h5 {
-  font-size: var(--font-lg);
+  font-size: var(--font-xl);
 }
 
 .h6,
 h6 {
+  font-size: var(--font-lg);
+}
+
+.h6.small,
+h6.small {
   font-size: var(--font-md);
 }
 
@@ -169,6 +174,32 @@ p.small {
 
 .lowercase {
   text-transform: lowercase;
+}
+
+/* Spacing */
+
+.section-spacing-x {
+  padding: 0 var(--section-spacing);
+}
+
+.section-spacing-y {
+  padding: var(--section-spacing) 0;
+}
+
+.section-spacing-medium-x {
+  padding: 0 var(--section-spacing-medium);
+}
+
+.section-spacing-medium-y {
+  padding: var(--section-spacing-medium) 0;
+}
+
+.section-spacing-small-x {
+  padding: 0 var(--section-spacing-small);
+}
+
+.section-spacing-small-y {
+  padding: var(--section-spacing-small) 0;
 }
 
 /* list-unstyle */
@@ -316,8 +347,4 @@ img {
 
 .lh-base {
   line-height: 1.5;
-}
-
-section {
-  padding: 13rem 0;
 }

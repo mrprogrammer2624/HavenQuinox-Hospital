@@ -2,3 +2,18 @@
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   grid-gap: var(--spacing-2xl);
 }
+
+.SubHeroWrapper {
+  padding: 20rem 0 7.5rem;
+}
+
+/* breadcrumbList */
+.breadcrumbList {
+  grid-gap: var(--spacing-sm);
+  user-select: none;
+  cursor: default;
+}
+
+.breadcrumbListWrapper {
+  grid-gap: var(--spacing-sm);
+}

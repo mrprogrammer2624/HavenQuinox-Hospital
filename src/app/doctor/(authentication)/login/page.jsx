@@ -39,7 +39,7 @@ const LoginForm = () => {
         },
       };
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_WEB_URL + "admin/doctor/login",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "admin/doctor/login",
         doctorCredentials,
         config
       );

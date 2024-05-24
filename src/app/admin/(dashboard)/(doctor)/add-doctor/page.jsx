@@ -65,7 +65,7 @@ const AddDoctor = () => {
     const fetchDepartmentList = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_WEB_URL + "admin/viewAllDepart"
+          process.env.NEXT_PUBLIC_BACKEND_URL + "admin/viewAllDepart"
         );
         const updatedDepartmentList = response.data.data.map((department) => ({
           ...department,

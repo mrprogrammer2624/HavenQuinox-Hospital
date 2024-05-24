@@ -35,7 +35,7 @@ const LoginForm = () => {
       };
 
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_WEB_URL + "patient/login",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "patient/login",
         patientsCredentials,
         config
       );

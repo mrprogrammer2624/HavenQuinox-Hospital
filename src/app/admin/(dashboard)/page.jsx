@@ -1,5 +1,5 @@
 "use client";
-import useDecodeToken from "@/hook/useDecodeToken/useDecodeToken";
+import useDecodeToken from "@/hook/UseDecodeToken/useDecodeToken";
 import React from "react";
 
 const Dashboard = () => {

@@ -89,7 +89,7 @@ const AddStaff = () => {
         headers: { "Content-Type": "multipart/form-data" },
       };
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_WEB_URL + "admin/doctor/insertDoctor",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "admin/doctor/insertDoctor",
         formData,
         config
       );

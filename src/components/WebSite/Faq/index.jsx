@@ -20,7 +20,7 @@ export const Faq = () => {
       //   url: `/admin/faq/viewFaq`,
       // });
       const response = await axios.get(
-        process.env.NEXT_PUBLIC_WEB_URL + "/admin/faq/viewFaq"
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/admin/faq/viewFaq"
       );
       alert("response.error" + response.error), setFaqData(response);
     } catch (error) {

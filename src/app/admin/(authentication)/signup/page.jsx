@@ -1,139 +1,26 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import {
   HQButton,
   HQSelect,
   HQInput,
   HQInputPassword,
-  HQToasts,
   HQAvatar,
   HQInputFile,
 } from "@/components";
 import styles from "../authentication.module.css";
 import { Icons, gender } from "@/utility";
-import { axiosApi } from "@/axiosApi";
-import { useRouter } from "next/navigation";
-import { notification } from "antd";
+import { Signup } from "@/hook/Admin/signup.hook";
 
 const SignUpForm = () => {
-  const router = useRouter();
-  const [error, setError] = useState(null);
-  const [buttonLoader, setButtonLoader] = useState(false);
-  const [api, contextHolder] = notification.useNotification();
-  const [department, setDepartment] = useState();
-  const [getPath, setPath] = useState({
-    originalImagePath: "",
-  });
-  const [admin, setAdmin] = useState({
-    adminImage: "", // This state should hold the selected image
-    fname: "",
-    lname: "",
-    email: "",
-    phoneNo: "",
-    city: "",
-    gender: "",
-    password: "",
-    cPass: "",
-  });
-
-  // Get Department Data
-  useEffect(() => {
-    const fetchDoctorList = async () => {
-      try {
-        const response = await axiosApi({
-          method: "get",
-          url: `admin/viewAllDepart`,
-        });
-        setDepartment(response.data.data);
-      } catch (error) {
-        // Handle any errors
-        console.error("Error fetching doctor data:", error);
-      }
-    };
-
-    return fetchDoctorList();
-  }, []);
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    const imagePath = URL.createObjectURL(file);
-    setAdmin({
-      ...admin,
-      adminImage: file, // Update adminImage state with the selected file object
-    });
-    setPath({
-      ...getPath,
-      originalImagePath: imagePath,
-    });
-  };
-
-  const typeNotification = (type) => {
-    api[type]({
-      message: `Notification ${type}`,
-    });
-  };
-
-  // Admin Data
-  const adminData = (e) => {
-    const { name, value } = e.target;
-    setAdmin((prevUser) => ({
-      ...prevUser,
-      [name]: value,
-    }));
-  };
-
-  const handleGenderChange = (selectedGender) => {
-    setAdmin((prevUser) => ({
-      ...prevUser,
-      gender: selectedGender,
-    }));
-  };
-
-  // OnSubmit
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonLoader(true);
-    try {
-      console.log(admin);
-      // append data
-      let formData = new FormData();
-      formData.append("adminImage", admin?.adminImage);
-      formData.append("fname", admin.fname);
-      formData.append("lname", admin.lname);
-      formData.append("email", admin.email);
-      formData.append("phoneNo", admin.phoneNo);
-      formData.append("city", admin.city);
-      formData.append("gender", admin.gender);
-      formData.append("password", admin.password);
-      formData.append("cPass", admin.cPass);
-
-      const config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
-
-      const response = await axiosApi({
-        method: "post",
-        url: `admin/insertAdminData`,
-        data: formData,
-        config,
-      });
-      typeNotification("success", "SignUp successful!");
-      router.push("/admin/login");
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      if (error.response && error.response.status === 401) {
-        setError("Invalid email or password.");
-        typeNotification("Error", "Login unsuccessful!");
-      } else {
-        setError("An error occurred during login.");
-      }
-    } finally {
-      setButtonLoader(false);
-    }
-  };
+  const {
+    buttonLoader,
+    handleImageChange,
+    adminData,
+    handleGenderChange,
+    handleSubmit,
+    admin,
+  } = Signup();
 
   return (
     <div className="ma-auto w-full authentication-right">
@@ -150,13 +37,13 @@ const SignUpForm = () => {
       >
         <div className="flex flex-col gap-12">
           <div className="flex flex-col gap-5 ma-auto">
-            <HQAvatar
+            {/* <HQAvatar
               single
               size={150}
               parentAvatar={"ma-auto"}
               img={getPath.originalImagePath}
               alt="Uploaded Image"
-            />
+            /> */}
             <HQInputFile handleChange={handleImageChange}>
               <span className="flex">{Icons.camera}</span>photos
             </HQInputFile>
@@ -256,7 +143,6 @@ const SignUpForm = () => {
           Sign Up
         </HQButton>
       </form>
-      <HQToasts contextHolder={contextHolder} />
     </div>
   );
 };

@@ -6,6 +6,7 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 const axiosApi = axios.create({
   baseURL: backendUrl,
 });
+
 const setAuthHeader = (token) => {
   axiosApi.defaults.headers.Authorization =
     token || `Bearer ${window?.localStorage?.getItem("_token")}`;

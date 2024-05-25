@@ -1,15 +1,16 @@
 "use client";
-import useDecodeToken from "@/hook/UseDecodeToken/useDecodeToken";
-import React from "react";
+
+import UseDecodeToken from "@/hook/useDecodeToken/UseDecodeToken";
 
 const Dashboard = () => {
-  const accessToken = useDecodeToken("adminToken");
+  const accessToken = UseDecodeToken();
   return (
     <div>
       {accessToken ? (
         <div>
           <h2>Decoded Access Token:</h2>
           <h2>{accessToken.email}</h2>
+          <h2>{accessToken.role}</h2>
         </div>
       ) : (
         <p>No decoded access token available.</p>

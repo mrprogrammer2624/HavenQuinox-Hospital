@@ -6,8 +6,12 @@ import Link from "next/link";
 import { LoginHook } from "@/hook/login.hook";
 
 const LoginForm = () => {
-  const { buttonLoader, adminCredentials, handleChange, handleSubmit } =
-    LoginHook();
+  const loginParams = {
+    target: "admin/login",
+    targetLink: "admin/",
+  };
+  const { buttonLoader, credentials, handleChange, handleSubmit } =
+    LoginHook(loginParams);
 
   return (
     <div className="ma-auto w-full authentication-right">
@@ -22,7 +26,7 @@ const LoginForm = () => {
             label="Enter Your Email"
             placeholder="Enter Email"
             HQInputLabelClassName={styles.label}
-            value={adminCredentials.email}
+            value={credentials.email}
             id="loginEmail"
             name="email"
             handleChange={handleChange}
@@ -32,7 +36,7 @@ const LoginForm = () => {
             type="password"
             label="Enter Your Password"
             HQInputLabelClassName={styles.label}
-            value={adminCredentials.password}
+            value={credentials.password}
             id="loginPassword"
             name="password"
             handleChange={handleChange}

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { parseCookies } from "nookies";
 import { jwtDecode } from "jwt-decode";
 
-const UseDecodeToken = () => {
+const UseDecodeToken = (tokenName) => {
   const [decodedToken, setDecodedToken] = useState(null);
 
   useEffect(() => {
     const decodeTokenFromCookies = () => {
       const cookies = parseCookies();
-      const token = cookies["_token"];
+      const token = cookies[tokenName];
 
       if (!token) {
         console.error("_token cookie not found");
@@ -24,7 +24,7 @@ const UseDecodeToken = () => {
     };
 
     decodeTokenFromCookies();
-  }, [parseCookies]); // Add parseCookies as a dependency
+  }, [parseCookies]);
 
   return decodedToken;
 };

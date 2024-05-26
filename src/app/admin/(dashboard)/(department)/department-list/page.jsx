@@ -1,5 +1,5 @@
 "use client";
-import { axiosApi } from "@/axiosApi";
+import { axiosApi, setAuthHeader } from "@/axiosApi";
 import { HQAvatar } from "@/components";
 import { Table } from "antd";
 import React, { useEffect, useState } from "react";
@@ -12,10 +12,15 @@ const DepartmentList = () => {
     const fetchDepartmentList = async () => {
       try {
         setLoading(true);
+
         const response = await axiosApi({
           method: "get",
           url: `admin/viewAllDepart`,
+          headers: {
+            Authorization: `Bearer ${setAuthHeader("adminToken")}`,
+          },
         });
+
         setDepartmentList(response.data.data);
       } catch (error) {
         console.error("Error fetching department data:", error);
@@ -27,7 +32,6 @@ const DepartmentList = () => {
     fetchDepartmentList();
   }, []);
 
-  console.log(departmentList);
   const departmentListColumns = [
     {
       title: "Avatar",

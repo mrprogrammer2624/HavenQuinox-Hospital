@@ -1,3 +1,5 @@
+import UseDecodeToken from "./hook/useDecodeToken/UseDecodeToken";
+
 const { NextResponse } = require("next/server");
 
 const unAuthRoutes = [
@@ -33,11 +35,7 @@ const authPatientRoutes = ["/patient"];
 export const middleware = async (request) => {
   const { pathname } = request.nextUrl;
 
-  // <h2>{accessToken.role}</h2>
-
-  // console.log(accessToken);
-
-  // console.log("Token Cookie:", tokenCookie);
+  let cookie = request.cookies.get("_token");
 
   // Check if the path is in unauthenticated admin routes
   if (unAuthRoutes.includes(pathname)) {

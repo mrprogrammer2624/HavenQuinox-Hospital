@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { axiosApi } from "@/axiosApi";
 import { useState } from "react";
 
-export const LoginHook = ({ target, targetLink }) => {
+export const LoginHook = ({ target, targetLink, tokenName }) => {
   const router = useRouter();
   const [buttonLoader, setButtonLoader] = useState(false);
   const [credentials, setCredentials] = useState({
@@ -31,8 +31,9 @@ export const LoginHook = ({ target, targetLink }) => {
       });
 
       const { token } = response.data;
+
       if (token) {
-        document.cookie = `_token=${token}; path=${targetLink}`;
+        document.cookie = `${tokenName}=${token}; path=${targetLink}`;
       }
 
       router.push("/" + targetLink);

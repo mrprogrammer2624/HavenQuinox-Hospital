@@ -3,7 +3,7 @@
 import UseDecodeToken from "@/hook/useDecodeToken/UseDecodeToken";
 
 const Dashboard = () => {
-  const accessToken = UseDecodeToken();
+  const accessToken = UseDecodeToken("adminToken");
   return (
     <div>
       {accessToken ? (

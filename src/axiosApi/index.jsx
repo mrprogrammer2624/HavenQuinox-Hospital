@@ -7,10 +7,9 @@ const axiosApi = axios.create({
   baseURL: backendUrl,
 });
 
-const setAuthHeader = (token) => {
-  axiosApi.defaults.headers.Authorization =
-    token || `Bearer ${window?.localStorage?.getItem("_token")}`;
-  // axiosApi.defaults.headers.requestToken = config?.REQUEST_TOKEN;
+const setAuthHeader = (name) => {
+  const cookieMatch = document.cookie.match("(?:^|; )" + name + "=([^;]*)");
+  return cookieMatch ? decodeURIComponent(cookieMatch[1]) : "";
 };
 
 if (typeof window !== "undefined") {

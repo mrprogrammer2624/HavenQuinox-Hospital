@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { HQButton, HQInput, HQInputPassword, HQToasts } from "@/components";
-import { axiosApi } from "@/axiosApi";
+import { axiosApi, setAuthHeader } from "@/axiosApi";
 
 const AddDepartment = () => {
   const [error, setError] = useState(null);
@@ -36,24 +36,18 @@ const AddDepartment = () => {
       formData.append("departImage", department?.departImage);
       formData.append("name", department.name);
 
-      const config = {
-        headers: { "Content-Type": "multipart/form-data" },
-      };
-
+      setAuthHeader();
       const response = await axiosApi({
         method: "post",
         url: `admin/addDepartenment`,
         data: formData,
-        config,
+        headers: {
+          Authorization: `Bearer ${setAuthHeader("adminToken")}`,
+          "Content-Type": "multipart/form-data",
+        },
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      if (error.response && error.response.status === 401) {
-        setError("Invalid email or password."); // Set error message
-        typeNotification("Error", "Login unsuccessful!");
-      } else {
-        setError("An error occurred during login."); // Set generic error message
-      }
     } finally {
       setButtonLoader(false);
     }

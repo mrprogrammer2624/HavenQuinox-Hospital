@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "iconsax-react": "^0.0.8",
     "jodit-react": "^4.0.30",
+    "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "mongoose": "^8.3.3",
     "next": "14.1.4",

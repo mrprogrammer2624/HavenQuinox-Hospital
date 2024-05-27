@@ -38,11 +38,13 @@ const LoginForm = () => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       };
+      
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "admin/doctor/login",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/admin/doctor/login",
         doctorCredentials,
         config
       );
+
       const { token } = response.data;
       if (token) {
         document.cookie = `doctorToken=${token}; path=/doctor/`;

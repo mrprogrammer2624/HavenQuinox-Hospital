@@ -61,7 +61,7 @@ const AddDoctor = () => {
 
         const response = await axiosApi({
           method: "get",
-          url: `admin/viewAllDepart`,
+          url: `/admin/viewAllDepart`,
           headers: {
             Authorization: `Bearer ${setAuthHeader("adminToken")}`,
           },
@@ -121,7 +121,7 @@ const AddDoctor = () => {
 
       const response = await axiosApi({
         method: "post",
-        url: `admin/doctor/insertDoctor`,
+        url: `/admin/doctor/insertDoctor`,
         data: formData,
         headers: {
           Authorization: `Bearer ${setAuthHeader("adminToken")}`,

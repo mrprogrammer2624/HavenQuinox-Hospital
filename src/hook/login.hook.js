@@ -34,6 +34,7 @@ export const LoginHook = ({ target, targetLink, tokenName }) => {
 
       if (token) {
         document.cookie = `${tokenName}=${token}; path=${targetLink}`;
+        document.cookie = `${tokenName}=${token}; path=${"/"}`;
       }
 
       router.push("/" + targetLink);

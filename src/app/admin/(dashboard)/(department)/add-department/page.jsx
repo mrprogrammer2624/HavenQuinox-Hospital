@@ -39,7 +39,7 @@ const AddDepartment = () => {
       setAuthHeader();
       const response = await axiosApi({
         method: "post",
-        url: `admin/addDepartenment`,
+        url: `/admin/addDepartenment`,
         data: formData,
         headers: {
           Authorization: `Bearer ${setAuthHeader("adminToken")}`,

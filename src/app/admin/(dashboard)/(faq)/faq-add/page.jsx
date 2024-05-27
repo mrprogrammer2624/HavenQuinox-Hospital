@@ -31,7 +31,7 @@ const FaqAdd = () => {
       };
 
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "admin/faq/insertfaq",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/admin/faq/insertfaq",
         faq,
         config
       );

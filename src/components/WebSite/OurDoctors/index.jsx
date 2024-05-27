@@ -1,11 +1,19 @@
-import React from "react";
+"use client";
 import { Title } from "../";
 import { HQButton, HQTeamCard } from "@/components/";
 import { Icons, doctorWebList } from "@/utility";
 import styles from "../website.module.css";
 import clsx from "clsx";
+import { GetData } from "@/hook/GetData.hook";
 
 export const OurDoctors = () => {
+  const faqParams = {
+    url: "/admin/doctor/viewAllDoctor",
+    tokenName: "adminToken",
+  };
+
+  const [getData] = GetData(faqParams);
+
   return (
     <section className="bg-off-white">
       <div className="container">
@@ -15,11 +23,10 @@ export const OurDoctors = () => {
         </Title>
         <div>
           <div className={clsx(styles.OurDoctorsWrapper, "grid")}>
-            {doctorWebList?.map((doctor, index) => (
+            {getData?.map((doctor, index) => (
               <HQTeamCard
                 key={doctor._id + index}
-                // img={"http://192.168.1.34:8004" + doctor.doctorImage}
-                img={""}
+                img={process.env.NEXT_PUBLIC_BACKEND_URL + doctor.doctorImage}
                 departnment={doctor.departnment}
                 name={doctor.name}
                 city={doctor.city}

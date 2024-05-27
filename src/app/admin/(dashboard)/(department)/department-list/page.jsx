@@ -15,7 +15,7 @@ const DepartmentList = () => {
 
         const response = await axiosApi({
           method: "get",
-          url: `admin/viewAllDepart`,
+          url: `/admin/viewAllDepart`,
           headers: {
             Authorization: `Bearer ${setAuthHeader("adminToken")}`,
           },

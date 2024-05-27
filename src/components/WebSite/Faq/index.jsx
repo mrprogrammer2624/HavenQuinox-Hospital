@@ -1,44 +1,29 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { Title } from "../";
 import styles from "./Faq.module.css";
 import Image from "next/image";
 import { FaqDoctor } from "@/assets/images";
 import clsx from "clsx";
 import { HQAccordion } from "@/components";
-import { Icons, accordionItems } from "@/utility";
-import { axiosApi } from "@/axiosApi";
-import axios from "axios";
+import { Icons } from "@/utility";
+import { GetData } from "@/hook/GetData.hook";
 
 export const Faq = () => {
-  const [faqData, setFaqData] = useState([]);
-  const fetchFaqData = async () => {
-    try {
-      // setLoading(true);
-      // const response = await axiosApi({
-      //   method: "get",
-      //   url: `/admin/faq/viewFaq`,
-      // });
-      const response = await axios.get(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "/admin/faq/viewFaq"
-      );
-      alert("response.error" + response.error), setFaqData(response);
-    } catch (error) {
-      console.error("Error fetching Faq Data:", error);
-    } finally {
-      // setLoading(false);
-    }
+  const faqParams = {
+    url: "/admin/faq/viewFaq",
+    tokenName: "adminToken",
   };
+  const [getData] = GetData(faqParams);
 
-  console.log(faqData);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetchFaqData();
-    };
-
-    fetchData();
-  }, []);
+  const modifiedData = getData.map((item) => ({
+    _id: item._id,
+    label: item.title,
+    children: item.content,
+    isActive: item.isActive,
+    currentDate: item.currentDate,
+    updateDate: item.updateDate,
+    __v: item.__v,
+  }));
 
   return (
     <section className="bg-off-white relative">
@@ -49,7 +34,7 @@ export const Faq = () => {
         </Title>
         <div className={clsx(styles.FaqContentWrapper, "flex justify-between")}>
           <HQAccordion
-            items={accordionItems}
+            items={modifiedData}
             defaultActiveKey={1}
             expandIconPosition="end"
             HQAccordionClassName="faq-icon-accordion w-full"

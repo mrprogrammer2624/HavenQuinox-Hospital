@@ -11,7 +11,7 @@ const DoctorList = () => {
       try {
         const response = await axiosApi({
           method: "get",
-          url: `admin/doctor/viewAllDoctor`,
+          url: `/admin/doctor/viewAllDoctor`,
         });
         setDoctorList(response.data.data);
       } catch (error) {

@@ -79,27 +79,18 @@ const AddStaff = () => {
       formData.append("password", doctor.password);
       formData.append("cPass", doctor.cPass);
 
-      // const response = await axiosApi({
-      //   method: "post",
-      //   url: `/admin/insertdoctorData`,
-      //   data: formData,
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // });
-      const config = {
+      const response = await axiosApi({
+        method: "post",
+        url: `/admin/insertdoctorData`,
+        data: formData,
         headers: { "Content-Type": "multipart/form-data" },
-      };
-      const response = await axios.post(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "admin/doctor/insertDoctor",
-        formData,
-        config
-      );
-      typeNotification("success", "SignUp successful!");
+      });
+
       router.push("/doctor/login");
     } catch (error) {
       console.error("Error submitting form:", error);
       if (error.response && error.response.status === 401) {
         setError("Invalid email or password."); // Set error message
-        typeNotification("Error", "Login unsuccessful!");
       } else {
         setError("An error occurred during login."); // Set generic error message
       }

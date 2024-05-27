@@ -1,3 +1,7 @@
 .cardWrapper {
   grid-gap: 3.7rem;
 }
+
+.imgAvatar img {
+  object-position: top;
+}

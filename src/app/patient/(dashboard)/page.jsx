@@ -1,6 +1,6 @@
 "use client";
 
-import useDecodeToken from "@/hook/useDecodeToken/UseDecodeToken";
+import UseDecodeToken from "@/hook/useDecodeToken/UseDecodeToken";
 
 const receptionDashboard = () => {
   const accessToken = UseDecodeToken();

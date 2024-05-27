@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { parseCookies } from "nookies";
 import { jwtDecode } from "jwt-decode";
 
-const UseDecodeToken = (tokenName) => {
+const UseDecodeTokenHook = (tokenName) => {
   const [decodedToken, setDecodedToken] = useState(null);
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const UseDecodeToken = (tokenName) => {
   return decodedToken;
 };
 
-export default UseDecodeToken;
+export default UseDecodeTokenHook;

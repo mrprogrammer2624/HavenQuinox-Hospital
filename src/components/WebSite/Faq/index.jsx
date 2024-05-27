@@ -6,14 +6,14 @@ import { FaqDoctor } from "@/assets/images";
 import clsx from "clsx";
 import { HQAccordion } from "@/components";
 import { Icons } from "@/utility";
-import { GetData } from "@/hook/GetData.hook";
+import { GetDataHook } from "@/hook";
 
 export const Faq = () => {
   const faqParams = {
     url: "/admin/faq/viewFaq",
     tokenName: "adminToken",
   };
-  const [getData] = GetData(faqParams);
+  const [getData] = GetDataHook(faqParams);
 
   const modifiedData = getData.map((item) => ({
     _id: item._id,

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { axiosApi, setAuthHeader } from "@/axiosApi";
 
-export const GetData = ({ url, tokenName }) => {
+const GetDataHook = ({ url, tokenName }) => {
   const [getData, setGetData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,3 +27,5 @@ export const GetData = ({ url, tokenName }) => {
 
   return [getData, loading, error];
 };
+
+export default GetDataHook;

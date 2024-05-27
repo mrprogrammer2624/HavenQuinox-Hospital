@@ -1,9 +1,9 @@
 "use client";
 
-import UseDecodeToken from "@/hook/useDecodeToken/UseDecodeToken";
+import { UseDecodeTokenHook } from "@/hook";
 
 const Dashboard = () => {
-  const accessToken = UseDecodeToken("adminToken");
+  const accessToken = UseDecodeTokenHook("adminToken");
   return (
     <div>
       {accessToken ? (

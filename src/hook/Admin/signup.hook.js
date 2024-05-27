@@ -2,7 +2,7 @@ import { axiosApi } from "@/axiosApi";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export const Signup = () => {
+const SignupHook = () => {
   const router = useRouter();
   const [error, setError] = useState(null);
   const [buttonLoader, setButtonLoader] = useState(false);
@@ -99,3 +99,5 @@ export const Signup = () => {
     admin,
   };
 };
+
+export default SignupHook;

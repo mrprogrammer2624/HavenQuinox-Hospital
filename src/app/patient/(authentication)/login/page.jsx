@@ -6,7 +6,7 @@ import axios from "axios";
 import { HQButton, HQInput, HQInputPassword, Loading } from "@/components";
 import styles from "../authentication.module.css";
 import Link from "next/link";
-import { LoginHook } from "@/hook/login.hook";
+import { LoginHook } from "@/hook";
 
 const LoginForm = () => {
   const loginParams = {

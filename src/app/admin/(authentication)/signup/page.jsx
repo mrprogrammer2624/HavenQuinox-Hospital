@@ -10,7 +10,7 @@ import {
 } from "@/components";
 import styles from "../authentication.module.css";
 import { Icons, gender } from "@/utility";
-import { Signup } from "@/hook/Admin/signup.hook";
+import { SignupHook } from "@/hook";
 
 const SignUpForm = () => {
   const {
@@ -20,7 +20,7 @@ const SignUpForm = () => {
     handleGenderChange,
     handleSubmit,
     admin,
-  } = Signup();
+  } = SignupHook();
 
   return (
     <div className="ma-auto w-full authentication-right">

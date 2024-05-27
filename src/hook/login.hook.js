@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { axiosApi } from "@/axiosApi";
 import { useState } from "react";
 
-export const LoginHook = ({ target, targetLink, tokenName }) => {
+const LoginHook = ({ target, targetLink, tokenName }) => {
   const router = useRouter();
   const [buttonLoader, setButtonLoader] = useState(false);
   const [credentials, setCredentials] = useState({
@@ -52,3 +52,5 @@ export const LoginHook = ({ target, targetLink, tokenName }) => {
     handleSubmit,
   };
 };
+
+export default LoginHook;

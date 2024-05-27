@@ -4,7 +4,7 @@ import { HQButton, HQTeamCard } from "@/components/";
 import { Icons, doctorWebList } from "@/utility";
 import styles from "../website.module.css";
 import clsx from "clsx";
-import { GetData } from "@/hook/GetData.hook";
+import { GetDataHook } from "@/hook";
 
 export const OurDoctors = () => {
   const faqParams = {
@@ -12,7 +12,7 @@ export const OurDoctors = () => {
     tokenName: "adminToken",
   };
 
-  const [getData] = GetData(faqParams);
+  const [getData] = GetDataHook(faqParams);
 
   return (
     <section className="bg-off-white">

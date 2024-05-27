@@ -1,5 +1,3 @@
-import UseDecodeToken from "./hook/useDecodeToken/UseDecodeToken";
-
 const { NextResponse } = require("next/server");
 
 const unAuthRoutes = [

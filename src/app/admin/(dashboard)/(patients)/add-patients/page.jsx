@@ -36,9 +36,9 @@ const AddPatients = () => {
           "Content-Type": "application/x-www-form-urlencoded",
         },
       };
-      
+
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_WEB_URL + "patient/insertPatient",
+        process.env.NEXT_PUBLIC_BACKEND_URL + "patient/insertPatient",
         patients,
         config
       );

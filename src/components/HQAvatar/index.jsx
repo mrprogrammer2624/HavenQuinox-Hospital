@@ -10,6 +10,7 @@ export const HQAvatar = ({
   size,
   imgContain,
   single = false,
+  customClass,
   icon,
   bg,
   img,
@@ -28,7 +29,11 @@ export const HQAvatar = ({
               icon={item.icon && item.icon}
               key={"avatar" + index}
               src={item.img && item.img}
-              className={clsx(styles.avatar, imgContain && styles.imgContain)}
+              className={clsx(
+                styles.avatar,
+                imgContain && styles.imgContain,
+                customClass
+              )}
             >
               {item.children}
             </Avatar>
@@ -40,7 +45,11 @@ export const HQAvatar = ({
           style={{ backgroundColor: bg }}
           icon={icon && icon}
           src={img && img}
-          className={clsx(styles.avatar, imgContain && styles.imgContain)}
+          className={clsx(
+            styles.avatar,
+            imgContain && styles.imgContain,
+            customClass
+          )}
         >
           {children}
         </Avatar>

@@ -62,7 +62,7 @@ const BlogAdd = () => {
 
       const response = await axiosApi({
         method: "post",
-        url: `admin/blog/insertBlog`,
+        url: `/admin/blog/insertBlog`,
         data: formData,
         config,
       });

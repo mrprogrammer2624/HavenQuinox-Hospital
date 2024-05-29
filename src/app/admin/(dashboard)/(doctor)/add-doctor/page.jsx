@@ -12,10 +12,9 @@ import {
 } from "@/components";
 import styles from "../../../admin.module.css";
 import { Icons, gender } from "@/utility";
-import { axiosApi } from "@/axiosApi";
+import { axiosApi, setAuthHeader } from "@/axiosApi";
 import { useRouter } from "next/navigation";
 import { notification } from "antd";
-import axios from "axios";
 
 const AddDoctor = () => {
   const router = useRouter();
@@ -54,25 +53,21 @@ const AddDoctor = () => {
     });
   };
 
-  const typeNotification = (type) => {
-    api[type]({
-      message: `Notification ${type}`,
-    });
-  };
-
   // Get DepartmentList
   useEffect(() => {
     const fetchDepartmentList = async () => {
       try {
-        const response = await axios.get(
-          process.env.NEXT_PUBLIC_WEB_URL + "admin/viewAllDepart"
-        );
-        const updatedDepartmentList = response.data.data.map((department) => ({
-          ...department,
-          label: department._id,
-          value: department._id,
-        }));
-        setDepartmentList(updatedDepartmentList);
+        // setLoading(true);
+
+        const response = await axiosApi({
+          method: "get",
+          url: `/admin/viewAllDepart`,
+          headers: {
+            Authorization: `Bearer ${setAuthHeader("adminToken")}`,
+          },
+        });
+
+        setDepartmentList(response.data.data);
       } catch (error) {
         console.error("Error fetching department data:", error);
       }
@@ -124,26 +119,23 @@ const AddDoctor = () => {
       formData.append("password", doctor.password);
       formData.append("cPass", doctor.cPass);
 
-      const config = {
-        headers: { "Content-Type": "multipart/form-data" },
-      };
-
       const response = await axiosApi({
         method: "post",
-        url: `admin/doctor/insertDoctor`,
+        url: `/admin/doctor/insertDoctor`,
         data: formData,
-        config,
+        headers: {
+          Authorization: `Bearer ${setAuthHeader("adminToken")}`,
+          "Content-Type": "multipart/form-data",
+        },
       });
 
       console.log(response.data);
-      typeNotification("success", "SignUp successful!");
     } catch (error) {
       console.error("Error submitting form:", error);
       if (error.response && error.response.status === 401) {
-        setError("Invalid email or password."); // Set error message
-        typeNotification("Error", "Login unsuccessful!");
+        setError("Invalid email or password.");
       } else {
-        setError("An error occurred during login."); // Set generic error message
+        setError("An error occurred during login.");
       }
     } finally {
       setButtonLoader(false);

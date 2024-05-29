@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "iconsax-react": "^0.0.8",
     "jodit-react": "^4.0.30",
+    "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "mongoose": "^8.3.3",
     "next": "14.1.4",
@@ -28,7 +29,8 @@
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-copy-to-clipboard": "^5.1.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "eslint": "^8",

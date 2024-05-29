@@ -1,6 +1,7 @@
 "use client";
-import { axiosApi } from "@/axiosApi";
+import { axiosApi, setAuthHeader } from "@/axiosApi";
 import { Table } from "antd";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const PatientsList = () => {
@@ -10,10 +11,12 @@ const PatientsList = () => {
   const fetchPatientsList = async () => {
     try {
       setLoading(true);
+
       const response = await axiosApi({
         method: "get",
         url: `patient/viewAllPatient`,
       });
+
       setPatientsList(response.data.data);
     } catch (error) {
       console.error("Error fetching patient data:", error);

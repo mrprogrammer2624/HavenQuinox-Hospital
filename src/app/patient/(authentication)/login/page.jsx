@@ -6,52 +6,15 @@ import axios from "axios";
 import { HQButton, HQInput, HQInputPassword, Loading } from "@/components";
 import styles from "../authentication.module.css";
 import Link from "next/link";
+import { LoginHook } from "@/hook";
 
 const LoginForm = () => {
-  const router = useRouter();
-
-  const [patientsCredentials, setPatientCredentials] = useState({
-    email: "",
-    password: "",
-  });
-
-  console.log(patientsCredentials);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  const [buttonLoader, setButtonLoader] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setPatientCredentials({ ...patientsCredentials, [name]: value });
+  const loginParams = {
+    target: "patient/login",
+    targetLink: "patient/",
   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      setButtonLoader(true);
-      const config = {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      };
-
-      const response = await axios.post(
-        process.env.NEXT_PUBLIC_WEB_URL + "patient/login",
-        patientsCredentials,
-        config
-      );
-
-      const { token } = response.data;
-      if (token) {
-        document.cookie = `patientsToken=${token}; path=/patient`;
-      }
-      router.push("/admin");
-    } catch (error) {
-      console.error("Login failed:", error);
-      console.log(error);
-    } finally {
-      setButtonLoader(false);
-    }
-  };
+  const { buttonLoader, credentials, handleChange, handleSubmit } =
+    LoginHook(loginParams);
 
   return (
     <div className="ma-auto w-full authentication-right">
@@ -66,7 +29,7 @@ const LoginForm = () => {
             label="Enter Your Email"
             placeholder="Enter Email"
             HQInputLabelClassName={styles.label}
-            value={patientsCredentials.email}
+            value={credentials.email}
             id="loginEmail"
             name="email"
             handleChange={handleChange}
@@ -75,7 +38,7 @@ const LoginForm = () => {
             type="password"
             label="Enter Your Password"
             HQInputLabelClassName={styles.label}
-            value={patientsCredentials.password}
+            value={credentials.password}
             id="loginPassword"
             name="password"
             handleChange={handleChange}
@@ -83,17 +46,10 @@ const LoginForm = () => {
           />
         </div>
         <Link href={"/forgot-password"} className="my-2 flex justify-end">
-          {" "}
           {/* Updated href */}
           Forgot Password?
         </Link>
-        <HQButton
-          type="default"
-          htmlType="submit"
-          block
-          loading={buttonLoader}
-          disabled={buttonDisabled}
-        >
+        <HQButton type="default" htmlType="submit" block loading={buttonLoader}>
           Login
         </HQButton>
       </form>

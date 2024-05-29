@@ -8,12 +8,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={<p>Loading feed...</p>}>
-          <ThemeProvider>
-            {children}
-            <SpeedInsights />
-          </ThemeProvider>
-        </Suspense>
+        <ThemeProvider>
+          {children}
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );

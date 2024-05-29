@@ -5,6 +5,7 @@ import { HQSidebar } from "@/components/HQSidebar";
 import { HQHeader } from "@/components/HQHeader";
 import { redirect, usePathname } from "next/navigation";
 import { ThemeContext } from "@/contexts/ThemeProvider";
+import { UseDecodeTokenHook } from "@/hook";
 
 export const DashboardLayout = ({
   children,
@@ -53,6 +54,8 @@ export const DashboardLayout = ({
     };
   }, [collapsed]);
 
+  const accessToken = UseDecodeTokenHook("adminToken");
+
   return (
     <Layout hasSider style={{ minHeight: "100vh" }}>
       <HQSidebar
@@ -68,9 +71,9 @@ export const DashboardLayout = ({
       >
         <HQHeader
           items={items}
-          name={name}
-          image={image}
-          email={email}
+          name={accessToken?.name}
+          image={process.env.NEXT_PUBLIC_BACKEND_URL + accessToken?.adminImage}
+          email={accessToken?.email}
           imageAlt={imageAlt}
         />
         <main>{children}</main>

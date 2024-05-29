@@ -5,6 +5,14 @@ const nextConfig = {
   // output: "export",
   images: {
     unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: "https",
+        port: "",
+        hostname: "havenquinox-hospital-backend.onrender.com",
+        pathname: "/uploads/**",
+      },
+    ],
     domains: [
       "images.wsj.net",
       "picsum.photos",

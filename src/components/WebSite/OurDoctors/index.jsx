@@ -7,12 +7,12 @@ import clsx from "clsx";
 import { GetDataHook } from "@/hook";
 
 export const OurDoctors = () => {
-  const faqParams = {
+  const getDoctor = {
     url: "/admin/doctor/viewAllDoctor",
     tokenName: "adminToken",
   };
 
-  const [getData] = GetDataHook(faqParams);
+  const [getData] = GetDataHook(getDoctor);
 
   return (
     <section className="bg-off-white">

@@ -13,6 +13,7 @@ export const Faq = () => {
     url: "/admin/faq/viewFaq",
     tokenName: "adminToken",
   };
+
   const [getData] = GetDataHook(faqParams);
 
   const modifiedData = getData.map((item) => ({

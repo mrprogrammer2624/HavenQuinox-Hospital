@@ -1,65 +1,15 @@
 import axios from "axios";
+import { toast } from "react-toastify";
+
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 const axiosApi = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_WEB_URL,
-  withCredentials: false,
+  baseURL: backendUrl,
 });
 
-// const setAuthHeader = (token) => {
-//   axiosApi.defaults.headers.Authorization =
-//     token || `Bearer ${localStorage.getItem("_token")}`;
-//   axiosApi.defaults.headers.requestToken = getEncryptedString(
-//     appConfig?.ENCRYPTION_MESSAGE
-//   );
-//   axiosApi.defaults.headers.deviceName = appConfig?.DEVICE_TYPE;
-// };
-
-// axiosApi.defaults.headers = {
-// Authorization: `Bearer ${localStorage.getItem("_token")}`,
-// requestToken: getEncryptedString(appConfig?.ENCRYPTION_MESSAGE),
-// deviceName: appConfig?.DEVICE_TYPE,
-// };
-
-axiosApi.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    if (error?.response?.status === 404) {
-      console.log("/404");
-    } else if (error?.response?.status === 500) {
-      console.log("/500");
-    } else if (error?.response?.status === 401) {
-      localStorage?.removeItem("_token");
-      if (window.location.href.includes("teacher")) {
-        window.location.href = `/teacher/login`;
-      } else if (window.location.href.includes("admin")) {
-        window.location.href = `/admin/login`;
-      } else {
-        window.location.href = `/quiz/exam/`;
-      }
-    } else {
-      console.log("/other-errors.");
-    }
-    return Promise.reject(error);
-  }
-);
-
-export { axiosApi };
-
-/* 
-
-import axios from "axios";
-import { appConfig } from "@/config";
-
-const axiosApi = axios.create({
-  baseURL: appConfig.API_URL,
-});
-
-const setAuthHeader = (token) => {
-  axiosApi.defaults.headers.Authorization =
-    token || `Bearer ${window?.localStorage?.getItem("_token")}`;
-  // axiosApi.defaults.headers.requestToken = config?.REQUEST_TOKEN;
+const setAuthHeader = (name) => {
+  const cookieMatch = document.cookie.match("(?:^|; )" + name + "=([^;]*)");
+  return cookieMatch ? decodeURIComponent(cookieMatch[1]) : "";
 };
 
 if (typeof window !== "undefined") {
@@ -71,32 +21,28 @@ if (typeof window !== "undefined") {
   };
 }
 
+// setting up interceptors
 axiosApi.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+  (response) => response,
   (error) => {
     if (error?.response?.status === 404) {
-      console.log("/404");
+      console.log(" ERROR => 404 => API not available");
     } else if (error?.response?.status === 500) {
-      console.log("/500");
+      console.log(" ERROR => 500 => Server Error");
+      toast.error(error.response.data.message);
     } else if (error?.response?.status === 401) {
-      console.log("/401");
-      if (window.location.pathname?.includes("/admin")) {
-        localStorage?.removeItem("_token");
-        window.location.href = "/admin";
+      toast.error(error.response.data.message);
+      console.log(" ERROR => 401 => User is not authorized");
+      if (localStorage.getItem("_token")) {
+        // localStorage.removeItem("_token");
+        window.location("/");
       }
-    } else if (error?.response?.status === 403) {
-      console.log("/403");
-      window.location.href = "/";
     } else {
       console.log("/other-errors.");
     }
+
     return Promise.reject(error);
   }
 );
 
 export { axiosApi, setAuthHeader };
-
-
-*/

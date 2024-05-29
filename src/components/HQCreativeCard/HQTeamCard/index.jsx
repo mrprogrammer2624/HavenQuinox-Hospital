@@ -13,16 +13,22 @@ export const HQTeamCard = ({ img, departnment, name, city, country }) => {
       </div>
       <div className="flex items-center gap-12">
         <div className="img-wrapper">
-          <HQAvatar single img={img} size={120} />
+          <HQAvatar
+            customClass={styles.imgAvatar}
+            single
+            img={img}
+            size={120}
+          />
         </div>
         <div>
           <div className="mb-4 flex flex-col gap-2">
             <h3 className="fw-600">{name}</h3>
             <h5 className="text-secondary fw-600">MDS - Periodontology</h5>
           </div>
-          <h5 className="text-quaternary fw-500">
+          <h5 className="text-quaternary fw-500 gap-5 flex">
             {Icons.location}
-            {city}
+            {city} &nbsp;
+            {country}
           </h5>
         </div>
       </div>

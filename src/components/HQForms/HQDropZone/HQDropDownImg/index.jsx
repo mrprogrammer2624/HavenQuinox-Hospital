@@ -12,6 +12,7 @@ export const HQDropDownImg = ({ items, name, image, email, imageAlt }) => {
       arrow
       overlayClassName={styles.customDropdown}
       className={styles.dropDwn}
+      trigger="click"
     >
       <button className={clsx(styles.dropDwnButton, "flex gap-5")}>
         <div className={clsx(styles.dropdownImgContainer)}>

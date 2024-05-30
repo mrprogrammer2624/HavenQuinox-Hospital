@@ -1,6 +1,7 @@
 "use client";
-import { useState } from "react";
-import UserContext from "./UserContext";
+import React, { useState } from "react";
+
+const UserContext = React.createContext();
 
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = useState("");

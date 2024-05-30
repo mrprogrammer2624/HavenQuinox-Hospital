@@ -1,5 +1,6 @@
 "use client";
 
+import { HQBasicLoader } from "@/components";
 import { UseDecodeTokenHook } from "@/hook";
 
 const Dashboard = () => {

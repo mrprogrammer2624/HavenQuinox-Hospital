@@ -22,6 +22,7 @@ import {
   Kenya,
 } from "@/assets/images";
 import { Icons } from "..";
+import { HQButton } from "@/components";
 
 // Style Sheets
 export const flagIconImgData = [
@@ -653,5 +654,23 @@ export const doctorWebList = [
     name: "hellp",
     city: "Hello",
     country: "Hello",
+  },
+];
+
+export const headerData = [
+  {
+    label: "1st menu item",
+    key: "1",
+    icon: Icons.calendar,
+  },
+  {
+    label: "2nd menu item",
+    key: "2",
+    icon: Icons.calendar,
+  },
+  {
+    label: "4rd menu item",
+    key: "4",
+    icon: Icons.calendar,
   },
 ];

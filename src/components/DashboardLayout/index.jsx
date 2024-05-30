@@ -54,8 +54,6 @@ export const DashboardLayout = ({
     };
   }, [collapsed]);
 
-  const accessToken = UseDecodeTokenHook("adminToken");
-
   return (
     <Layout hasSider style={{ minHeight: "100vh" }}>
       <HQSidebar
@@ -69,13 +67,7 @@ export const DashboardLayout = ({
           transition: `var(--transition-all)`,
         }}
       >
-        <HQHeader
-          items={items}
-          name={accessToken?.name}
-          image={process.env.NEXT_PUBLIC_BACKEND_URL + accessToken?.adminImage}
-          email={accessToken?.email}
-          imageAlt={imageAlt}
-        />
+        <HQHeader />
         <main>{children}</main>
       </Layout>
     </Layout>

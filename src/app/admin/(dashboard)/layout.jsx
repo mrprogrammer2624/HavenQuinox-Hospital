@@ -1,10 +1,13 @@
 "use client";
 
-import { DashboardLayout } from "@/components";
+import { DashboardLayout, HQBasicLoader } from "@/components";
 import { AdminMenuItems } from "@/utility";
+import { Suspense } from "react";
 
 export default function AdminLayout({ children }) {
   return (
-    <DashboardLayout sidebarData={AdminMenuItems}>{children}</DashboardLayout>
+    <Suspense fallback={<HQBasicLoader />}>
+      <DashboardLayout sidebarData={AdminMenuItems}>{children}</DashboardLayout>
+    </Suspense>
   );
 }

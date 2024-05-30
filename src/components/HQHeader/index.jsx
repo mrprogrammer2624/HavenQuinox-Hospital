@@ -4,8 +4,10 @@ import styles from "./HQHeader.module.css";
 import clsx from "clsx";
 import { ThemeContext } from "@/contexts/ThemeProvider";
 import { HQButton, HQDropDownImg } from "../";
+import { UseDecodeTokenHook } from "@/hook";
+import { headerData } from "@/utility";
 
-export const HQHeader = ({ items, name, image, email, imageAlt }) => {
+export const HQHeader = () => {
   const {
     sidebarToggle,
     setSidebarToggle,
@@ -13,7 +15,10 @@ export const HQHeader = ({ items, name, image, email, imageAlt }) => {
     setSidebarToggleBtn,
     headerPaddingLeft,
   } = useContext(ThemeContext);
+
   const [isActive, setIsActive] = useState(false);
+
+  const Tokens = UseDecodeTokenHook("adminToken" || "doctorToken");
 
   useEffect(() => {
     if (isActive) {
@@ -43,6 +48,8 @@ export const HQHeader = ({ items, name, image, email, imageAlt }) => {
   const toggleSideBarFn = (e) => {
     setSidebarToggle(!sidebarToggle);
   };
+
+  const imagesUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   return (
     <>
@@ -77,13 +84,15 @@ export const HQHeader = ({ items, name, image, email, imageAlt }) => {
             </div>
           </div>
           <div>
-            <HQDropDownImg
-              email={email}
-              name={name}
-              image={image}
-              items={items}
-              imageAlt={imageAlt}
-            />
+            {Tokens && (
+              <HQDropDownImg
+                email={Tokens?.email}
+                name={Tokens?.name}
+                image={Tokens?.image && imagesUrl + Tokens?.image}
+                items={headerData}
+                imageAlt={Tokens?.imageAlt}
+              />
+            )}
           </div>
         </div>
       </header>

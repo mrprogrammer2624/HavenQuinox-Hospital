@@ -8,7 +8,6 @@ import { LoginHook } from "@/hook";
 const LoginForm = () => {
   const loginParams = {
     target: "/admin/login",
-    targetLink: "admin/",
     tokenName: "adminToken",
   };
   const { buttonLoader, credentials, handleChange, handleSubmit } =

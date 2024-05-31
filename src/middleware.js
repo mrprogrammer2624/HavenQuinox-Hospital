@@ -1,25 +1,12 @@
+// middleware.js
 import { NextResponse } from "next/server";
-
-const fetchUserDetails = async (token) => {
-  const userDetailsRes = await fetch(
-    process.env.NEXT_PUBLIC_API_LOCAL + "/common/user/details",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
-  return (await userDetailsRes.json()) || {};
-};
 
 const unAuthRoutes = [
   "/",
   "/faq",
   "/reviews",
   "/blog",
-  "/blog/[]",
+  "/blog/:id",
   "/contactus",
 ];
 
@@ -46,24 +33,47 @@ const authDoctorRoutes = [
 const authPatientRoutes = ["/patient"];
 
 export const middleware = async (request) => {
-  const token = request.cookies.get("adminToken" || "doctorToken")?.value;
+  const adminToken = request.cookies.get("adminToken")?.value;
+  const doctorToken = request.cookies.get("doctorToken")?.value;
+  const patientToken = request.cookies.get("patientToken")?.value;
+  const receptionistToken = request.cookies.get("receptionistToken")?.value;
+  const token = adminToken || doctorToken || patientToken || receptionistToken;
   const isUserAuthenticated = !!token;
 
   let userDetails = {};
+
   if (token) {
     try {
-      const userDetailsRes = await fetchUserDetails(token);
-      userDetails = userDetailsRes.data || {};
+      userDetails = jwtDecode(token);
+      console.log("Decoded Token:", userDetails);
     } catch (error) {
-      console.log({ error });
+      console.log("Error decoding token:", error);
     }
   }
 
   const activePath = request.nextUrl.pathname;
 
+  // Redirect authenticated admin trying to access the admin login page
+  if (
+    isUserAuthenticated &&
+    unAuthAdminRoutes.includes(activePath) &&
+    userDetails?.role === "admin"
+  ) {
+    return NextResponse.redirect(new URL("/admin", request.url));
+  }
+
   // Redirect unauthenticated users trying to access authenticated admin routes
   if (!isUserAuthenticated && authAdminRoutes.includes(activePath)) {
     return NextResponse.redirect(new URL("/admin/login", request.url));
+  }
+
+  // Redirect authenticated doctor trying to access the doctor login page
+  if (
+    isUserAuthenticated &&
+    unAuthDoctorRoutes.includes(activePath) &&
+    userDetails?.role === "doctor"
+  ) {
+    return NextResponse.redirect(new URL("/doctor", request.url));
   }
 
   // Redirect unauthenticated users trying to access authenticated doctor routes
@@ -71,30 +81,19 @@ export const middleware = async (request) => {
     return NextResponse.redirect(new URL("/doctor/login", request.url));
   }
 
+  // Redirect authenticated patient trying to access the patient login/signup pages
+  if (
+    isUserAuthenticated &&
+    (unAuthPatientRoutes.includes(activePath) ||
+      activePath === "/patient/signup") &&
+    userDetails?.role === "patient"
+  ) {
+    return NextResponse.redirect(new URL("/patient", request.url));
+  }
+
   // Redirect unauthenticated users trying to access authenticated patient routes
   if (!isUserAuthenticated && authPatientRoutes.includes(activePath)) {
     return NextResponse.redirect(new URL("/patient/login", request.url));
-  }
-
-  // Redirect authenticated admin users away from unauthenticated routes
-  if (isUserAuthenticated && userDetails.role === "admin") {
-    if (unAuthRoutes.includes(activePath)) {
-      return NextResponse.redirect(new URL("/admin", request.url));
-    }
-  }
-
-  // Redirect authenticated doctor users away from unauthenticated routes
-  if (isUserAuthenticated && userDetails.role === "doctor") {
-    if (unAuthRoutes.includes(activePath)) {
-      return NextResponse.redirect(new URL("/doctor", request.url));
-    }
-  }
-
-  // Redirect authenticated patient users away from unauthenticated routes
-  if (isUserAuthenticated && userDetails.role === "patient") {
-    if (unAuthRoutes.includes(activePath)) {
-      return NextResponse.redirect(new URL("/patient", request.url));
-    }
   }
 
   return NextResponse.next();
@@ -109,11 +108,10 @@ export const config = {
     "/blog/:id",
     "/contactus",
     "/admin",
+    "/admin/login",
     "/admin/signup",
     "/admin/doctor-list",
     "/admin/add-doctor",
-    "/admin/patients-list",
-    "/admin/add-patients",
     "/doctor",
     "/doctor/signup",
     "/doctor/patients-list",

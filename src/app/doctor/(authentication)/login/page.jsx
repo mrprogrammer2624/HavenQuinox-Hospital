@@ -7,11 +7,11 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { notification } from "antd";
+import { LoginHook } from "@/hook";
 
 const LoginForm = () => {
   const loginParams = {
     target: "/doctor/login",
-    targetLink: "doctor/",
     tokenName: "doctorToken",
   };
   const { buttonLoader, credentials, handleChange, handleSubmit } =
@@ -29,7 +29,7 @@ const LoginForm = () => {
             label="Enter Your Email"
             placeholder="Enter Email"
             HQInputLabelClassName={styles.label}
-            value={doctorCredentials.email}
+            value={credentials.email}
             id="loginEmail"
             name="email"
             handleChange={handleChange}
@@ -38,7 +38,7 @@ const LoginForm = () => {
             type="password"
             label="Enter Your Password"
             HQInputLabelClassName={styles.label}
-            value={doctorCredentials.password}
+            value={credentials.password}
             id="loginPassword"
             name="password"
             handleChange={handleChange}

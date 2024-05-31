@@ -33,7 +33,6 @@ const LoginHook = ({ target, targetLink, tokenName }) => {
       const { token } = response.data;
 
       if (token) {
-        document.cookie = `${tokenName}=${token}; path=${targetLink}`;
         document.cookie = `${tokenName}=${token}; path=${"/"}`;
       }
 

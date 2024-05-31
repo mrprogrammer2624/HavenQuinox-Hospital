@@ -9,60 +9,13 @@ import { useRouter } from "next/navigation";
 import { notification } from "antd";
 
 const LoginForm = () => {
-  const router = useRouter();
-  const [error, setError] = useState(null);
-  const [buttonLoader, setButtonLoader] = useState(false);
-  const [api, contextHolder] = notification.useNotification();
-  const [doctorCredentials, setDoctorCredentials] = useState({
-    email: "",
-    password: "",
-  });
-
-  const typeNotification = (type) => {
-    api[type]({
-      message: `Notification ${type}`,
-    });
+  const loginParams = {
+    target: "/doctor/login",
+    targetLink: "doctor/",
+    tokenName: "doctorToken",
   };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDoctorCredentials({ ...doctorCredentials, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      setButtonLoader(true);
-      const config = {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      };
-      
-      const response = await axios.post(
-        process.env.NEXT_PUBLIC_BACKEND_URL + "/admin/doctor/login",
-        doctorCredentials,
-        config
-      );
-
-      const { token } = response.data;
-      if (token) {
-        document.cookie = `doctorToken=${token}; path=/doctor/`;
-      }
-      typeNotification("success", "Login successful!");
-      router.push("/doctor/dashboard");
-    } catch (error) {
-      console.error("Login failed:", error);
-      if (error.response && error.response.status === 401) {
-        setError("Invalid email or password."); // Set error message
-        typeNotification("Error", "Login unsuccessful!");
-      } else {
-        setError("An error occurred during login."); // Set generic error message
-      }
-    } finally {
-      setButtonLoader(false);
-    }
-  };
+  const { buttonLoader, credentials, handleChange, handleSubmit } =
+    LoginHook(loginParams);
 
   return (
     <div className="ma-auto w-full authentication-right">
@@ -99,7 +52,6 @@ const LoginForm = () => {
           Login
         </HQButton>
       </form>
-      <HQToasts contextHolder={contextHolder} />
     </div>
   );
 };
